@@ -1,11 +1,11 @@
 package cn.com.frodo.concurrent.chapter_3;
 
-import cn.com.frodo.concurrent.annotation.UnThreadSafe;
+import cn.com.frodo.concurrent.annotations.NotThreadSafe;
 
 /**
  * Created by xuwei19 on 2015/1/13.
  */
-@UnThreadSafe
+@NotThreadSafe
 public class ThisEscape {
     public ThisEscape(Event.EventSource eventSource) {
         eventSource.registerListener(new Event.EventListener() {

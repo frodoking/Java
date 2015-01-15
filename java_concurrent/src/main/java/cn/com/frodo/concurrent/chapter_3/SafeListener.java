@@ -1,6 +1,6 @@
 package cn.com.frodo.concurrent.chapter_3;
 
-import cn.com.frodo.concurrent.annotation.ThreadSafe;
+import cn.com.frodo.concurrent.annotations.ThreadSafe;
 
 /**
  * 使用工厂方法来防止this引用在构造过程中的逸出

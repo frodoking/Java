@@ -1,6 +1,6 @@
 package cn.com.frodo.concurrent.chapter_3;
 
-import cn.com.frodo.concurrent.annotation.Immutable;
+import cn.com.frodo.concurrent.annotations.Immutable;
 
 import java.math.BigInteger;
 import java.util.Arrays;

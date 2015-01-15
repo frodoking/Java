@@ -1,4 +1,4 @@
-package cn.com.frodo.concurrent.annotation;
+package cn.com.frodo.concurrent.annotations;
 
 /**
  * 线程安全
