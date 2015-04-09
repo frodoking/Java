@@ -23,7 +23,9 @@ public class LogInvocationHandler implements InvocationHandler {
 		Object rev = method.invoke(target, args);
 		// 执行织入的日志，你可以控制哪些方法执行切入逻辑
 		if (method.getName().equals("doSomething")) {
-			System.out.println("记录日志");
+			System.out.println("记录日志 1");
+		}else if(method.getName().equals("doSomething2")) {
+			System.out.println("记录日志 2");
 		}
 		return rev;
 	}

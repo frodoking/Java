@@ -10,13 +10,13 @@ public class Business implements IBusiness, IBusiness2 {
 
 	@Override
 	public boolean doSomething2() {
-		System.out.println("执行业务逻辑2");
+		System.out.println("执行业务逻辑 2");
 		return true;
 	}
 
 	@Override
 	public boolean doSomething() {
-		System.out.println("执行业务逻辑1");
+		System.out.println("执行业务逻辑 1");
 		return true;
 	}
 
