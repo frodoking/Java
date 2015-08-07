@@ -5,4 +5,5 @@ include 'java_design_model'
 include 'java_knowledge'
 include 'java_refactor_model'
 include 'java_concurrent'
+include 'java_performance_optimization'
 

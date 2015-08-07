@@ -1,13 +1,6 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:1.0.0'
-    }
-}
+subprojects {
+    apply plugin: "java"
 
-allprojects {
     repositories {
         mavenCentral()
     }
@@ -16,14 +9,15 @@ allprojects {
         options.encoding = "UTF-8"
         options.compilerArgs << "-Xlint:unchecked"
     }
-}
 
-subprojects {
-    apply plugin: "java"
     sourceSets {
         main {
             java.srcDirs = ['src/main/java']
             resources.srcDirs = ['src/main/resources']
         }
+    }
+
+    dependencies {
+        testCompile 'junit:junit:4.12'
     }
 }
