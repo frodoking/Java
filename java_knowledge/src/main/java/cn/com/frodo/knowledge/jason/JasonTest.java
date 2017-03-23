@@ -3,6 +3,8 @@ package cn.com.frodo.knowledge.jason;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import net.sf.json.JSONObject;
 
@@ -31,7 +33,7 @@ public class JasonTest {
 
 		System.out.println(jsonObj);
 		*/
-		method();
+		method2();
 	}
 
 	public static void method() {
@@ -43,5 +45,14 @@ public class JasonTest {
 		map.put("func", "function(i){ return this.arr[i]; }");
 		JSONObject json = JSONObject.fromObject(map);
 		System.out.println(json);
+	}
+
+	public static void method2() {
+		String deviceName = "vivo_X5Max+";
+			String regEx="[#%&+=?\\u0020\\\\]";
+			Pattern p   =   Pattern.compile(regEx);
+			Matcher m   =   p.matcher(deviceName);
+			String s =   m.replaceAll("").trim();
+		System.out.println(s);
 	}
 }
