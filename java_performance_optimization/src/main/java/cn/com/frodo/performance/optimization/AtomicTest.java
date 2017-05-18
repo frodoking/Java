@@ -1,15 +1,15 @@
 package cn.com.frodo.performance.optimization;
 
+import org.junit.Test;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.junit.Test;
-
 /**
  * Created by xuwei19 on 2015/7/20.
  */
-public class TestAtomic {
+public class AtomicTest {
     private static final int MAX_THREADS = 3;
     private static final int TASK_COUNT = 3;
     private static final int TARGET_COUNT = 100 * 10000;
@@ -27,9 +27,9 @@ public class TestAtomic {
     public class SyncThread implements Runnable {
         String name;
         long startTime;
-        TestAtomic out;
+        AtomicTest out;
 
-        public SyncThread(TestAtomic o, long startTime) {
+        public SyncThread(AtomicTest o, long startTime) {
             this.out = o;
             this.startTime = startTime;
         }
