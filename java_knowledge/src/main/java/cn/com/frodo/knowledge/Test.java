@@ -1,12 +1,13 @@
 package cn.com.frodo.knowledge;
 
+import cn.com.frodo.knowledge.callback.CallMe;
+import cn.com.frodo.knowledge.callback.EventNotifier;
+import cn.com.frodo.knowledge.rxjava.Rxjava;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
 import java.util.Set;
-
-import cn.com.frodo.knowledge.callback.CallMe;
-import cn.com.frodo.knowledge.callback.EventNotifier;
 
 public class Test {
 	@SuppressWarnings("deprecation")
@@ -50,6 +51,8 @@ public class Test {
 			entry.getKey();
 			entry.getValue();
 		}
+
+		new Rxjava().doTest();
 	}
 
 }

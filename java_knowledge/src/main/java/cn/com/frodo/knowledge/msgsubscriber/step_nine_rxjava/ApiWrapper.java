@@ -1,30 +1,30 @@
 package cn.com.frodo.knowledge.msgsubscriber.step_nine_rxjava;
 
-import java.util.List;
-
-import com.sun.jndi.toolkit.url.Uri;
-
 import cn.com.frodo.knowledge.msgsubscriber.Cat;
 import cn.com.frodo.knowledge.msgsubscriber.step_three_asynchronous2.Api;
-import rx.Observable;
-import rx.Subscriber;
+import com.sun.jndi.toolkit.url.Uri;
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+
+import java.util.List;
 
 public class ApiWrapper {
     Api api;
 
     public Observable<List<Cat>> queryCats(final String query) {
-        return Observable.create(new Observable.OnSubscribe<List<Cat>>() {
+        return Observable.create(new ObservableOnSubscribe<List<Cat>>() {
             @Override
-            public void call(final Subscriber<? super List<Cat>> subscriber) {
+            public void subscribe(final ObservableEmitter<List<Cat>> emitter) throws Exception {
                 api.queryCats(query, new Api.CatsQueryCallback() {
                     @Override
                     public void onCatListReceived(List<Cat> cats) {
-                        subscriber.onNext(cats);
+                        emitter.onNext(cats);
                     }
 
                     @Override
                     public void onQueryFailed(Exception e) {
-                        subscriber.onError(e);
+                        emitter.onError(e);
                     }
                 });
             }
@@ -32,18 +32,19 @@ public class ApiWrapper {
     }
 
     public Observable<Uri> store(final Cat cat) {
-        return Observable.create(new Observable.OnSubscribe<Uri>() {
+        return Observable.create(new ObservableOnSubscribe<Uri>() {
+
             @Override
-            public void call(final Subscriber<? super Uri> subscriber) {
+            public void subscribe(final ObservableEmitter<Uri> emitter) throws Exception {
                 api.store(cat, new Api.StoreCallback() {
                     @Override
                     public void onCatStored(Uri uri) {
-                        subscriber.onNext(uri);
+                        emitter.onNext(uri);
                     }
 
                     @Override
                     public void onStoreFailed(Exception e) {
-                        subscriber.onError(e);
+                        emitter.onError(e);
                     }
                 });
             }

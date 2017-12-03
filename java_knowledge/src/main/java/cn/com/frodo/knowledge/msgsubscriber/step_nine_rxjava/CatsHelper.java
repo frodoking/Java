@@ -1,13 +1,12 @@
 package cn.com.frodo.knowledge.msgsubscriber.step_nine_rxjava;
 
+import cn.com.frodo.knowledge.msgsubscriber.Cat;
+import com.sun.jndi.toolkit.url.Uri;
+import io.reactivex.Observable;
+import io.reactivex.functions.Function;
+
 import java.util.Collections;
 import java.util.List;
-
-import com.sun.jndi.toolkit.url.Uri;
-
-import cn.com.frodo.knowledge.msgsubscriber.Cat;
-import rx.Observable;
-import rx.functions.Func1;
 
 public class CatsHelper {
 
@@ -15,15 +14,15 @@ public class CatsHelper {
 
     public Observable<Uri> saveTheCutestCat(String query) {
         Observable<List<Cat>> catsListObservable = apiWrapper.queryCats(query);
-        Observable<Cat> cutestCatObservable = catsListObservable.map(new Func1<List<Cat>, Cat>() {
+        Observable<Cat> cutestCatObservable = catsListObservable.map(new Function<List<Cat>, Cat>() {
             @Override
-            public Cat call(List<Cat> cats) {
+            public Cat apply(List<Cat> cats) throws Exception {
                 return findCutest(cats);
             }
         });
-        Observable<Uri> storedUriObservable = cutestCatObservable.flatMap(new Func1<Cat, Observable<? extends Uri>>() {
+        Observable<Uri> storedUriObservable = cutestCatObservable.flatMap(new Function<Cat, Observable<Uri>>() {
             @Override
-            public Observable<? extends Uri> call(Cat cat) {
+            public Observable<Uri> apply(Cat cat) throws Exception {
                 return apiWrapper.store(cat);
             }
         });

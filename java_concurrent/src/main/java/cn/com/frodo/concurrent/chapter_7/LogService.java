@@ -1,7 +1,6 @@
 package cn.com.frodo.concurrent.chapter_7;
 
 import cn.com.frodo.concurrent.annotations.GuardedBy;
-import sun.rmi.runtime.Log;
 
 import java.io.PrintWriter;
 import java.io.Writer;
