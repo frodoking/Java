@@ -7,7 +7,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * Created by xuwei19 on 2015/7/20.
+ * Created by frodoking on 2015/7/20.
  */
 public class AtomicTest {
     private static final int MAX_THREADS = 3;

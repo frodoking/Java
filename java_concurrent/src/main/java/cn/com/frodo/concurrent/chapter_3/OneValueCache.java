@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 /**
  * 对数值及其因数分解结果进行缓存的不可变容器类
- * Created by xuwei19 on 2015/1/13.
+ * Created by frodoking on 2015/1/13.
  */
 @Immutable
 public class OneValueCache {

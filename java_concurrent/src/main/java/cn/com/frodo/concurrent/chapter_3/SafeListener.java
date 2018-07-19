@@ -4,7 +4,7 @@ import cn.com.frodo.concurrent.annotations.ThreadSafe;
 
 /**
  * 使用工厂方法来防止this引用在构造过程中的逸出
- * Created by xuwei19 on 2015/1/13.
+ * Created by frodoking on 2015/1/13.
  */
 @ThreadSafe
 public class SafeListener {

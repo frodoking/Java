@@ -3,7 +3,7 @@ package cn.com.frodo.concurrent.chapter_3;
 import cn.com.frodo.concurrent.annotations.NotThreadSafe;
 
 /**
- * Created by xuwei19 on 2015/1/13.
+ * Created by frodoking on 2015/1/13.
  */
 @NotThreadSafe
 public class ThisEscape {

@@ -1,5 +1,7 @@
 package cn.com.frodo.knowledge.encrypt;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
@@ -98,10 +100,11 @@ public class UnifiedManager {
     }
 
     public static void main(String[] args) {
-        String content = "abc";
-        String encodeRules = "xxx";
+        String content = "frodoking";
+        String encodeRules = "aaaa";
         UnifiedManager.get(content, 10, false, encodeRules);
         UnifiedManager.get(content, 8, true, encodeRules);
+
     }
 
 }

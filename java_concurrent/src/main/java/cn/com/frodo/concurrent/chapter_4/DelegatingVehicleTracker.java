@@ -8,7 +8,7 @@ import java.util.concurrent.ConcurrentMap;
 /**
  * 将线程安全委托给ConcurrentHashMap
  * <p/>
- * Created by xuwei19 on 2015/1/14.
+ * Created by frodoking on 2015/1/14.
  */
 public class DelegatingVehicleTracker {
     private final ConcurrentMap<String, Point> locations;

@@ -7,7 +7,7 @@ import java.util.concurrent.Semaphore;
 
 /**
  * 使用Semaphore为容器设置边界
- * Created by xuwei19 on 2015/1/14.
+ * Created by frodoking on 2015/1/14.
  */
 public class BoundedHashSet<T> {
     private final Set<T> set;

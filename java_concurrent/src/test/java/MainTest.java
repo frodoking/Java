@@ -1,7 +1,7 @@
 import cn.com.frodo.concurrent.chapter_5.TestHarness;
 
 /**
- * Created by xuwei19 on 2015/1/14.
+ * Created by frodoking on 2015/1/14.
  */
 public class MainTest {
     public static void main(String[] args){

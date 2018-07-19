@@ -3,7 +3,7 @@ package cn.com.frodo.performance.optimization.concurrent;
 import java.util.concurrent.Semaphore;
 
 /**
- * Created by xuwei19 on 2015/7/20.
+ * Created by frodoking on 2015/7/20.
  */
 public class Pool {
     private static final int MAX_AVAILABLE = 100;

@@ -10,7 +10,7 @@ import javax.crypto.spec.SecretKeySpec;
 import java.security.SecureRandom;
 
 /**
- * Created by xuwei19 on 2017/5/18.
+ * Created by frodoking on 2017/5/18.
  */
 public class AESUtil {
     /*

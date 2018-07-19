@@ -10,7 +10,7 @@ import java.util.Set;
 /**
  * 隐藏在字符串连接中的迭代操作(不要这么做)
  * 可以对set使用Collections.synchronizedSet(set)来包装HashSet,并对同步代码进行封装。
- * Created by xuwei19 on 2015/1/14.
+ * Created by frodoking on 2015/1/14.
  */
 @NotThreadSafe
 public class HiddenIterator {

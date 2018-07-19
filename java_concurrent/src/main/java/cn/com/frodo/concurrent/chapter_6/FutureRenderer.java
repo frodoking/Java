@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.concurrent.*;
 
 /**
- * Created by xuwei19 on 2015/1/15.
+ * Created by frodoking on 2015/1/15.
  */
 public abstract class FutureRenderer {
     private final ExecutorService executor = Executors.newCachedThreadPool();

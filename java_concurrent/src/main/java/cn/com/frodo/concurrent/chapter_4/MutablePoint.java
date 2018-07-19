@@ -5,7 +5,7 @@ import cn.com.frodo.concurrent.annotations.NotThreadSafe;
 /**
  * Mutable Point class similar to java.awt.Point
  * <p/>
- * Created by xuwei19 on 2015/1/14.
+ * Created by frodoking on 2015/1/14.
  */
 @NotThreadSafe
 public class MutablePoint {

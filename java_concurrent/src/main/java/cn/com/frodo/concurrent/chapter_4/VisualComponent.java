@@ -9,7 +9,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * 将线程安全性委托给多个状态变量
- * Created by xuwei19 on 2015/1/14.
+ * Created by frodoking on 2015/1/14.
  */
 @ThreadSafe
 public class VisualComponent {

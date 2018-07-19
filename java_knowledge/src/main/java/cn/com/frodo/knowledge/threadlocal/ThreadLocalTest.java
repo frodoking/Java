@@ -1,7 +1,7 @@
 package cn.com.frodo.knowledge.threadlocal;
 
 /**
- * Created by xuwei19 on 2016/6/17.
+ * Created by frodoking on 2016/6/17.
  */
 public class ThreadLocalTest {
 

@@ -1,7 +1,7 @@
 package cn.com.frodo.knowledge.extendx;
 
 /**
- * Created by xuwei19 on 2017/3/16.
+ * Created by frodoking on 2017/3/16.
  */
 public class Response<T> {
     private int code;

@@ -39,7 +39,7 @@ public class TestEmail {
 		mailInfo.setFromAddress("1158916897@qq.com");
 		mailInfo.setSubject("TestMail");
 		mailInfo.setContent("This is a test mail ... :-)");
-		String[] toAddress = { "xuwei4@kingsoft.com" };
+		String[] toAddress = { "frodoking@kingsoft.com" };
 		mailInfo.setToAddress(toAddress);
 		TestEmail.sentEmail(mailInfo);
 	}

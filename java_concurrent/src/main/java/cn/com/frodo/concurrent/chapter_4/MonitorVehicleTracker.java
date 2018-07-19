@@ -6,7 +6,7 @@ import java.util.Map;
 
 /**
  * 基于监视器模式的车辆追踪
- * Created by xuwei19 on 2015/1/14.
+ * Created by frodoking on 2015/1/14.
  */
 public class MonitorVehicleTracker {
     private final Map<String, MutablePoint> locations;

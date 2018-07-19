@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 /**
  * 支持关闭操作的Web服务器
- * Created by xuwei19 on 2015/1/15.
+ * Created by frodoking on 2015/1/15.
  */
 public class LifecycleWebServer {
     private final ExecutorService exec = Executors.newCachedThreadPool();

@@ -10,7 +10,7 @@ import java.math.BigInteger;
 
 /**
  * 使用指向不可变对象的volatile类型引用以缓存最新的结果
- * Created by xuwei19 on 2015/1/13.
+ * Created by frodoking on 2015/1/13.
  */
 @ThreadSafe
 public class VolatileCachedFactorizer extends GenericServlet implements Servlet {

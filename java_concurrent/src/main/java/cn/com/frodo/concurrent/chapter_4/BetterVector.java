@@ -6,7 +6,7 @@ import java.util.Vector;
 
 /**
  * 扩展Vector并增加一个“若没有则添加”的方法
- * Created by xuwei19 on 2015/1/14.
+ * Created by frodoking on 2015/1/14.
  */
 @ThreadSafe
 public class BetterVector<E> extends Vector<E> {

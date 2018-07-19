@@ -7,7 +7,7 @@ import java.util.Set;
 
 /**
  * 在可变对象基础构建的不可变类
- * Created by xuwei19 on 2015/1/13.
+ * Created by frodoking on 2015/1/13.
  */
 @Immutable
 public final class ThreeStooges {

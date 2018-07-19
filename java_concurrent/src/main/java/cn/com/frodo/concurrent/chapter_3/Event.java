@@ -1,7 +1,7 @@
 package cn.com.frodo.concurrent.chapter_3;
 
 /**
- * Created by xuwei19 on 2015/1/13.
+ * Created by frodoking on 2015/1/13.
  */
 public class Event {
     public interface EventListener {

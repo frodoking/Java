@@ -5,7 +5,7 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
 
 /**
- * Created by xuwei19 on 2015/1/15.
+ * Created by frodoking on 2015/1/15.
  */
 public class BrokenPrimeProducer extends Thread {
     private final BlockingQueue<BigInteger> queue;

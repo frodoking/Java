@@ -3,7 +3,7 @@ package cn.com.frodo.concurrent.chapter_4;
 import cn.com.frodo.concurrent.annotations.ThreadSafe;
 
 /**
- * Created by xuwei19 on 2015/1/14.
+ * Created by frodoking on 2015/1/14.
  */
 @ThreadSafe
 public class SafePoint {

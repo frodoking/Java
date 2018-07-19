@@ -3,7 +3,7 @@ package cn.com.frodo.performance.optimization;
 import org.junit.Test;
 
 /**
- * Created by xuwei19 on 2015/7/19.
+ * Created by frodoking on 2015/7/19.
  */
 public class VolatileTest {
     volatile boolean isExist;

@@ -8,7 +8,7 @@ import java.util.Set;
 
 /**
  * 通过封闭机制来确保线程安全
- * Created by xuwei19 on 2015/1/14.
+ * Created by frodoking on 2015/1/14.
  */
 @ThreadSafe
 public class PersonSet {

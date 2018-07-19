@@ -5,7 +5,7 @@ import cn.com.frodo.concurrent.annotations.Immutable;
 /**
  * Immutable Point class used by DelegatingVehicleTracker
  * <p/>
- * Created by xuwei19 on 2015/1/14.
+ * Created by frodoking on 2015/1/14.
  */
 @Immutable
 public class Point {
