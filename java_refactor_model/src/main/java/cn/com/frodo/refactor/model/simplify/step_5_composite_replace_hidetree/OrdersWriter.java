@@ -2,7 +2,7 @@ package cn.com.frodo.refactor.model.simplify.step_5_composite_replace_hidetree;
 
 /**
  * 
- * @author XuWei4 <br>
+ * @author frodoking <br>
  *         有时候虽然数据或代码没有被显示地构造成树，但可能是用树表示的，这时候它就形成了隐含树
  */
 public class OrdersWriter {

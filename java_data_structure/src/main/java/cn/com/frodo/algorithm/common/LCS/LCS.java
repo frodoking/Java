@@ -2,12 +2,12 @@ package cn.com.frodo.algorithm.common.LCS;
 
 import java.util.Random;
 
-import cn.com.frodo.algorithm.common.IAlgorithm;
+import cn.com.frodo.algorithm.IAlgorithm;
 
 /**
  * 最长公共子序列问题
  * 
- * @author XuWei4
+ * @author frodoking
  * 
  */
 public class LCS implements IAlgorithm {

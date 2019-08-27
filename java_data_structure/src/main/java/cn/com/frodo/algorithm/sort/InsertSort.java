@@ -2,7 +2,7 @@ package cn.com.frodo.algorithm.sort;
 
 /**
  * 插入排序
- * @author XuWei4
+ * @author frodoking
  *
  */
 public class InsertSort extends Sort {

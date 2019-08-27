@@ -1,4 +1,4 @@
-package cn.com.frodo.knowledge.AoP;
+package cn.com.frodo.knowledge.aop;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 /**
  * 打印日志的切面(一个代理类)
  * 
- * @author XuWei4
+ * @author frodoking
  * 
  */
 public class LogInvocationHandler implements InvocationHandler {

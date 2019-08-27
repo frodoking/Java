@@ -7,7 +7,7 @@ import java.util.Map;
  * 基于Command的解决方案。现在CatalogApp使用Command模式来执行动作并返回响应。在这种设计下，声明新的处理程序、
  * 命名处理程序以及把处理程序注册到命令映射中，以便在运行时执行操作就变得容易很多。
  * 
- * @author XuWei4
+ * @author frodoking
  * 
  */
 public class CatalogApp {

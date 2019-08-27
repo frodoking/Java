@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 代表树中所有隐式叶子
  * 
- * @author XuWei4
+ * @author frodoking
  * 
  */
 public class TagNode {

@@ -3,7 +3,7 @@ package cn.com.frodo.knowledge.callback;
 /**
  * 希望接受事件通知的代码必须实现Interestingevent接口，并将自身引用传递给事件通知程序。
  * 
- * @author XuWei4
+ * @author frodoking
  * 
  */
 public class EventNotifier {

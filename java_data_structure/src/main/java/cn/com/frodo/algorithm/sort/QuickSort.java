@@ -2,7 +2,7 @@ package cn.com.frodo.algorithm.sort;
 
 /**
  *  快速排序
- * @author XuWei4
+ * @author frodoking
  *
  */
 public class QuickSort extends Sort {

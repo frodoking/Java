@@ -3,7 +3,7 @@ package cn.com.frodo.algorithm.common.prim;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.com.frodo.algorithm.common.IAlgorithm;
+import cn.com.frodo.algorithm.IAlgorithm;
 
 public class Prim implements IAlgorithm {
 	public List<Vertex> vertexList = null;

@@ -3,7 +3,7 @@ package cn.com.frodo.design.pattern.creational.factorymethod.demo;
 /**
  * 水果园
  * 
- * @author XuWei4
+ * @author frodoking
  * 
  */
 public interface FruitGardener {

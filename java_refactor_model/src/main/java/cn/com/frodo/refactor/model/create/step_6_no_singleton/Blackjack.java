@@ -5,7 +5,7 @@ import java.io.BufferedReader;
 /**
  * 将不需要单例的类 实现内联化
  * 
- * @author XuWei4
+ * @author frodoking
  * 
  */
 public class Blackjack {

@@ -8,7 +8,7 @@ import cn.com.frodo.knowledge.common.FileHelper;
 /**
  * 加密解密
  * 
- * @author XuWei4
+ * @author frodoking
  * 
  */
 public class EncryptGen {

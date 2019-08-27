@@ -3,7 +3,7 @@ package cn.com.frodo.design.pattern.structual.bridge.pattern;
 /**
  * 抽象化角色
  * 
- * @author XuWei4
+ * @author frodoking
  * 
  */
 public abstract class Abstraction {

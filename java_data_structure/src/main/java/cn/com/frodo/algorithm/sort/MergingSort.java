@@ -1,7 +1,7 @@
 package cn.com.frodo.algorithm.sort;
 /**
  * 归并排序
- * @author XuWei4
+ * @author frodoking
  *
  */
 public class MergingSort extends Sort {

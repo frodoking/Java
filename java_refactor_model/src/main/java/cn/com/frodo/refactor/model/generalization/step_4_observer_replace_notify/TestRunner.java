@@ -7,7 +7,7 @@ import junit.framework.Test;
 /**
  * 使用observer替换硬性编码的通知(<code>TestListener</code>就是一个observer)
  * 
- * @author XuWei4
+ * @author frodoking
  * 
  */
 public class TestRunner extends Frame implements TestListener {

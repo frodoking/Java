@@ -3,7 +3,7 @@ package cn.com.frodo.design.pattern.creational.singletion.pattern;
 /**
  * 单例模式,整个项目保证唯一一个类
  * 
- * @author XuWei4
+ * @author frodoking
  * 
  */
 public class Singleton {

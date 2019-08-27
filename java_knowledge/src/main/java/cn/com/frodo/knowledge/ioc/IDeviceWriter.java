@@ -1,9 +1,9 @@
-package cn.com.frodo.knowledge.IoC;
+package cn.com.frodo.knowledge.ioc;
 
 /**
  * 抽象组件接口
  * 
- * @author XuWei4
+ * @author frodoking
  * 
  */
 public interface IDeviceWriter {

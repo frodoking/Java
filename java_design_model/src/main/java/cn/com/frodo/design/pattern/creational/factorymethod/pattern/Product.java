@@ -3,7 +3,7 @@ package cn.com.frodo.design.pattern.creational.factorymethod.pattern;
 /**
  * 抽象产品
  * 
- * @author XuWei4
+ * @author frodoking
  * 
  */
 public interface Product {

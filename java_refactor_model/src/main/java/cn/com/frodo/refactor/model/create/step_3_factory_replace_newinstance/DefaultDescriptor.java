@@ -3,7 +3,7 @@ package cn.com.frodo.refactor.model.create.step_3_factory_replace_newinstance;
 /**
  * 被用来表示Integer和 Date类型映射
  * 
- * @author XuWei4
+ * @author frodoking
  * 
  */
 public class DefaultDescriptor extends AttributeDescriptor {

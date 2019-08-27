@@ -1,6 +1,6 @@
-package com.frodo.gc;
+package cn.com.frodo.knowledge.gc;
 
-import com.frodo.Test;
+import cn.com.frodo.MockInterface;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.List;
  * eden 128, s0/s1 32, old = (eden+s0)*3 = 480, tenure=64 (fixed)
  * @author frodoking
  */
-public class GCTest implements Test
+public class GCTest implements MockInterface
 {
     @Override public void doTest()
     {

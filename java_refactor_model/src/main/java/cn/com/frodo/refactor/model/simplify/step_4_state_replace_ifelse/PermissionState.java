@@ -5,7 +5,7 @@ package cn.com.frodo.refactor.model.simplify.step_4_state_replace_ifelse;
  * 这种逻辑往往会散步在整个类中，控制对象的状态以及状态之间的转化。
  * 在实现state模式的时候创建代表对象特殊状态和状态间转换的类
  * 
- * @author XuWei4
+ * @author frodoking
  * 
  */
 public abstract class PermissionState {

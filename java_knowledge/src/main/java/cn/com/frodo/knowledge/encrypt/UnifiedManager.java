@@ -98,13 +98,4 @@ public class UnifiedManager {
             return result;
         }
     }
-
-    public static void main(String[] args) {
-        String content = "frodoking";
-        String encodeRules = "aaaa";
-        UnifiedManager.get(content, 10, false, encodeRules);
-        UnifiedManager.get(content, 8, true, encodeRules);
-
-    }
-
 }

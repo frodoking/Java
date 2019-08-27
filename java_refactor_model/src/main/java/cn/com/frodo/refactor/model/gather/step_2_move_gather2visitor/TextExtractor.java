@@ -9,7 +9,7 @@ import cn.com.frodo.refactor.model.simplify.step_3_move_decoration_2_decorator.T
 /**
  * 典型的观察者模式，高大上啊.一个方法从不同的类中聚集信息。 把聚集工作搬移到一个能够访问每个类以便聚集信息的Visitor中
  * 
- * @author XuWei4
+ * @author frodoking
  * 
  */
 public class TextExtractor implements NodeVisitor {

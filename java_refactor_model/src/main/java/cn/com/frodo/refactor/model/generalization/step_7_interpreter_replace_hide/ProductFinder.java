@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * 类中的许多方法组合成了一种隐式语言的元素.采用解释器模式，将针对不同查询或计算方式通过不同的组合完成.
  * 
- * @author XuWei4
+ * @author frodoking
  * 
  */
 public class ProductFinder {

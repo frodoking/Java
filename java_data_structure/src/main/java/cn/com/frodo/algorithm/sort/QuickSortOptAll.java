@@ -11,7 +11,7 @@ package cn.com.frodo.algorithm.sort;
  * 6、为了避免重复数的交换比较，采用分区方式（四段分区方式：两端存放相等的数，第二段存放小于，第三段存放大于）
  *    同样是进行两端扫描，但是遇到equals的元素不是进行互换，而是各自交换到两端。当扫描结束，还要将两端这些跟pivot equals的元素交换到中间位置，不相同的元素交换到两端，左边仍然是比pivot小的，右边是比pivot大的，分别进行递归的快速排序处理
  * 7、另外枢轴可以变化，当搜索到第一个大于哨兵值就将当前位置存入low，当搜索到第一个小于哨兵值就将当前位置存入high，最后让哨兵落入当前位置。
- * @author XuWei4
+ * @author frodoking
  *
  */
 public class QuickSortOptAll extends Sort {

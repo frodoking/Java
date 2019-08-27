@@ -11,7 +11,7 @@ import cn.com.frodo.refactor.model.create.step_3_factory_replace_newinstance.Use
  * 4、该超类的子类不打算公开； <br>
  * (参考<code>java.util.Collections</code>类)
  * 
- * @author XuWei4
+ * @author frodoking
  * 
  */
 public abstract class AttributeDescriptor {

@@ -1,4 +1,4 @@
-package cn.com.frodo.knowledge.AoP;
+package cn.com.frodo.knowledge.aop;
 
 public interface IBusiness {
 	abstract boolean doSomething();

@@ -3,7 +3,7 @@ package cn.com.frodo.refactor.model.simplify.step_3_move_decoration_2_decorator;
 /**
  * 典型的装饰器，对StringNode的完全装饰，然后实现单独不同点(完成自身的decode)
  * 
- * @author XuWei4
+ * @author frodoking
  * 
  */
 public class DecodingNode implements Node {

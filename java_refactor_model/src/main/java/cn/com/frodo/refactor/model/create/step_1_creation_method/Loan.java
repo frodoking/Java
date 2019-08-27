@@ -6,7 +6,7 @@ import java.util.Date;
  * 通过创建方法代替多个意图不明确的构造
  * (下一步：如果当前类太多的创建方法使得当前类的主要职责混淆，那么应该考虑使用Factory来剥离创建)
  * 
- * @author XuWei4
+ * @author frodoking
  * 
  */
 public class Loan {

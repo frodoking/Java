@@ -3,7 +3,7 @@ package cn.com.frodo.design.pattern.structual.bridge.pattern;
 /**
  * 具体是实现化角色
  * 
- * @author XuWei4
+ * @author frodoking
  * 
  */
 public class ConcreteImplementor implements Implementor {

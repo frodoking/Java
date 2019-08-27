@@ -5,7 +5,7 @@ import java.util.Vector;
 
 /**
  * 将子类中的重复代码尽可能都提取到超类中
- * @author XuWei4
+ * @author frodoking
  *
  */
 public abstract class CompositeTag extends Tag {

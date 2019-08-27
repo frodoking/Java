@@ -3,7 +3,7 @@ package cn.com.frodo.design.pattern.creational.factorymethod.pattern;
 /**
  * 具体工厂
  * 
- * @author XuWei4
+ * @author frodoking
  * 
  */
 public class ConcreteCreator implements Creator {

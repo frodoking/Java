@@ -1,9 +1,9 @@
-package cn.com.frodo.knowledge.AoP;
+package cn.com.frodo.knowledge.aop;
 
 /**
  * 业务类，需要代理的类。
  * 
- * @author XuWei4
+ * @author frodoking
  * 
  */
 public class Business implements IBusiness, IBusiness2 {

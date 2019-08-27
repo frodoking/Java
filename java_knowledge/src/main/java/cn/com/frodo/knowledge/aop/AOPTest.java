@@ -1,4 +1,4 @@
-package cn.com.frodo.knowledge.AoP;
+package cn.com.frodo.knowledge.aop;
 
 import java.lang.reflect.Proxy;
 
@@ -7,7 +7,7 @@ import java.lang.reflect.Proxy;
  * Programming(AOP),是目前软件开发中的一个热点，也是Spring框架中的一个重要内容。利用AOP可以对业务逻辑的各个部分进行隔离，
  * 从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。
  *
- * @author XuWei4
+ * @author frodoking
  */
 public class AOPTest {
 

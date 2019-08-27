@@ -2,7 +2,7 @@ package cn.com.frodo.algorithm.sort;
 
 /**
  * 冒泡排序
- * @author XuWei4
+ * @author frodoking
  *
  */
 public class BubbleSort extends Sort {

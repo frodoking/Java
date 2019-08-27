@@ -1,8 +1,8 @@
-package cn.com.frodo.knowledge.IoC.constructor;
+package cn.com.frodo.knowledge.ioc.constructor;
 
-import cn.com.frodo.knowledge.IoC.FloppyWriter;
-import cn.com.frodo.knowledge.IoC.IDeviceWriter;
-import cn.com.frodo.knowledge.IoC.USBWriter;
+import cn.com.frodo.knowledge.ioc.FloppyWriter;
+import cn.com.frodo.knowledge.ioc.IDeviceWriter;
+import cn.com.frodo.knowledge.ioc.USBWriter;
 
 /**
  * Ioc（Inversion of Control）中文翻译为“控制反转”，Ioc的抽象概念是依赖关系转移，即“程序与实现必须依赖于抽象”。
@@ -12,7 +12,7 @@ import cn.com.frodo.knowledge.IoC.USBWriter;
  * 
  * 在解说Ioc之前，先看一个设计的例子： 设计一个保存数据到软盘、USB设备的程序。
  * 
- * @author XuWei4 Ioc constructor方式
+ * @author frodoking Ioc constructor方式
  */
 public class Client {
 

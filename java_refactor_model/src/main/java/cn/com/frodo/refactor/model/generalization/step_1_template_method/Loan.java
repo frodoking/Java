@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 通过策略模式或者组合模式达到 -- 简化条件表达式
  * 
- * @author XuWei4
+ * @author frodoking
  * 
  */
 public class Loan {

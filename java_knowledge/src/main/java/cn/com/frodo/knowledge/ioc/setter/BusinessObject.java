@@ -1,14 +1,10 @@
-package cn.com.frodo.knowledge.IoC.constructor;
+package cn.com.frodo.knowledge.ioc.setter;
 
-import cn.com.frodo.knowledge.IoC.IDeviceWriter;
+import cn.com.frodo.knowledge.ioc.IDeviceWriter;
 
 public class BusinessObject {
 
 	private IDeviceWriter writer;
-
-	public BusinessObject(IDeviceWriter writer) {
-		this.writer = writer;
-	}
 
 	public IDeviceWriter getWriter() {
 		return writer;

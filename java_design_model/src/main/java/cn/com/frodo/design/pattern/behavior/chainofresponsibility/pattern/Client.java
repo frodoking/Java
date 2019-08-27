@@ -5,7 +5,7 @@ package cn.com.frodo.design.pattern.behavior.chainofresponsibility.pattern;
  * 
  * 责任链 重点在于“链”上，由一条链去处理相似的请求，在链中决定谁来处理这个请求
  * 
- * @author XuWei4
+ * @author frodoking
  * 
  */
 public class Client {

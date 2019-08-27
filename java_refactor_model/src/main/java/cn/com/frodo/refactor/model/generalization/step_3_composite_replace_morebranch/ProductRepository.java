@@ -8,7 +8,7 @@ import java.util.List;
  * 如果一个类含有两个几乎一样的方法，唯一的区别就是一个用来处理单一对象，
  * 一个用来处理对象的集合，那么一/多之分就出现了。
  * [容易引发重复代码，不一致的客户代码，结果的合并]
- * @author XuWei4
+ * @author frodoking
  *
  */
 public class ProductRepository {

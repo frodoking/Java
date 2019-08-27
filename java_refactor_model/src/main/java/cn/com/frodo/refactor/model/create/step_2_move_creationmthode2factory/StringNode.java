@@ -3,7 +3,7 @@ package cn.com.frodo.refactor.model.create.step_2_move_creationmthode2factory;
 /**
  * 将创建的方法移到factory当中
  * 
- * @author XuWei4
+ * @author frodoking
  * 
  */
 public class StringNode extends Node {

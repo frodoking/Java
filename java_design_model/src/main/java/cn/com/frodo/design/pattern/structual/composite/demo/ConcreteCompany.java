@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * 树枝节点
  * 
- * @author XuWei4
+ * @author frodoking
  * 
  */
 public class ConcreteCompany implements Company {

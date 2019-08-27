@@ -3,7 +3,7 @@ package cn.com.frodo.refactor.model.simplify.step_1_composed_method;
 /**
  * 把一个方法分解成一组行为的时候，要保证这些行为在细节相似的层面上.
  * 
- * @author XuWei4
+ * @author frodoking
  * 
  */
 public class CustomList {

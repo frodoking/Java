@@ -1,4 +1,4 @@
-package cn.com.frodo.knowledge.IoC;
+package cn.com.frodo.knowledge.ioc;
 
 public class USBWriter implements IDeviceWriter {
 
