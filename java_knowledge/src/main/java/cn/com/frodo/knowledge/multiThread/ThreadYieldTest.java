@@ -1,8 +1,8 @@
 package com.frodo.thread;
 
-import com.frodo.Test;
+import cn.com.frodo.MockInterface;
 
-public class ThreadYieldTest implements Test
+public class ThreadYieldTest implements MockInterface
 {
     @Override public void doTest()
     {

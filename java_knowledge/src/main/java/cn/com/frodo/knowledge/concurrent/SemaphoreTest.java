@@ -1,6 +1,6 @@
-package com.frodo.concurrent;
+package cn.com.frodo.knowledge.concurrent;
 
-import com.frodo.Test;
+import cn.com.frodo.MockInterface;
 
 import java.util.concurrent.Semaphore;
 
@@ -9,7 +9,7 @@ import java.util.concurrent.Semaphore;
  * @author frodoking
  * @version [V1, 2019/7/27 17:58]
  */
-public class SemaphoreTest implements Test
+public class SemaphoreTest implements MockInterface
 {
 
     @Override public void doTest()

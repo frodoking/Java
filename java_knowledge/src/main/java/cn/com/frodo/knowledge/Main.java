@@ -1,10 +1,12 @@
-package com.frodo;
+package cn.com.frodo.knowledge;
 
-import com.frodo.concurrent.*;
-import com.frodo.encodedecode.GsonMultiThreadTest;
-import com.frodo.encodedecode.GsonTest;
-import com.frodo.gc.GCTest;
-import com.frodo.thread.ThreadPoolTest;
+
+import cn.com.frodo.MockInterface;
+import cn.com.frodo.knowledge.concurrent.*;
+import cn.com.frodo.knowledge.encodedecode.GsonMultiThreadTest;
+import cn.com.frodo.knowledge.encodedecode.GsonTest;
+import cn.com.frodo.knowledge.gc.GCTest;
+import cn.com.frodo.knowledge.multiThread.ThreadPoolTest;
 import com.frodo.thread.ThreadYieldTest;
 
 /**
@@ -17,7 +19,7 @@ public class Main
 
     public static void main(String[] args)
     {
-        Test test;
+        MockInterface test;
 
         String cmd = args[0];
         switch (cmd)

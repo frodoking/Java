@@ -1,4 +1,4 @@
-package com.frodo.concurrent;
+package cn.com.frodo.knowledge.concurrent;
 
 import org.jctools.queues.MpscUnboundedArrayQueue;
 

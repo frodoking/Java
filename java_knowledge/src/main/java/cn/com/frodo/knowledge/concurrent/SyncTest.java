@@ -1,13 +1,13 @@
-package com.frodo.concurrent;
+package cn.com.frodo.knowledge.concurrent;
 
-import com.frodo.Test;
+import cn.com.frodo.MockInterface;
 
 /**
  * Description TODO
  * @author frodoking
  * @version [V1, 2019/8/1 15:39]
  */
-public class SyncTest implements Test
+public class SyncTest implements MockInterface
 {
     static final int SIZE = 10;
 

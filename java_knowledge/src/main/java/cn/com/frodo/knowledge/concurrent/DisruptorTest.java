@@ -1,4 +1,4 @@
-package com.frodo.concurrent;
+package cn.com.frodo.knowledge.concurrent;
 
 import com.lmax.disruptor.EventFactory;
 import com.lmax.disruptor.EventHandler;

@@ -1,10 +1,10 @@
-package com.frodo.concurrent;
+package cn.com.frodo.knowledge.concurrent;
 
-import com.frodo.Test;
+import cn.com.frodo.MockInterface;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-public abstract class ConcurrentQueue implements Test
+public abstract class ConcurrentQueue implements MockInterface
 {
     AtomicLong avg = new AtomicLong();
 

@@ -1,7 +1,6 @@
-package com.frodo.encodedecode;
+package cn.com.frodo.knowledge.encodedecode;
 
-import com.frodo.Test;
-import com.google.gson.Gson;
+import cn.com.frodo.MockInterface;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
@@ -17,7 +16,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * @author frodoking
  * @version [V1, 2019/8/15 11:29]
  */
-public class GsonMultiThreadTest implements Test
+public class GsonMultiThreadTest implements MockInterface
 {
 
     private int runLoop = 1000;

@@ -1,4 +1,4 @@
-package com.frodo.encodedecode;
+package cn.com.frodo.knowledge.encodedecode;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

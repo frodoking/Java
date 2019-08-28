@@ -1,6 +1,6 @@
 package cn.com.frodo.knowledge.multiThread;
 
-import com.frodo.Test;
+import cn.com.frodo.MockInterface;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
  * @author frodoking
  * @version [V1, 2019/8/2 14:13]
  */
-public class ThreadPoolTest implements Test
+public class ThreadPoolTest implements MockInterface
 {
     @Override public void doTest()
     {

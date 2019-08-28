@@ -1,6 +1,6 @@
-package com.frodo.concurrent;
+package cn.com.frodo.knowledge.concurrent;
 
-import com.frodo.Test;
+import cn.com.frodo.MockInterface;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
@@ -10,7 +10,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @author frodoking
  * @version [V1, 2019/8/1 16:03]
  */
-public class ReentrantLockTest implements Test
+public class ReentrantLockTest implements MockInterface
 {
     static final int SIZE = 10;
 

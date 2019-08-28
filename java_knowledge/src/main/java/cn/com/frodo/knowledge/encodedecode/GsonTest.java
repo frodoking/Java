@@ -1,6 +1,6 @@
-package com.frodo.encodedecode;
+package cn.com.frodo.knowledge.encodedecode;
 
-import com.frodo.Test;
+import cn.com.frodo.MockInterface;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
@@ -15,7 +15,7 @@ import java.util.HashMap;
  * @author frodoking
  * @version [V1, 2019/8/15 11:29]
  */
-public class GsonTest implements Test
+public class GsonTest implements MockInterface
 {
 
     private int runLoop = 1000;
