@@ -10,16 +10,16 @@ Debug args:
 
 Shell:
 -----------------------------------
-$0	当前脚本的文件名
-$n	传递给脚本或函数的参数。n 是一个数字，表示第几个参数。例如，第一个参数是$1，第二个参数是$2。
-$#	传递给脚本或函数的参数个数。
-$*	传递给脚本或函数的所有参数。
-$@	传递给脚本或函数的所有参数。但是当它们被双引号(" ")包含时，"$\*" 会将所有的参数作为一个整体，以"$1 $2 … $n"的形式输出所有参数；"$@" 会将各个参数分开，以"$1" "$2" … "$n" 的形式输出所有参数。
-$?	上个命令的退出状态，或函数的返回值。
-$$	当前Shell进程ID。对于 Shell 脚本，就是这些脚本所在的进程ID。
-PS命令查看进程启动时间和运行时间 ps -p PID -o lstart,etime,cmd
-	ps -eo pid,lstart,etime,cmd | grep nginx
-批量解压多个文件 ls obs_service_osc.run.log.2019-07-19*.tar.gz | xargs -n1 tar xzvf
+- $0	当前脚本的文件名
+- $n	传递给脚本或函数的参数。n 是一个数字，表示第几个参数。例如，第一个参数是$1，第二个参数是$2。
+- $#	传递给脚本或函数的参数个数。
+- $*	传递给脚本或函数的所有参数。
+- $@	传递给脚本或函数的所有参数。但是当它们被双引号(" ")包含时，"$\*" 会将所有的参数作为一个整体，以"$1 $2 … $n"的形式输出所有参数；"$@" 会将各个参数分开，以"$1" "$2" … "$n" 的形式输出所有参数。
+- $?	上个命令的退出状态，或函数的返回值。
+- $$	当前Shell进程ID。对于 Shell 脚本，就是这些脚本所在的进程ID。
+- PS命令查看进程启动时间和运行时间 ps -p PID -o lstart,etime,cmd
+- 	ps -eo pid,lstart,etime,cmd | grep nginx
+- 批量解压多个文件 ls obs_service_osc.run.log.2019-07-19*.tar.gz | xargs -n1 tar xzvf
 Git 删除无版本文件 git clean -f -d or git clean -fd.
 查看网络连接各项资本统计： netstat -n | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'
 查看linux系统参数：sysctl -a|grep net.ipv4.tcp_tw
@@ -36,46 +36,46 @@ Xshell
 
 查看连接相关命令
 -----------------------------------
-查看哪些IP连接本机
+- 查看哪些IP连接本机
 	netstat -an
-统计httpd协议连接数
+- 统计httpd协议连接数
 	ps -ef|grep httpd|wc -l
-统计已连接上的，状态为“established
+- 统计已连接上的，状态为“established
 	netstat -na|grep ESTABLISHED|wc -l
-查看apache当前并发访问数：
+- 查看apache当前并发访问数：
 	netstat -an | grep ESTABLISHED | wc -l
-查看有多少个进程数：
+- 查看有多少个进程数：
 	ps aux|grep httpd|wc -l
 
 防火墙：
 -----------------------------------
-#centos7启动防火墙
+- #centos7启动防火墙
 	systemctl start firewalld.service
-#centos7停止防火墙/关闭防火墙
+- #centos7停止防火墙/关闭防火墙
 	systemctl stop firewalld.service
-#centos7重启防火墙
+- #centos7重启防火墙
 	systemctl restart firewalld.service
 
-#设置开机启用防火墙
+- #设置开机启用防火墙
 	systemctl enable firewalld.service
-#设置开机不启动防火墙
+- #设置开机不启动防火墙
 	systemctl disable firewalld.service
 
-#centos7查看防火墙所有信息
+- #centos7查看防火墙所有信息
 	firewall-cmd --list-all
-#centos7查看防火墙开放的端口信息
+- #centos7查看防火墙开放的端口信息
 	firewall-cmd --list-ports
-端口防火墙
+- 端口防火墙
 	firewall-cmd --zone=public --add-port=80/tcp --permanent
-重启防火墙
+- 重启防火墙
 	firewall-cmd --reload
-查看防火墙状态
+- 查看防火墙状态
 	firewall-cmd --get-services
 
 Hadoop开启调试模式
 -----------------------------------
-打开 export HADOOP_ROOT_LOGGER=DEBUG,console
-关闭 export HADOOP_ROOT_LOGGER=INFO,console
+- 打开 export HADOOP_ROOT_LOGGER=DEBUG,console
+- 关闭 export HADOOP_ROOT_LOGGER=INFO,console
 
 Hdfs常用命令: https://hadoop.apache.org/docs/r1.0.4/cn/hdfs_shell.html
 -----------------------------------
