@@ -1,7 +1,9 @@
-package cn.com.frodo.knowledge.concurrent;
+package com.frodo.concurrent;
 
-import cn.com.frodo.MockInterface;
+import com.frodo.Test;
 
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -10,37 +12,12 @@ import java.util.concurrent.locks.ReentrantLock;
  * @author frodoking
  * @version [V1, 2019/7/30 16:19]
  */
-public class CountDownLatchTest implements MockInterface
+public class CountDownLatchTest implements Test
 {
-
-    private Object lock = new Object();
-    private ReentrantLock reentrantLock = new ReentrantLock();
-    private Condition condition = reentrantLock.newCondition();
 
     @Override public void doTest()
     {
-        new Thread(new Runnable()
-        {
-            @Override public void run()
-            {
-                try
-                {
-                    System.out.println("------------notify wait--->");
-                    Thread.sleep(5000);
-                    System.out.println("------------notify start--->");
-                    reentrantLock.lock();
-                    condition.signalAll();
-                    System.out.println("------------notify end--->");
-                }
-                catch (InterruptedException e)
-                {
-                    e.printStackTrace();
-                }finally
-                {
-                    reentrantLock.unlock();
-                }
-            }
-        }).start();
+        CountDownLatch countDownLatch = new CountDownLatch(1);
         for (int i = 0; i < 20; i++)
         {
             final int index = i;
@@ -51,19 +28,27 @@ public class CountDownLatchTest implements MockInterface
                     try
                     {
                         System.out.println("------------start--->" + index);
-                        reentrantLock.lock();
-                        condition.await();
+                        countDownLatch.await();
                         System.out.println("------------end----->" + index);
                     }
                     catch (InterruptedException e)
                     {
                         e.printStackTrace();
-                    }finally
-                    {
-                        reentrantLock.unlock();
                     }
                 }
             }).start();
         }
+
+        try
+        {
+            Thread.sleep(3000);
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+        System.out.println("---main---------start--->");
+        countDownLatch.countDown();
+        System.out.println("---main---------end----->" );
     }
 }
