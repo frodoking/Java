@@ -10,6 +10,8 @@ dependencies {
     compile 'org.slf4j:slf4j-api:1.6.6'
     compile 'org.slf4j:slf4j-log4j12:1.7.5'
     compile 'log4j:log4j:1.2.14'
+    compile 'io.vertx:vertx-web-templ-thymeleaf:3.8.1'
+    compile 'org.thymeleaf:thymeleaf:3.0.11.RELEASE'
 
     compile project(':common')
 }
