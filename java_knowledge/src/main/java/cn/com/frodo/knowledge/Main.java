@@ -20,7 +20,11 @@ public class Main
     public static void main(String[] args)
     {
         MockInterface test;
-
+        if (args.length == 0) {
+            test = new BasicObjectTest();
+            test.doTest();
+            return;
+        }
         String cmd = args[0];
         switch (cmd)
         {
@@ -102,7 +106,7 @@ public class Main
                 test = new ThreadYieldTest();
                 break;
             default:
-                test = new SemaphoreTest();
+                test = new BasicObjectTest();
                 break;
         }
         test.doTest();
