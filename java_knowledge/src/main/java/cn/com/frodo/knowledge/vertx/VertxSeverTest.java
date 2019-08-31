@@ -1,6 +1,7 @@
 package com.frodo.knowledge.vertx;
 
 import com.frodo.Test;
+import com.google.common.collect.Maps;
 import com.google.gson.JsonObject;
 import io.vertx.core.Vertx;
 import io.vertx.core.VertxOptions;
@@ -12,8 +13,12 @@ import io.vertx.ext.web.Session;
 import io.vertx.ext.web.handler.SessionHandler;
 import io.vertx.ext.web.sstore.ClusteredSessionStore;
 import io.vertx.ext.web.sstore.SessionStore;
+import io.vertx.ext.web.templ.thymeleaf.ThymeleafTemplateEngine;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
+
+import java.util.Map;
 
 /**
  * 高性能API Gateway
@@ -80,7 +85,7 @@ public class VertxSeverTest implements Test
             routingContext.response().end();
         });
 
-        router.get("/some/2").handler(sessionHandler).handler(ctx -> {
+        router.get("/some/2").handler(ctx -> {
             ctx.request().setExpectMultipart(true);
             ctx.next();
         }).blockingHandler(ctx -> {
@@ -98,6 +103,26 @@ public class VertxSeverTest implements Test
             JsonObject obj = session.remove("myobj");
             ctx.response().end();
         });
+
+        ThymeleafTemplateEngine engine = ThymeleafTemplateEngine.create(vertx);
+        ClassLoaderTemplateResolver resolver = new ClassLoaderTemplateResolver();
+        resolver.setPrefix("templates");
+        resolver.setSuffix(".html");
+        resolver.setTemplateMode("HTML5");
+        engine.getThymeleafTemplateEngine().setTemplateResolver(resolver);
+
+        router.get("/some/h5").handler(ctx -> {
+            Map<String, Object> h5ObjectMap = Maps.newHashMap();
+            h5ObjectMap.put("msg", "DynamicReference.");
+            engine.render(h5ObjectMap, "/page", res -> {
+                if (res.succeeded()) {
+                    ctx.response().putHeader("Content-Type", "text/html").end(res.result());
+                } else {
+                    ctx.fail(res.cause());
+                }
+            });
+        });
+
         server.requestHandler(router).listen(8080, ar -> {
             LOGGER.info("start status: {}", ar.succeeded());
             if (!ar.succeeded())
