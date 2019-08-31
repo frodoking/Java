@@ -15,6 +15,9 @@ import io.vertx.ext.web.sstore.SessionStore;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 高性能API Gateway
+ */
 public class VertxSeverTest implements Test
 {
     private static final Logger LOGGER = LoggerFactory.getLogger(VertxSeverTest.class);
