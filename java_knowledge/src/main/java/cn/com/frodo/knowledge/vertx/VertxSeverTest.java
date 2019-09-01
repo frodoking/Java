@@ -1,6 +1,6 @@
-package com.frodo.knowledge.vertx;
+package cn.com.frodo.knowledge.vertx;
 
-import com.frodo.Test;
+import cn.com.frodo.MockInterface;
 import com.google.common.collect.Maps;
 import com.google.gson.JsonObject;
 import io.vertx.core.Vertx;
@@ -23,7 +23,7 @@ import java.util.Map;
 /**
  * 高性能API Gateway
  */
-public class VertxSeverTest implements Test
+public class VertxSeverTest implements MockInterface
 {
     private static final Logger LOGGER = LoggerFactory.getLogger(VertxSeverTest.class);
 

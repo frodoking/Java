@@ -1,5 +1,6 @@
-package cn.com.frodo.knowledge;
+package cn.com.frodo.knowledge.socket;
 
+import cn.com.frodo.MockInterface;
 import cn.com.frodo.knowledge.callback.CallMe;
 import cn.com.frodo.knowledge.callback.EventNotifier;
 import cn.com.frodo.knowledge.rxjava.Rxjava;
@@ -8,42 +9,20 @@ import javax.net.ssl.*;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.HttpURLConnection;
-import java.net.Socket;
 import java.net.URL;
-import java.net.URLConnection;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map.Entry;
+import java.util.Map;
 import java.util.Set;
 
-public class Test {
-    @SuppressWarnings("deprecation")
-    public static void main(String[] args) {
-		/*
-		String head = "{\"billAddressInfo\":{\"uid";
-		String spaceStr1 = "\":\"";
-		String end = "\"}}";
-		StringBuilder str = new StringBuilder();
-		str.append(head);
-		str.append(spaceStr1);
-		str.append("123");
-		str.append(end);
+public class DownloadWithSSLTest implements MockInterface {
 
-		Date d = new Date();
-		str.append(d.getYear());
-		str.append(d.getMonth() + 1);
-		str.append(d.getDay());
-		str.append(d.getHours());
-		str.append(d.getMinutes());
-		str.append(d.getSeconds());
-
-		DateFormat dateFormat = new SimpleDateFormat("yyyyddMMkkmmss");
-		System.out.println(dateFormat.format(d));
-		System.out.println(str.toString());
-		*/
+    @Override
+    public void doTest() {
         CallMe call = new CallMe();
         call.registerEvent();
         EventNotifier.getInstance().doWork();
@@ -54,10 +33,10 @@ public class Test {
         hash.values();
 
 
-        Set<Entry<String, Object>> entrys = hash.entrySet();
-        Iterator<Entry<String, Object>> iter = entrys.iterator();
+        Set<Map.Entry<String, Object>> entrys = hash.entrySet();
+        Iterator<Map.Entry<String, Object>> iter = entrys.iterator();
         while (iter.hasNext()) {
-            Entry<String, Object> entry = iter.next();
+            Map.Entry<String, Object> entry = iter.next();
             entry.getKey();
             entry.getValue();
         }
@@ -151,6 +130,5 @@ public class Test {
     public static boolean isRedirect(final int statusCode) {
         return statusCode >= 300 && statusCode < 400;
     }
-
 
 }

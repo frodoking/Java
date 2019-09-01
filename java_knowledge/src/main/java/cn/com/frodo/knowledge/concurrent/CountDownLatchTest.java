@@ -1,18 +1,15 @@
-package com.frodo.concurrent;
+package cn.com.frodo.knowledge.concurrent;
 
-import com.frodo.Test;
+import cn.com.frodo.MockInterface;
 
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.Semaphore;
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Description TODO
  * @author frodoking
  * @version [V1, 2019/7/30 16:19]
  */
-public class CountDownLatchTest implements Test
+public class CountDownLatchTest implements MockInterface
 {
 
     @Override public void doTest()

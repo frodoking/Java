@@ -13,5 +13,11 @@ dependencies {
     compile 'io.vertx:vertx-web-templ-thymeleaf:3.8.1'
     compile 'org.thymeleaf:thymeleaf:3.0.11.RELEASE'
 
+    implementation 'com.sun.tools.btrace:btrace-client:1.2.3'
+    implementation 'com.sun.tools.btrace:btrace-boot:1.2.3'
+    implementation 'com.sun.tools.btrace:btrace-agent:1.2.3'
+
+    compile 'com.google.guava:guava:28.1-jre'
+
     compile project(':common')
 }

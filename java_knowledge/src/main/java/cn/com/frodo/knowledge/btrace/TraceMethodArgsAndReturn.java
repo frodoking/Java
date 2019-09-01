@@ -1,4 +1,4 @@
-package com.frodo.btrace;
+package cn.com.frodo.knowledge.btrace;
 
 import com.sun.btrace.annotations.*;
 

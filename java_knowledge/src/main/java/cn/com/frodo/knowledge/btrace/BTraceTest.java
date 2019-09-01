@@ -1,6 +1,7 @@
-package com.frodo.btrace;
+package cn.com.frodo.knowledge.btrace;
 
-import com.frodo.Test;
+
+import cn.com.frodo.MockInterface;
 
 import java.util.concurrent.TimeUnit;
 
@@ -8,7 +9,7 @@ import java.util.concurrent.TimeUnit;
  * exec
  * btrace 26796 D:\work\workspaces\workspace_tmp\Java\src\main\java\com\frodo\btrace\TraceMethodArgsAndReturn.java
  */
-public class BTraceTest implements Test
+public class BTraceTest implements MockInterface
 {
 
     @Override public void doTest()

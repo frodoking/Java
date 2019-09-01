@@ -1,10 +1,10 @@
-package com.frodo.concurrent;
+package cn.com.frodo.knowledge.concurrent;
 
-import com.frodo.Test;
+import cn.com.frodo.MockInterface;
 
 import java.util.concurrent.CountDownLatch;
 
-public class CountDownLatch2Test implements Test
+public class CountDownLatch2Test implements MockInterface
 {
 
     @Override public void doTest()
