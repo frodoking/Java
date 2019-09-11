@@ -1,15 +1,15 @@
  1、讲dubbo框架，底层netty和序列化框架，hession3 vs protobuf 优缺点？
- 2、netty底层模型，select，poll，epoll。netty用的是哪一种？epoll具体怎么做的，两种模型有了解吗？
- 3、Thread的5中状态，wait vs blocked区别？
+ 2、netty底层模型，select，poll，epoll。netty用的是哪一种？epoll具体怎么做的，两种事件LT/ET模型有了解吗？ ET 水平触发：有数据就一直触发。LT 边沿触发： 状态变化触发 https://segmentfault.com/a/1190000004597522
+ 3、Thread的5中状态，wait vs blocked区别？ wait一般是主动去等待，blocked是抢锁发生例如synchronizd https://blog.csdn.net/pange1991/article/details/53860651
  4、栈的大小是如何分配的？
- 5、cpu 负载 vs 使用率，io怎么查看？使用情况怎么去看，内存buffer是否还能使用？
- 6、gc root到底有哪一些？
- 7、如何查看内存中对象个数？
+ 5、cpu 负载 vs 使用率，io怎么查看？使用情况怎么去看，内存buffer是否还能使用？cache/buffer具体是什么？ （CPU使用率：显示的是程序在运行期间实时占用的CPU百分比 60%-80%有瓶颈，CPU负载：显示的是一段时间内正在使用和等待使用CPU的平均任务数，理想0.7。cache是高速缓存，用于cpuhe内存之间的缓冲，buffer是I/O缓存，用于内存和硬盘的缓冲）
+ 6、gc roots到底有哪一些对象？ https://www.jianshu.com/p/f4ff9fcc0759
+ 7、如何查看内存中对象个数？ dump profile用mat查看
  8、== vs equeals 区别？
  9、java多态怎么理解，一般怎么去实现的？
- 10、time_wait发生在什么时候，怎么解决，内核态有哪些参数去解决？
- 11、hdfs nn性能指标是多少？
+ 10、time_wait发生在什么时候，怎么解决，内核态有哪些参数去解决？（client 2ml等待导致，客户端未释放链接导致。 server也可以将connection重用。 tcp_syncookies=1/tcp_tw_reuse=1/tcp_tw_recycle=1/tcp_fin_timeout=100）
+ 11、hdfs nn性能指标是多少？ （写10-35ms，读200us）
  12、redis主从复制是怎么做的，set nx如何保证原子性？ 锁是如何做到的？如何保证高可用的？
- 13、一致性hash主要解决什么问题？
- 14、kafka如果consumer挂了会出现什么情况？broker如何做高效的主从复制？
+ 13、一致性hash主要解决什么问题？（扩展性和负载均衡，最小范围影响）
+ 14、kafka如果consumer挂了会出现什么情况？（会rebalance）broker如何做高效的主从复制？（从节点会去拉去主节点的日志并保证顺序）
  15、cap理论分别讲一讲？
