@@ -1,0 +1,15 @@
+ 1、讲dubbo框架，底层netty和序列化框架，hession3 vs protobuf 优缺点？
+ 2、netty底层模型，select，poll，epoll。netty用的是哪一种？epoll具体怎么做的，两种模型有了解吗？
+ 3、Thread的5中状态，wait vs blocked区别？
+ 4、栈的大小是如何分配的？
+ 5、cpu 负载 vs 使用率，io怎么查看？使用情况怎么去看，内存buffer是否还能使用？
+ 6、gc root到底有哪一些？
+ 7、如何查看内存中对象个数？
+ 8、== vs equeals 区别？
+ 9、java多态怎么理解，一般怎么去实现的？
+ 10、time_wait发生在什么时候，怎么解决，内核态有哪些参数去解决？
+ 11、hdfs nn性能指标是多少？
+ 12、redis主从复制是怎么做的，set nx如何保证原子性？
+ 13、一致性hash主要解决什么问题？
+ 14、kafka如果consumer挂了会出现什么情况？broker如何做高效的主从复制？
+ 15、cap理论分别讲一讲？
