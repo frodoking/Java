@@ -7,9 +7,9 @@
  7、如何查看内存中对象个数？ dump profile用mat查看
  8、== vs equeals 区别？
  9、java多态怎么理解，一般怎么去实现的？
- 10、time_wait发生在什么时候，怎么解决，内核态有哪些参数去解决？（client 2ml等待导致，客户端未释放链接导致。 server也可以将connection重用。 tcp_syncookies=1/tcp_tw_reuse=1/tcp_tw_recycle=1/tcp_fin_timeout=100）
+ 10、time_wait发生在什么时候，怎么解决，内核态有哪些参数去解决？（发生time_wait主要是发起断开链接的一方--所以断开链接在客户端和服务端都有可能，client 2ml等待导致，客户端未释放链接导致。 server也可以将connection重用。 tcp_syncookies=1/tcp_tw_reuse=1/tcp_tw_recycle=1/tcp_fin_timeout=100 https://zhuanlan.zhihu.com/p/40013724）
  11、hdfs nn性能指标是多少？ （写10-35ms，读200us）
  12、redis主从复制是怎么做的，set nx如何保证原子性？ 锁是如何做到的？如何保证高可用的？
  13、一致性hash主要解决什么问题？（扩展性和负载均衡，最小范围影响）
- 14、kafka如果consumer挂了会出现什么情况？（会rebalance）broker如何做高效的主从复制？（从节点会去拉去主节点的日志并保证顺序）
+ 14、kafka如果consumer挂了会出现什么情况？（会rebalance，是不固定的broker接收consumer心跳，重平衡时会暂停所有的消费）broker如何做高效的主从复制？（从节点会去拉去主节点的日志并保证顺序）
  15、cap理论分别讲一讲？
