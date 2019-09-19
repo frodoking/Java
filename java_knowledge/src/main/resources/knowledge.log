@@ -1,0 +1,40 @@
+1、Elasticsearch索引原理 https://blog.csdn.net/cyony/article/details/65437708
+	高可用&高伸缩 https://segmentfault.com/a/1190000015185481
+	 https://dbaplus.cn/news-73-1492-1.html
+2、RPC框架性能测试 https://colobu.com/2018/01/31/benchmark-2018-spring-of-popular-rpc-frameworks/
+3、异地多活-----核心思想：采用多种手段，保证大部分用户的核心业务异地多活
+	https://yq.aliyun.com/articles/57715
+	https://zhuanlan.zhihu.com/p/42150666
+	很重要的思路就是本地搞不定就用全局路由规则去异地获取，如果远程宕机，重新生成规则本地启动
+	https://www.infoq.cn/article/interview-alibaba-bixuan
+	阿里的成功案例：https://developer.aliyun.com/article/711635
+4、btrace可以动态查看运行时方法入参和运行时间 （BTrace 是基于动态字节码修改技术(Hotswap)来实现运行时 java 程序的跟踪和替换。）
+	参考：https://www.cnblogs.com/fengzheng/p/7416942.html
+5、高性能的内存队列 Disruptor 
+	https://tech.meituan.com/2016/11/18/disruptor.html
+	https://blog.csdn.net/a78270528/article/details/79925404
+jctools 高并發工具
+6、开发工具 https://www.infoq.cn/article/yeQU4f_BujTYCMxaXNFc
+
+7、plan B https://www.infoq.cn/article/8JWytrdhd*a8l7TUaOsk
+8、淘宝千万级并发分布式架构的14次演进 http://ifeve.com/%e6%b7%98%e5%ae%9d%e5%8d%83%e4%b8%87%e7%ba%a7%e5%b9%b6%e5%8f%91%e5%88%86%e5%b8%83%e5%bc%8f%e6%9e%b6%e6%9e%84%e7%9a%8414%e6%ac%a1%e6%bc%94%e8%bf%9b/
+
+9、raft 协议https://www.infoq.cn/article/building-flexible-storage-system-based-on-raft
+	https://www.bilibili.com/video/av21667358/
+  paxos https://zhuanlan.zhihu.com/p/31780743
+10、CAP理论&NWR策略 http://www.choudan.net/2013/08/07/CAP%E7%90%86%E8%AE%BA%E5%92%8CNWR%E7%AD%96%E7%95%A5.html
+	https://www.iteye.com/blog/yangshangchuan-2010574
+11、两地三中心 https://www.jianshu.com/p/e0a521592c2b
+
+12、全面理解Java内存模型 https://blog.csdn.net/suifeng3051/article/details/52611310
+
+13、G1 https://www.jianshu.com/p/aef0f4765098
+14、AQS https://segmentfault.com/a/1190000016885682
+15、微服務架构 https://zhuanlan.zhihu.com/p/34862889
+16、hbase http://www.blogjava.net/DLevin/archive/2015/08/22/426877.html
+17、人物励志标杆 美图女cto https://tech.meituan.com/2018/03/08/biography-rendengjun.html
+18、k8s落地 https://zhuanlan.zhihu.com/p/31670782
+19、druid在有赞的实践 https://tech.youzan.com/realtime-olap-on-druid/
+   快手万亿级实时 OLAP 平台的建设与实践 https://www.chainnews.com/articles/479102528948.htm
+20、高性能平台设计—美团旅行结算平台实践 https://tech.meituan.com/2018/01/15/high-performance-platform-design.html
+《领导梯队》 《高效能人士的七个习惯》 《三体》
