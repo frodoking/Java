@@ -165,3 +165,14 @@ http://hr.huawei.com/ngx/faces/home?_adf.ctrl-state=vybyk9tp0_4&_afrLoop=1390633
 好的架构图 https://mp.weixin.qq.com/s?__biz=MzU1NTMyOTI4Mw==&mid=2247493747&idx=1&sn=3288e75a42a8e93bc7ce34b47b811b9b&chksm=fbd75a1fcca0d3092046e1c3b0d961ef99edc8323426fdd78eae3693119a726328db7f0dd246&scene=27#wechat_redirect
 
 书籍推荐：https://www.infoq.cn/article/Q56SutVvxr8-i3qK1qs9
+
+
+
+美团供应链玩法： http://www.sohu.com/a/194722772_472869
+http://hr.huawei.com/ngx/faces/home?_adf.ctrl-state=vybyk9tp0_4&_afrLoop=139063347376535
+好的架构图 https://mp.weixin.qq.com/s?__biz=MzU1NTMyOTI4Mw==&mid=2247493747&idx=1&sn=3288e75a42a8e93bc7ce34b47b811b9b&chksm=fbd75a1fcca0d3092046e1c3b0d961ef99edc8323426fdd78eae3693119a726328db7f0dd246&scene=27#wechat_redirect
+
+书籍推荐：https://www.infoq.cn/article/Q56SutVvxr8-i3qK1qs9
+
+一致性hash 主要解决容错性和可扩展性，用于负载均衡场景。 无法解决高可用场景，但是节点的增加和删除只需要迁移部分数据
+redis hash slot采用2^14 16384个slot，用CRC16计算出值对16384取模来找到slot，为何使用14位是因为 2^14=16384=16k=2kB空间，如果CRC16的话 2^16=65536=65k=8kB空间。 是因为需要把所有的槽放到心跳包里面便于让节点知道当前的全部信息。 所以主要是解决心跳包传输大小
