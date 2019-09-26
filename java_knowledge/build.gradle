@@ -16,7 +16,9 @@ dependencies {
     implementation 'com.sun.tools.btrace:btrace-client:1.2.3'
     implementation 'com.sun.tools.btrace:btrace-boot:1.2.3'
     implementation 'com.sun.tools.btrace:btrace-agent:1.2.3'
-
+    implementation 'io.protostuff:protostuff-core:1.5.9'
+    implementation 'io.protostuff:protostuff-runtime:1.5.9'
+    
     compile 'com.google.guava:guava:28.1-jre'
 
     compile project(':common')
