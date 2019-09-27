@@ -176,3 +176,14 @@ http://hr.huawei.com/ngx/faces/home?_adf.ctrl-state=vybyk9tp0_4&_afrLoop=1390633
 
 一致性hash 主要解决容错性和可扩展性，用于负载均衡场景。 无法解决高可用场景，但是节点的增加和删除只需要迁移部分数据
 redis hash slot采用2^14 16384个slot，用CRC16计算出值对16384取模来找到slot，为何使用14位是因为 2^14=16384=16k=2kB空间，如果CRC16的话 2^16=65536=65k=8kB空间。 是因为需要把所有的槽放到心跳包里面便于让节点知道当前的全部信息。 所以主要是解决心跳包传输大小
+
+awk NR 表示读取到的行数，是总的行数，FNR表示单个文件的读取行数，NF表示行的分割个数, $0 表示整行，$1 表示分割的第一个数。默认分隔符是空格，分割方式用-F "reg"
+awk '{print NR,NF,FNR, $0}' log1.log log2.log
+ls -l | awk 'BEGIN{print "begin print"}{if (NR==10) print $0; else print $1 }END{print "end print"}'
+
+!:n 上一个命令的第n个参数
+列出你最常用的10条命令
+history | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head
+显示消耗内存最多的 10 个运行中的进程，以内存使用量排序
+ps aux | sort -nk +4 | tail
+美团接口自动化测试平台 https://tech.meituan.com/2018/01/09/lego-api-test.html
