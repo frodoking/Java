@@ -187,3 +187,8 @@ history | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head
 显示消耗内存最多的 10 个运行中的进程，以内存使用量排序
 ps aux | sort -nk +4 | tail
 美团接口自动化测试平台 https://tech.meituan.com/2018/01/09/lego-api-test.html
+
+架构图 参考https://www.infoq.cn/article/5A8LiWThDdHpkjeKgWLk
+		  https://www.infoq.cn/article/ZzI05OBgks2kspUWa5y7
+		  https://mp.weixin.qq.com/s?__biz=MzIxMzEzMjM5NQ==&mid=2651033242&idx=1&sn=97283ee28cd9c1bf4d8ab3aec187c285&chksm=8c4c5b9ebb3bd288e12480c4128b33e49cc36938097d95b6a312ee583f812b1634b14e6fdf7a&scene=27#wechat_redirect
+		  https://www.infoq.cn/article/VShD*wVd1zJJYsTGsswe
