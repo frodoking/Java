@@ -1,0 +1,59 @@
+main:
+  default: vertx
+  list:
+    base:
+      name: com.frodo.BasicObjectTest
+    gc:
+      name: com.frodo.gc.GCTest
+    clq:
+      name: com.frodo.concurrent.ConcurrentLinkedQueueTest
+      producerNum: 100
+      producerWaitTime: 100
+      consumerNum: 50
+      callTime: 10
+    lbq:
+      name: com.frodo.concurrent.LinkedBlockingQueueTest
+      producerNum: 100
+      producerWaitTime: 100
+      consumerNum: 50
+      callTime: 10
+    dis:
+      name: com.frodo.concurrent.DisruptorTest
+      producerNum: 100
+      producerWaitTime: 100
+      consumerNum: 50
+      callTime: 10
+    jct:
+      name: com.frodo.concurrent.JCToolsTest
+      producerNum: 100
+      producerWaitTime: 100
+      consumerNum: 50
+      callTime: 10
+    gson:
+      name: com.frodo.encodedecode.gson.GsonTest
+      runLoop: 100
+    gsont:
+      name: com.frodo.encodedecode.gson.GsonMultiThreadTest
+      runLoop: 100
+    tp:
+      name: com.frodo.thread.ThreadPoolTest
+    ty:
+      name: com.frodo.thread.ThreadYieldTest
+    cdl:
+      name: com.frodo.thread.CountDownLatchTest
+    cdl2:
+      name: com.frodo.thread.CountDownLatch2Test
+    cb:
+      name: com.frodo.concurrent.CyclicBarrierTest
+    btrace:
+      name: com.frodo.btrace.BTraceTest
+    vertx:
+      name: com.frodo.vertx.VertxSeverTest
+    spi:
+      name: com.frodo.spi.SPITest
+    netty:
+      name: com.frodo.netty.NettyTest
+    cht:
+      name: com.frodo.algorithm.ConsistentHashTest
+    pb:
+      name: com.frodo.encodedecode.pb.ProtocolTest
