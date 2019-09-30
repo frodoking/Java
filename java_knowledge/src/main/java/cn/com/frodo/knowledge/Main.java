@@ -55,6 +55,8 @@ public class Main
             if (test != null)
             {
                 test.doTest();
+            } else {
+                throw new IllegalArgumentException("config args mismatch test args.");
             }
         }
         catch (ClassNotFoundException | IllegalAccessException | InstantiationException | InvocationTargetException e)
