@@ -1,6 +1,8 @@
-java基础
+<link rel="stylesheet" type="text/css" href="auto-number-title.css" />
+
+## java基础
 -------------------------------------
-Java线程的状态，BLOCKED和WAITING有什么区别
+### Java线程的状态，BLOCKED和WAITING有什么区别
 Arrays.sort实现原理和Collection实现原理
 Comparable 和 Comparator 接口是干什么的？列出它们的区别
 Collection和Collections有什么区别？
