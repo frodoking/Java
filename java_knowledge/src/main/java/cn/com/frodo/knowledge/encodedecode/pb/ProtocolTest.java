@@ -1,11 +1,11 @@
-package com.frodo.encodedecode.pb;
+package cn.com.frodo.knowledge.encodedecode.pb;
 
-import com.frodo.Test;
+import cn.com.frodo.MockInterface;
 import io.protostuff.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ProtocolTest implements Test
+public class ProtocolTest implements MockInterface
 {
     private static final Logger LOGGER = LoggerFactory.getLogger(ProtocolTest.class);
 

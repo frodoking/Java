@@ -2,12 +2,11 @@ package cn.com.frodo.knowledge;
 
 
 import cn.com.frodo.MockInterface;
-import cn.com.frodo.knowledge.concurrent.*;
-import cn.com.frodo.knowledge.encodedecode.GsonMultiThreadTest;
-import cn.com.frodo.knowledge.encodedecode.GsonTest;
-import cn.com.frodo.knowledge.gc.GCTest;
-import cn.com.frodo.knowledge.multiThread.ThreadPoolTest;
-import com.frodo.thread.ThreadYieldTest;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Parameter;
+import java.util.LinkedHashMap;
 
 /**
  * Description TODO
@@ -30,7 +29,7 @@ public class Main
             Class clazz = Class.forName(testClassName);
             if (((LinkedHashMap) object).isEmpty())
             {
-                test = (Test) clazz.newInstance();
+                test = (MockInterface) clazz.newInstance();
             }
             else
             {
@@ -48,7 +47,7 @@ public class Main
                             argss[index] = argValue;
                             index++;
                         }
-                        test = (Test) constructor.newInstance(argss);
+                        test = (MockInterface) constructor.newInstance(argss);
                     }
                 }
             }

@@ -18,6 +18,8 @@ dependencies {
     implementation 'com.sun.tools.btrace:btrace-agent:1.2.3'
     implementation 'io.protostuff:protostuff-core:1.5.9'
     implementation 'io.protostuff:protostuff-runtime:1.5.9'
+
+    implementation 'org.yaml:snakeyaml:1.26'
     
     compile 'com.google.guava:guava:28.1-jre'
 

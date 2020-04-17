@@ -1,4 +1,4 @@
-package com.frodo.encodedecode.pb;
+package cn.com.frodo.knowledge.encodedecode.pb;
 
 import io.protostuff.ProtostuffIOUtil;
 import io.protostuff.Schema;

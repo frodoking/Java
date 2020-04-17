@@ -1,4 +1,4 @@
-package com.frodo.knowledge;
+package cn.com.frodo.knowledge;
 
 import com.google.common.base.Splitter;
 import org.yaml.snakeyaml.Yaml;
