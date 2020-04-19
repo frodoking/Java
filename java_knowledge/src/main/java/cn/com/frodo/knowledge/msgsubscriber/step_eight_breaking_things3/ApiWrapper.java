@@ -1,8 +1,7 @@
 package cn.com.frodo.knowledge.msgsubscriber.step_eight_breaking_things3;
 
+import java.net.URI;
 import java.util.List;
-
-import com.sun.jndi.toolkit.url.Uri;
 
 import cn.com.frodo.knowledge.msgsubscriber.Cat;
 import cn.com.frodo.knowledge.msgsubscriber.step_four_generics.Callback;
@@ -30,13 +29,13 @@ public class ApiWrapper {
         };
     }
 
-    public AsyncJob<Uri> store(final Cat cat) {
-        return new AsyncJob<Uri>() {
+    public AsyncJob<URI> store(final Cat cat) {
+        return new AsyncJob<URI>() {
             @Override
-            public void start(final Callback<Uri> uriCallback) {
+            public void start(final Callback<URI> uriCallback) {
                 api.store(cat, new Api.StoreCallback() {
                     @Override
-                    public void onCatStored(Uri uri) {
+                    public void onCatStored(URI uri) {
                         uriCallback.onResult(uri);
                     }
 

@@ -1,8 +1,7 @@
 package cn.com.frodo.knowledge.msgsubscriber.step_three_asynchronous2;
 
+import java.net.URI;
 import java.util.List;
-
-import com.sun.jndi.toolkit.url.Uri;
 
 import cn.com.frodo.knowledge.msgsubscriber.Cat;
 
@@ -13,7 +12,7 @@ public interface Api {
     }
 
     interface StoreCallback{
-        void onCatStored(Uri uri);
+        void onCatStored(URI uri);
         void onStoreFailed(Exception e);
     }
 

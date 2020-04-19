@@ -1,8 +1,8 @@
-package com.frodo.netty;
+package cn.com.frodo.knowledge.netty;
 
-import com.frodo.Test;
+import cn.com.frodo.MockInterface;
 
-public class NettyTest implements Test
+public class NettyTest implements MockInterface
 {
     @Override public void doTest()
     {
@@ -12,7 +12,7 @@ public class NettyTest implements Test
             new Thread(() -> {
                 try
                 {
-                    ClientNetty clientNetty = new ClientNetty("127.0.0.1", port);
+                    com.frodo.netty.ClientNetty clientNetty = new com.frodo.netty.ClientNetty("127.0.0.1", port);
                     for (;;) {
                         try
                         {
@@ -33,7 +33,7 @@ public class NettyTest implements Test
         }
         try
         {
-            new ServerNetty(port).start();
+            new com.frodo.netty.ServerNetty(port).start();
         }
         catch (InterruptedException e)
         {

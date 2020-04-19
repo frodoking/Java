@@ -1,9 +1,8 @@
 package cn.com.frodo.knowledge.msgsubscriber.step_eight_breaking_things3;
 
+import java.net.URI;
 import java.util.Collections;
 import java.util.List;
-
-import com.sun.jndi.toolkit.url.Uri;
 
 import cn.com.frodo.knowledge.msgsubscriber.Cat;
 import cn.com.frodo.knowledge.msgsubscriber.step_seven_breaking_thins2.Func;
@@ -12,7 +11,7 @@ public class CatsHelper {
 
     ApiWrapper apiWrapper;
 
-    public AsyncJob<Uri> saveTheCutestCat(String query) {
+    public AsyncJob<URI> saveTheCutestCat(String query) {
         AsyncJob<List<Cat>> catsListAsyncJob = apiWrapper.queryCats(query);
         AsyncJob<Cat> cutestCatAsyncJob = catsListAsyncJob.map(new Func<List<Cat>, Cat>() {
             @Override
@@ -21,9 +20,9 @@ public class CatsHelper {
             }
         });
 
-        AsyncJob<Uri> storedUriAsyncJob = cutestCatAsyncJob.flatMap(new Func<Cat, AsyncJob<Uri>>() {
+        AsyncJob<URI> storedUriAsyncJob = cutestCatAsyncJob.flatMap(new Func<Cat, AsyncJob<URI>>() {
             @Override
-            public AsyncJob<Uri> call(Cat cat) {
+            public AsyncJob<URI> call(Cat cat) {
                 return apiWrapper.store(cat);
             }
         });

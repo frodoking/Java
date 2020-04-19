@@ -11,7 +11,7 @@ public class ProtocolDecoder
         try {
             obj = clazz.newInstance();
             Schema schema = RuntimeSchema.getSchema(obj.getClass());
-            ProtostuffIOUtil.mergeFrom(bytes, obj, schema);
+            // ProtostuffIOUtil.mergeFrom(bytes, obj, schema);
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {

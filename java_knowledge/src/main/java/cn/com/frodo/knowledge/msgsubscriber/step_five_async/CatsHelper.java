@@ -1,9 +1,8 @@
 package cn.com.frodo.knowledge.msgsubscriber.step_five_async;
 
+import java.net.URI;
 import java.util.Collections;
 import java.util.List;
-
-import com.sun.jndi.toolkit.url.Uri;
 
 import cn.com.frodo.knowledge.msgsubscriber.Cat;
 import cn.com.frodo.knowledge.msgsubscriber.step_four_generics.Callback;
@@ -12,19 +11,19 @@ public class CatsHelper {
 
     ApiWrapper apiWrapper;
 
-    public AsyncJob<Uri> saveTheCutestCat(final String query) {
-        return new AsyncJob<Uri>() {
+    public AsyncJob<URI> saveTheCutestCat(final String query) {
+        return new AsyncJob<URI>() {
             @Override
-            public void start(final Callback<Uri> cutestCatCallback) {
+            public void start(final Callback<URI> cutestCatCallback) {
                 apiWrapper.queryCats(query)
                         .start(new Callback<List<Cat>>() {
                             @Override
                             public void onResult(List<Cat> cats) {
                                 Cat cutest = findCutest(cats);
                                 apiWrapper.store(cutest)
-                                        .start(new Callback<Uri>() {
+                                        .start(new Callback<URI>() {
                                             @Override
-                                            public void onResult(Uri result) {
+                                            public void onResult(URI result) {
                                                 cutestCatCallback.onResult(result);
                                             }
 

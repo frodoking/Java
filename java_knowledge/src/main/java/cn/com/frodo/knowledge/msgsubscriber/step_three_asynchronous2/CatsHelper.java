@@ -3,14 +3,14 @@ package cn.com.frodo.knowledge.msgsubscriber.step_three_asynchronous2;
 import java.util.Collections;
 import java.util.List;
 
-import com.sun.jndi.toolkit.url.Uri;
+import java.net.URI;
 
 import cn.com.frodo.knowledge.msgsubscriber.Cat;
 
 public class CatsHelper {
 
     public interface CutestCatCallback {
-        void onCutestCatSaved(Uri uri);
+        void onCutestCatSaved(URI uri);
         void onError(Exception e);
     }
 
@@ -23,7 +23,7 @@ public class CatsHelper {
                 Cat cutest = findCutest(cats);
                 api.store(cutest, new Api.StoreCallback() {
                     @Override
-                    public void onCatStored(Uri uri) {
+                    public void onCatStored(URI uri) {
                         cutestCatCallback.onCutestCatSaved(uri);
                     }
 

@@ -1,13 +1,12 @@
 package cn.com.frodo.knowledge.encrypt;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by frodo on 2017/5/18.
+ * Created by xuwei19 on 2017/5/18.
+ * AES对称加密和解密
  */
 public class UnifiedManager {
 
@@ -42,38 +41,12 @@ public class UnifiedManager {
         return result;
     }
 
-    private static String encode(String encodeRules, String content) {
-        content = content.substring(content.length() / 7, content.length() * 4 / 5);
-        return merge(content, encodeRules);
-    }
-
-    public static String merge(String a, String b) {
-        char[] aChar = a.toCharArray();
-        char[] bChar = b.toCharArray();
-
-        int len = aChar.length + bChar.length;
-        char[] chars = new char[len];
-        char[] maxChar = aChar.length> bChar.length ? aChar : bChar;
-        int i = 0;
-        int position = 0;
-        for (; i < aChar.length && i< bChar.length; i++) {
-            chars[i * 2] = aChar[i];
-            chars[i * 2 + 1] = bChar[i];
-            position = (i+1) * 2;
-        }
-        for (;i<maxChar.length ; i++) {
-            chars[position++] = maxChar[i];
-        }
-        return String.valueOf(chars);
-
-    }
-
     public static String get(String content, int length, boolean isDigital, String encodeRules) {
         String base64 = Base64.getEncoder().encodeToString(content.getBytes());
-        String encodeContent = encode(encodeRules, base64);
-        String filterContent = encodeContent.replaceAll("[^0-9a-zA-Z]+", "");
+        String aesContent = AESUtil.AESEncode(encodeRules, content);
+        String filterContent = aesContent.replaceAll("[^0-9a-zA-Z]+", "");
 
-        System.out.println("base64: " + base64 + "\n aesContent: " + encodeContent + "\n filterContent: " + filterContent);
+        System.out.println("base64: " + base64 + "\n aesContent: " + aesContent + "\n filterContent: " + filterContent);
         if (isDigital) {
             String result = getSubstring(filterContent, length);
             result = result.toLowerCase();
@@ -98,4 +71,5 @@ public class UnifiedManager {
             return result;
         }
     }
+
 }

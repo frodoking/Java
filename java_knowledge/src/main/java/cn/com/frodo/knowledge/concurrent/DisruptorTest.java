@@ -49,13 +49,13 @@ public class DisruptorTest extends ConcurrentQueue
             // System.out.println("----------------" + Thread.currentThread().getName());
         };
 
-        EventHandler<Call>[] handlers = new EventHandler[consumerNum];
-        for (int i = 0; i < consumerNum; i++)
-        {
-            handlers[i] = handler;
-        }
+//        EventHandler<Call>[] handlers = new EventHandler[consumerNum];
+//        for (int i = 0; i < consumerNum; i++)
+//        {
+//            handlers[i] = handler;
+//        }
         // 设置EventHandler
-        disruptor.handleEventsWith(handlers);
+//        disruptor.handleEventsWith(handlers);
         // 启动disruptor的线程
         disruptor.start();
     }

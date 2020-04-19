@@ -3,7 +3,7 @@ package cn.com.frodo.knowledge.msgsubscriber.step_seven_breaking_thins2;
 import java.util.Collections;
 import java.util.List;
 
-import com.sun.jndi.toolkit.url.Uri;
+import java.net.URI;
 
 import cn.com.frodo.knowledge.msgsubscriber.Cat;
 import cn.com.frodo.knowledge.msgsubscriber.step_four_generics.Callback;
@@ -12,7 +12,7 @@ public class CatsHelper {
 
     ApiWrapper apiWrapper;
 
-    public AsyncJob<Uri> saveTheCutestCat(String query) {
+    public AsyncJob<URI> saveTheCutestCat(String query) {
         AsyncJob<List<Cat>> catsListAsyncJob = apiWrapper.queryCats(query);
         final AsyncJob<Cat> cutestCatAsyncJob = catsListAsyncJob.map(new Func<List<Cat>, Cat>() {
             @Override
@@ -21,16 +21,16 @@ public class CatsHelper {
             }
         });
 
-        AsyncJob<Uri> storedUriAsyncJob = new AsyncJob<Uri>() {
+        AsyncJob<URI> storedUriAsyncJob = new AsyncJob<URI>() {
             @Override
-            public void start(final Callback<Uri> cutestCatCallback) {
+            public void start(final Callback<URI> cutestCatCallback) {
                 cutestCatAsyncJob.start(new Callback<Cat>() {
                     @Override
                     public void onResult(Cat cutest) {
                         apiWrapper.store(cutest)
-                                .start(new Callback<Uri>() {
+                                .start(new Callback<URI>() {
                                     @Override
-                                    public void onResult(Uri result) {
+                                    public void onResult(URI result) {
                                         cutestCatCallback.onResult(result);
                                     }
 

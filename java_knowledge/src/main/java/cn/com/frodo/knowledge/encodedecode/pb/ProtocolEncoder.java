@@ -8,7 +8,7 @@ import io.protostuff.runtime.RuntimeSchema;
 public class ProtocolEncoder
 {
     byte[] encode(Object object) {
-        Schema schema = RuntimeSchema.getSchema(object.getClass());
-        return ProtobufIOUtil.toByteArray(object, schema, LinkedBuffer.allocate());
+        // Schema schema = RuntimeSchema.getSchema(object.getClass());
+        return ProtobufIOUtil.toByteArray(object, null, LinkedBuffer.allocate());
     }
 }

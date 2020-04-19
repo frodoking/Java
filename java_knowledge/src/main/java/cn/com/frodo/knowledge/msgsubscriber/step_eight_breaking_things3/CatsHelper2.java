@@ -1,9 +1,8 @@
 package cn.com.frodo.knowledge.msgsubscriber.step_eight_breaking_things3;
 
+import java.net.URI;
 import java.util.Collections;
 import java.util.List;
-
-import com.sun.jndi.toolkit.url.Uri;
 
 import cn.com.frodo.knowledge.msgsubscriber.Cat;
 
@@ -16,7 +15,7 @@ public class CatsHelper2 {
      * @param query
      * @return
      */
-    public AsyncJob<Uri> saveTheCutestCat(String query) {
+    public AsyncJob<URI> saveTheCutestCat(String query) {
         AsyncJob<List<Cat>> catsListAsyncJob = apiWrapper.queryCats(query);
 //        AsyncJob<Cat> cutestCatAsyncJob = catsListAsyncJob.map(cats -> findCutest(cats));
 //        AsyncJob<Uri> storedUriAsyncJob = cutestCatAsyncJob.flatMap(cat -> apiWrapper.store(cat));
