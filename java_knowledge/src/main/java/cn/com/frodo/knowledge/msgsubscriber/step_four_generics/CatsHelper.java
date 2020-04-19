@@ -1,9 +1,8 @@
 package cn.com.frodo.knowledge.msgsubscriber.step_four_generics;
 
+import java.net.URI;
 import java.util.Collections;
 import java.util.List;
-
-import com.sun.jndi.toolkit.url.Uri;
 
 import cn.com.frodo.knowledge.msgsubscriber.Cat;
 
@@ -11,7 +10,7 @@ public class CatsHelper {
 
     ApiWrapper apiWrapper;
 
-    public void saveTheCutestCat(String query, final Callback<Uri> cutestCatCallback) {
+    public void saveTheCutestCat(String query, final Callback<URI> cutestCatCallback) {
         apiWrapper.queryCats(query, new Callback<List<Cat>>() {
             @Override
             public void onResult(List<Cat> cats) {

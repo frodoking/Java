@@ -1,8 +1,7 @@
 package cn.com.frodo.knowledge.msgsubscriber.step_four_generics;
 
+import java.net.URI;
 import java.util.List;
-
-import com.sun.jndi.toolkit.url.Uri;
 
 import cn.com.frodo.knowledge.msgsubscriber.Cat;
 import cn.com.frodo.knowledge.msgsubscriber.step_three_asynchronous2.Api;
@@ -24,10 +23,10 @@ public class ApiWrapper {
         });
     }
 
-    public void store(Cat cat, final Callback<Uri> uriCallback) {
+    public void store(Cat cat, final Callback<URI> uriCallback) {
         api.store(cat, new Api.StoreCallback() {
             @Override
-            public void onCatStored(Uri uri) {
+            public void onCatStored(URI uri) {
                 uriCallback.onResult(uri);
             }
 

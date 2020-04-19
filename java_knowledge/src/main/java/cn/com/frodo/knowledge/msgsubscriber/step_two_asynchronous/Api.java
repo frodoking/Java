@@ -2,7 +2,7 @@ package cn.com.frodo.knowledge.msgsubscriber.step_two_asynchronous;
 
 import java.util.List;
 
-import com.sun.jndi.toolkit.url.Uri;
+import java.net.URI;
 
 import cn.com.frodo.knowledge.msgsubscriber.Cat;
 
@@ -15,5 +15,5 @@ public interface Api {
 
     void queryCats(String query, CatsQueryCallback catsQueryCallback);
 
-    Uri store(Cat cat);
+    URI store(Cat cat);
 }

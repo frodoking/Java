@@ -1,18 +1,18 @@
-package com.frodo.spi;
+package cn.com.frodo.knowledge.spi;
 
-import com.frodo.Test;
+import cn.com.frodo.MockInterface;
 
 import java.util.Iterator;
 import java.util.ServiceLoader;
 
-public class SPITest implements Test
+public class SPITest implements MockInterface
 {
     @Override public void doTest()
     {
-        ServiceLoader<SPIInterface> spiInterfaces = ServiceLoader.load(SPIInterface.class);
-        Iterator<SPIInterface> iterator  = spiInterfaces.iterator();
+        ServiceLoader<com.frodo.spi.SPIInterface> spiInterfaces = ServiceLoader.load(com.frodo.spi.SPIInterface.class);
+        Iterator<com.frodo.spi.SPIInterface> iterator  = spiInterfaces.iterator();
         while (iterator.hasNext()) {
-            SPIInterface spiInterface = iterator.next();
+            com.frodo.spi.SPIInterface spiInterface = iterator.next();
             spiInterface.executeMethodOne();
             spiInterface.executeMethodTwo();
         }

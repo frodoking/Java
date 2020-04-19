@@ -17,19 +17,4 @@ subprojects {
         options.encoding = "UTF-8"
         options.compilerArgs << "-Xlint:unchecked"
     }
-
-    sourceSets {
-        main {
-            java.srcDirs = ['src/main/java']
-            resources.srcDirs = ['src/main/resources']
-        }
-    }
-
-    dependencies {
-        testCompile 'junit:junit:4.12'
-    }
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '3.4.1'
 }

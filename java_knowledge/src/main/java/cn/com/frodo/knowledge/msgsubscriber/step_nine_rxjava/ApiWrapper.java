@@ -2,7 +2,7 @@ package cn.com.frodo.knowledge.msgsubscriber.step_nine_rxjava;
 
 import cn.com.frodo.knowledge.msgsubscriber.Cat;
 import cn.com.frodo.knowledge.msgsubscriber.step_three_asynchronous2.Api;
-import com.sun.jndi.toolkit.url.Uri;
+import java.net.URI;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -31,14 +31,14 @@ public class ApiWrapper {
         });
     }
 
-    public Observable<Uri> store(final Cat cat) {
-        return Observable.create(new ObservableOnSubscribe<Uri>() {
+    public Observable<URI> store(final Cat cat) {
+        return Observable.create(new ObservableOnSubscribe<URI>() {
 
             @Override
-            public void subscribe(final ObservableEmitter<Uri> emitter) throws Exception {
+            public void subscribe(final ObservableEmitter<URI> emitter) throws Exception {
                 api.store(cat, new Api.StoreCallback() {
                     @Override
-                    public void onCatStored(Uri uri) {
+                    public void onCatStored(URI uri) {
                         emitter.onNext(uri);
                     }
 

@@ -1,6 +1,5 @@
-package com.frodo.algorithm;
+package cn.com.frodo.algorithm.common.consistenthash;
 
-import org.apache.commons.collections.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,7 +36,7 @@ public class ConsistentHash
     }
 
     public int getRealNodeSize() {
-        return CollectionUtils.size(realNodes);
+        return realNodes.size();
     }
 
     // 使用FNV1_32_HASH算法计算服务器的Hash值，hash空间为[0,2^32-1],程序控制实现逻辑的环形结构

@@ -16,7 +16,7 @@ public class GCTest implements MockInterface
     @Override public void doTest()
     {
         int _1MB = 1024 * 1024;
-        List caches = new ArrayList();
+        List<byte[]> caches = new ArrayList<>();
         for (int i = 0; i < 15; i++)
         {
             caches.add(new byte[32 * _1MB]);
