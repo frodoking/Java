@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by xuwei19 on 2017/5/18.
+ * Created by frodo on 2017/5/18.
  * AES对称加密和解密
  */
 @Slf4j
