@@ -5,7 +5,7 @@ package cn.com.frodo.knowledge.threadlocal;
  */
 public class ThreadLocalTest {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         final ThreadLocal<Integer> threadLocal = new ThreadLocal<>();
         threadLocal.set(-1);
         for (int i = 0; i < 10; i++) {
@@ -13,7 +13,7 @@ public class ThreadLocalTest {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    Thread t= Thread.currentThread();
+                    Thread t = Thread.currentThread();
                     System.out.println("Thread -- " + t.getName() + ", ThreadLocal: get " + threadLocal.get());
                     System.out.println("\n");
                 }

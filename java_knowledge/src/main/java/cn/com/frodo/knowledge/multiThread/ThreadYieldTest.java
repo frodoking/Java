@@ -2,14 +2,13 @@ package com.frodo.thread;
 
 import cn.com.frodo.MockInterface;
 
-public class ThreadYieldTest implements MockInterface
-{
-    @Override public void doTest()
-    {
+public class ThreadYieldTest implements MockInterface {
+    @Override
+    public void doTest() {
         Runnable r = new Runnable() {
 
-            @Override public void run()
-            {
+            @Override
+            public void run() {
                 for (int i = 1; i <= 50; i++) {
                     System.out.println("" + Thread.currentThread().getName() + "-----" + i);
                     // 当i为30时，该线程就会把CPU时间让掉，让其他或者自己的线程执行（也就是谁先抢到谁执行）
@@ -20,7 +19,7 @@ public class ThreadYieldTest implements MockInterface
             }
         };
 
-        new Thread( r, "zhangsan").start();
-        new Thread( r, "lisi").start();
+        new Thread(r, "zhangsan").start();
+        new Thread(r, "lisi").start();
     }
 }

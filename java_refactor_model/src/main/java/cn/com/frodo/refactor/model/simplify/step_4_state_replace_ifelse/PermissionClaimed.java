@@ -2,35 +2,35 @@ package cn.com.frodo.refactor.model.simplify.step_4_state_replace_ifelse;
 
 public class PermissionClaimed extends PermissionState {
 
-	protected PermissionClaimed() {
-		super("CLAIMED");
-	}
-	
-	@Override
-	public void grantedBy(SystemAdmin admin, SystemPermission permission) {
-		if (permission.getAdmin().equals(admin))
-			return;
+    protected PermissionClaimed() {
+        super("CLAIMED");
+    }
 
-		if (permission.getProfile().isUnixPermissionRequired() && !permission.isUnixPermissionGranted()) {
-			permission.setState(UNIX_REQUESTED);
-			permission.notifyUserOfPermissionRequestResult();
-			return;
-		}
+    @Override
+    public void grantedBy(SystemAdmin admin, SystemPermission permission) {
+        if (permission.getAdmin().equals(admin))
+            return;
 
-		permission.setState(GRANTED);
-		permission.setGranted(true);
-		permission.notifyUserOfPermissionRequestResult();
-	}
+        if (permission.getProfile().isUnixPermissionRequired() && !permission.isUnixPermissionGranted()) {
+            permission.setState(UNIX_REQUESTED);
+            permission.notifyUserOfPermissionRequestResult();
+            return;
+        }
 
-	@Override
-	public void deniedBy(SystemAdmin admin, SystemPermission permission) {
-		if (permission.getAdmin().equals(admin))
-			return;
+        permission.setState(GRANTED);
+        permission.setGranted(true);
+        permission.notifyUserOfPermissionRequestResult();
+    }
 
-		permission.setGranted(false);
-		permission.setUnixPermissionGranted(false);
-		permission.setState(DENIED);
-		permission.notifyUserOfPermissionRequestResult();
-	}
+    @Override
+    public void deniedBy(SystemAdmin admin, SystemPermission permission) {
+        if (permission.getAdmin().equals(admin))
+            return;
+
+        permission.setGranted(false);
+        permission.setUnixPermissionGranted(false);
+        permission.setState(DENIED);
+        permission.notifyUserOfPermissionRequestResult();
+    }
 
 }

@@ -1,12 +1,12 @@
 package cn.com.frodo.concurrent.chapter_7;
 
-import static java.util.concurrent.TimeUnit.SECONDS;
-
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import static java.util.concurrent.TimeUnit.SECONDS;
 
 /**
  * 使用volatile类型的域来保存取消状态

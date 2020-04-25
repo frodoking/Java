@@ -1,7 +1,10 @@
 package cn.com.frodo.knowledge.multiThread;
 
 import java.util.Random;
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -9,7 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class LimitRateThreadPool {
     public static void main(String[] args) {
-        final ExecutorService executorService =  new ThreadPoolExecutor(3, 10, 5, TimeUnit.MINUTES,
+        final ExecutorService executorService = new ThreadPoolExecutor(3, 10, 5, TimeUnit.MINUTES,
                 new LinkedBlockingDeque<Runnable>(10), new ThreadPoolExecutor.CallerRunsPolicy());
         AtomicInteger integer = new AtomicInteger(0);
         for (int i = 0; i < 100; i++) {

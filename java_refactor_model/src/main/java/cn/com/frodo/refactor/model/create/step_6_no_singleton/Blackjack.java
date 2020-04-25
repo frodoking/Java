@@ -4,41 +4,40 @@ import java.io.BufferedReader;
 
 /**
  * 将不需要单例的类 实现内联化
- * 
+ *
  * @author frodoking
- * 
  */
 public class Blackjack {
 
-	HitStayResponse hitStayResponse;
+    HitStayResponse hitStayResponse;
 
-	public HitStayResponse obtainHitStayResponse(BufferedReader input) {
-		hitStayResponse.readFrom(input);
-		return hitStayResponse;
-	}
+    public HitStayResponse obtainHitStayResponse(BufferedReader input) {
+        hitStayResponse.readFrom(input);
+        return hitStayResponse;
+    }
 
-	public void setPlayerResponse(HitStayResponse newHitStayResponse) {
-		this.hitStayResponse = newHitStayResponse;
-	}
+    public void setPlayerResponse(HitStayResponse newHitStayResponse) {
+        this.hitStayResponse = newHitStayResponse;
+    }
 
-	int[] deck;
+    int[] deck;
 
-	public Blackjack(int[] deck) {
-		super();
-		this.deck = deck;
-	}
+    public Blackjack(int[] deck) {
+        super();
+        this.deck = deck;
+    }
 
-	public void play() {
-		// TODO
-		obtainHitStayResponse(null);
-	}
+    public void play() {
+        // TODO
+        obtainHitStayResponse(null);
+    }
 
-	public boolean didDealerWin() {
-		return false;
-	}
+    public boolean didDealerWin() {
+        return false;
+    }
 
-	public Object getDealerTotal() {
-		return null;
-	}
+    public Object getDealerTotal() {
+        return null;
+    }
 
 }

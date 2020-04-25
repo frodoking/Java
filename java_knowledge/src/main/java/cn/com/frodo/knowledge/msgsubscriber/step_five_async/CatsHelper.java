@@ -1,11 +1,11 @@
 package cn.com.frodo.knowledge.msgsubscriber.step_five_async;
 
+import cn.com.frodo.knowledge.msgsubscriber.Cat;
+import cn.com.frodo.knowledge.msgsubscriber.step_four_generics.Callback;
+
 import java.net.URI;
 import java.util.Collections;
 import java.util.List;
-
-import cn.com.frodo.knowledge.msgsubscriber.Cat;
-import cn.com.frodo.knowledge.msgsubscriber.step_four_generics.Callback;
 
 public class CatsHelper {
 

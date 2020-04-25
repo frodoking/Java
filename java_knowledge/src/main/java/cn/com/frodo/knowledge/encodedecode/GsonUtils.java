@@ -1,14 +1,6 @@
 package cn.com.frodo.knowledge.encodedecode;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonParseException;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonSerializer;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonPrimitive;
+import com.google.gson.*;
 
 import java.io.Reader;
 import java.lang.reflect.Type;
@@ -22,11 +14,11 @@ import static com.google.gson.FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES;
 
 /**
  * Description: Gson Utilities
+ *
  * @author frodoking
  * @version [V1, 2019/8/16 11:23]
  */
-public class GsonUtils
-{
+public class GsonUtils {
     private static final Gson GSON = createGson(true);
 
     private static final Gson GSON_NO_NULLS = createGson(false);
@@ -36,21 +28,17 @@ public class GsonUtils
      *
      * @return created gson, never null
      */
-    public static Gson createGson()
-    {
+    public static Gson createGson() {
         return createGson(true);
     }
 
     /**
      * Create the standard {@link Gson} configuration
      *
-     * @param serializeNulls
-     *            whether nulls should be serialized
-     *
+     * @param serializeNulls whether nulls should be serialized
      * @return created gson, never null
      */
-    public static Gson createGson(final boolean serializeNulls)
-    {
+    public static Gson createGson(final boolean serializeNulls) {
         final GsonBuilder builder = new GsonBuilder();
         builder.registerTypeAdapter(Date.class, new DateFormatter());
         builder.setFieldNamingPolicy(LOWER_CASE_WITH_UNDERSCORES);
@@ -64,8 +52,7 @@ public class GsonUtils
      *
      * @return Gson instance
      */
-    public static Gson getGson()
-    {
+    public static Gson getGson() {
         return GSON;
     }
 
@@ -75,8 +62,7 @@ public class GsonUtils
      * @param serializeNulls
      * @return Gson instance
      */
-    public static Gson getGson(final boolean serializeNulls)
-    {
+    public static Gson getGson(final boolean serializeNulls) {
         return serializeNulls ? GSON : GSON_NO_NULLS;
     }
 
@@ -86,8 +72,7 @@ public class GsonUtils
      * @param object
      * @return json string
      */
-    public static String toJson(final Object object)
-    {
+    public static String toJson(final Object object) {
         return toJson(object, true);
     }
 
@@ -98,8 +83,7 @@ public class GsonUtils
      * @param includeNulls
      * @return json string
      */
-    public static String toJson(final Object object, final boolean includeNulls)
-    {
+    public static String toJson(final Object object, final boolean includeNulls) {
         return includeNulls ? GSON.toJson(object) : GSON_NO_NULLS.toJson(object);
     }
 
@@ -110,8 +94,7 @@ public class GsonUtils
      * @param type
      * @return instance of type
      */
-    public static <V> V fromJson(String json, Class<V> type)
-    {
+    public static <V> V fromJson(String json, Class<V> type) {
         return GSON.fromJson(json, type);
     }
 
@@ -122,8 +105,7 @@ public class GsonUtils
      * @param type
      * @return instance of type
      */
-    public static <V> V fromJson(String json, Type type)
-    {
+    public static <V> V fromJson(String json, Type type) {
         return GSON.fromJson(json, type);
     }
 
@@ -134,8 +116,7 @@ public class GsonUtils
      * @param type
      * @return instance of type
      */
-    public static <V> V fromJson(Reader reader, Class<V> type)
-    {
+    public static <V> V fromJson(Reader reader, Class<V> type) {
         return GSON.fromJson(reader, type);
     }
 
@@ -146,23 +127,27 @@ public class GsonUtils
      * @param type
      * @return instance of type
      */
-    public static <V> V fromJson(Reader reader, Type type)
-    {
+    public static <V> V fromJson(Reader reader, Type type) {
         return GSON.fromJson(reader, type);
     }
 
     /**
      * Formatter for date formats present in the GitHub v2 and v3 API.
      */
-    public static class DateFormatter implements JsonDeserializer<Date>, JsonSerializer<Date>
-    {
-        /** */
+    public static class DateFormatter implements JsonDeserializer<Date>, JsonSerializer<Date> {
+        /**
+         *
+         */
         String DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'"; //$NON-NLS-1$
 
-        /** */
+        /**
+         *
+         */
         String DATE_FORMAT_V2_1 = "yyyy/MM/dd HH:mm:ss Z"; //$NON-NLS-1$
 
-        /** */
+        /**
+         *
+         */
         String DATE_FORMAT_V2_2 = "yyyy-MM-dd'T'HH:mm:ss"; //$NON-NLS-1$
 
         private final DateFormat[] formats;
@@ -170,8 +155,7 @@ public class GsonUtils
         /**
          * Create date formatter
          */
-        public DateFormatter()
-        {
+        public DateFormatter() {
             formats = new DateFormat[3];
             formats[0] = new SimpleDateFormat(DATE_FORMAT);
             formats[1] = new SimpleDateFormat(DATE_FORMAT_V2_1);
@@ -181,39 +165,32 @@ public class GsonUtils
                 format.setTimeZone(timeZone);
         }
 
-        @Override public Date deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
-                throws JsonParseException
-        {
+        @Override
+        public Date deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
+                throws JsonParseException {
             JsonParseException exception = null;
             final String value = json.getAsString();
-            for (DateFormat format : formats)
-            {
-                try
-                {
-                    synchronized (format)
-                    {
+            for (DateFormat format : formats) {
+                try {
+                    synchronized (format) {
                         return format.parse(value);
                     }
-                }
-                catch (ParseException e)
-                {
+                } catch (ParseException e) {
                     exception = new JsonParseException(e);
                 }
             }
-            if (exception != null)
-            { // Always true here.
+            if (exception != null) { // Always true here.
                 throw exception;
             }
             // We'll never get here, but JDT's null analysis get's confused.
             return null;
         }
 
-        @Override public JsonElement serialize(Date date, Type type, JsonSerializationContext context)
-        {
+        @Override
+        public JsonElement serialize(Date date, Type type, JsonSerializationContext context) {
             final DateFormat primary = formats[0];
             String formatted;
-            synchronized (primary)
-            {
+            synchronized (primary) {
                 formatted = primary.format(date);
             }
             return new JsonPrimitive(formatted);

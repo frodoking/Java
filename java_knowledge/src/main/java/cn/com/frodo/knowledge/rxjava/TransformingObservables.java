@@ -15,13 +15,14 @@ public class TransformingObservables {
         return observable.map(new Function<Integer, Integer>() {
             @Override
             public Integer apply(Integer integer) throws Exception {
-                return integer*2;
+                return integer * 2;
             }
         });
     }
 
     /**
      * 无序
+     *
      * @param observable
      * @return
      */
@@ -40,6 +41,7 @@ public class TransformingObservables {
 
     /**
      * 有序
+     *
      * @param observable
      * @return
      */

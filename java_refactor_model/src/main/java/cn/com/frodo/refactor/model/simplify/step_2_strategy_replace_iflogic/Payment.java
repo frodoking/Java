@@ -4,12 +4,12 @@ import java.util.Date;
 
 public class Payment {
 
-	public double amount() {
-		return 0;
-	}
+    public double amount() {
+        return 0;
+    }
 
-	public Date date() {
-		return null;
-	}
+    public Date date() {
+        return null;
+    }
 
 }

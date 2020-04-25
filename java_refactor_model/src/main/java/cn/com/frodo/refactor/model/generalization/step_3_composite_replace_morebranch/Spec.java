@@ -2,8 +2,8 @@ package cn.com.frodo.refactor.model.generalization.step_3_composite_replace_more
 
 public class Spec {
 
-	public boolean isSatisfiedBy(Product product) {
-		return false;
-	}
+    public boolean isSatisfiedBy(Product product) {
+        return false;
+    }
 
 }

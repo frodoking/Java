@@ -6,7 +6,7 @@ import cn.com.frodo.knowledge.msgsubscriber.step_seven_breaking_thins2.Func;
 public abstract class AsyncJob<T> {
     public abstract void start(Callback<T> callback);
 
-    public <R> AsyncJob<R> map(final Func<T, R> func){
+    public <R> AsyncJob<R> map(final Func<T, R> func) {
         final AsyncJob<T> source = this;
         return new AsyncJob<R>() {
             @Override
@@ -27,7 +27,7 @@ public abstract class AsyncJob<T> {
         };
     }
 
-    public <R> AsyncJob<R> flatMap(final Func<T, AsyncJob<R>> func){
+    public <R> AsyncJob<R> flatMap(final Func<T, AsyncJob<R>> func) {
         final AsyncJob<T> source = this;
         return new AsyncJob<R>() {
             @Override

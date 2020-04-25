@@ -21,7 +21,7 @@ public class UnzipFile {
         }
         final ZipInputStream zis = new ZipInputStream(new FileInputStream(fileZip));
         ZipEntry zipEntry = zis.getNextEntry();
-        while(zipEntry != null){
+        while (zipEntry != null) {
             final String fileName = zipEntry.getName();
             System.out.println("args = [" + fileName + "]");
             final File newFile = new File("tmp/" + fileName);

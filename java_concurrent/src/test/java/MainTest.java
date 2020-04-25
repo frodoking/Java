@@ -4,7 +4,7 @@ import cn.com.frodo.concurrent.chapter_5.TestHarness;
  * Created by frodoking on 2015/1/14.
  */
 public class MainTest {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         TestHarness testHarness = new TestHarness();
         try {
 
@@ -16,7 +16,7 @@ public class MainTest {
                 }
             });
             System.out.println(System.nanoTime());
-            System.out.println("total : "+ time);
+            System.out.println("total : " + time);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

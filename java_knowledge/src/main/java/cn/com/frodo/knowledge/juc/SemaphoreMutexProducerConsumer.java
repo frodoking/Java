@@ -1,7 +1,5 @@
 package cn.com.frodo.knowledge.juc;
 
-import sun.awt.Mutex;
-
 import java.util.concurrent.Semaphore;
 
 /**
@@ -12,7 +10,8 @@ public class SemaphoreMutexProducerConsumer implements ProducerConsumer {
 
     public static final Semaphore NOT_EMPTY = new Semaphore(0);
     public static final Semaphore NOT_FULL = new Semaphore(10);
-    public static final Mutex lock = new Mutex();
+    // 互斥量，控制buffer的互斥访问
+    private Semaphore mutex = new Semaphore(1);
     public static int count = 0;
 
     @Override
@@ -27,13 +26,13 @@ public class SemaphoreMutexProducerConsumer implements ProducerConsumer {
 
                 try {
                     NOT_FULL.acquire();
-                    lock.lock();
+                    mutex.acquire();
                     count++;
                     System.out.println(Thread.currentThread().getName() + "生产：" + count);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
-                    lock.unlock();
+                    mutex.release();
                     NOT_EMPTY.release();
                 }
             }
@@ -52,13 +51,13 @@ public class SemaphoreMutexProducerConsumer implements ProducerConsumer {
 
                 try {
                     NOT_EMPTY.acquire();
-                    lock.lock();
+                    mutex.acquire();
                     count--;
                     System.out.println(Thread.currentThread().getName() + "消费：" + count);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
-                    lock.unlock();
+                    mutex.release();
                     NOT_FULL.release();
                 }
             }

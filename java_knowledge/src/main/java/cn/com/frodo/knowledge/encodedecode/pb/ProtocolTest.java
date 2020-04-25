@@ -5,12 +5,11 @@ import io.protostuff.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ProtocolTest implements MockInterface
-{
+public class ProtocolTest implements MockInterface {
     private static final Logger LOGGER = LoggerFactory.getLogger(ProtocolTest.class);
 
-    @Override public void doTest()
-    {
+    @Override
+    public void doTest() {
         ProtocolEncoder encoder = new ProtocolEncoder();
         ProtocolDecoder decoder = new ProtocolDecoder();
 
@@ -25,24 +24,21 @@ public class ProtocolTest implements MockInterface
         LOGGER.info("key {}, value {}", pojose.key + ", " + pojose.key2, pojose.value + ", " + pojose.value2);
     }
 
-    public static class POJO
-    {
+    public static class POJO {
         @Tag(100)
         String key;
         @Tag(200)
         String value;
     }
 
-    public static class POJOE extends POJO
-    {
+    public static class POJOE extends POJO {
         @Tag(101)
         String key2;
         @Tag(203)
         String value2;
     }
 
-    public static class POJOS extends POJO
-    {
+    public static class POJOS extends POJO {
         @Tag(100)
         String key;
         @Tag(200)
@@ -51,8 +47,7 @@ public class ProtocolTest implements MockInterface
         String value3;
     }
 
-    public static class POJOSE extends POJOS
-    {
+    public static class POJOSE extends POJOS {
         @Tag(value = 101, alias = "aa")
         String key2;
         @Tag(202)

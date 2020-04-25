@@ -12,28 +12,25 @@ import java.util.HashMap;
 
 /**
  * Description TODO
+ *
  * @author frodoking
  * @version [V1, 2019/8/15 11:29]
  */
-public class GsonTest implements MockInterface
-{
+public class GsonTest implements MockInterface {
 
     private int runLoop = 1000;
 
-    public GsonTest()
-    {
+    public GsonTest() {
     }
 
-    public GsonTest(int runLoop)
-    {
+    public GsonTest(int runLoop) {
         this.runLoop = runLoop;
     }
 
-    @Override public void doTest()
-    {
+    @Override
+    public void doTest() {
         URL url = getClass().getResource("/test.json");
-        try
-        {
+        try {
             File file = new File(url.toURI());
             String content = FileUtils.readFileToString(file, StandardCharsets.UTF_8);
 
@@ -41,13 +38,11 @@ public class GsonTest implements MockInterface
             long max = 0;
             long avg = 0;
 
-            for (int i = 0; i < runLoop; i++)
-            {
+            for (int i = 0; i < runLoop; i++) {
                 long timestamp = System.nanoTime();
                 GsonUtils.fromJson(content, HashMap.class);
                 long takeTime = System.nanoTime() - timestamp;
-                if (avg == 0)
-                {
+                if (avg == 0) {
                     avg = takeTime;
                     min = takeTime;
                     max = takeTime;
@@ -61,13 +56,11 @@ public class GsonTest implements MockInterface
             min = 0;
             max = 0;
             HashMap hashMap = GsonUtils.fromJson(content, HashMap.class);
-            for (int i = 0; i < runLoop; i++)
-            {
+            for (int i = 0; i < runLoop; i++) {
                 long timestamp = System.nanoTime();
                 GsonUtils.toJson(hashMap);
                 long takeTime = System.nanoTime() - timestamp;
-                if (avg == 0)
-                {
+                if (avg == 0) {
                     avg = takeTime;
                     min = takeTime;
                     max = takeTime;
@@ -78,9 +71,7 @@ public class GsonTest implements MockInterface
             }
 
             System.out.println("S RunLoop: " + runLoop + ",  min: " + min + ", max: " + max + ", avg: " + avg);
-        }
-        catch (URISyntaxException | IOException e)
-        {
+        } catch (URISyntaxException | IOException e) {
             e.printStackTrace();
         }
     }

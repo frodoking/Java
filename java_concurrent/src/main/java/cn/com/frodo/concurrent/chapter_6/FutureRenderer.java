@@ -11,7 +11,8 @@ import java.util.concurrent.*;
  */
 public abstract class FutureRenderer {
     private final ExecutorService executor = Executors.newCachedThreadPool();
-    void renderPage(CharSequence source){
+
+    void renderPage(CharSequence source) {
         renderText(source);
 
         final List<ImageInfo> imageInfos = scanForImageInfo(source);
@@ -20,7 +21,7 @@ public abstract class FutureRenderer {
             @Override
             public List<ImageData> call() throws Exception {
                 List<ImageData> result = new ArrayList<ImageData>();
-                for (ImageInfo imageInfo : imageInfos){
+                for (ImageInfo imageInfo : imageInfos) {
                     result.add(imageInfo.downloadImage());
                 }
                 return result;
@@ -29,8 +30,8 @@ public abstract class FutureRenderer {
         Future<List<ImageData>> future = executor.submit(task);
 
         try {
-            List<ImageData> imageDatas  = future.get();
-            for (ImageData data: imageDatas){
+            List<ImageData> imageDatas = future.get();
+            for (ImageData data : imageDatas) {
                 renderImage(data);
             }
         } catch (InterruptedException e) {

@@ -1,10 +1,10 @@
 package cn.com.frodo.knowledge.msgsubscriber.step_eight_breaking_things3;
 
+import cn.com.frodo.knowledge.msgsubscriber.Cat;
+
 import java.net.URI;
 import java.util.Collections;
 import java.util.List;
-
-import cn.com.frodo.knowledge.msgsubscriber.Cat;
 
 public class CatsHelper2 {
 
@@ -12,6 +12,7 @@ public class CatsHelper2 {
 
     /**
      * JDK8
+     *
      * @param query
      * @return
      */

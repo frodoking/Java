@@ -5,7 +5,7 @@ import cn.com.frodo.knowledge.msgsubscriber.step_four_generics.Callback;
 public abstract class AsyncJob<T> {
     public abstract void start(Callback<T> callback);
 
-    public <R> AsyncJob<R> map(final Func<T, R> func){
+    public <R> AsyncJob<R> map(final Func<T, R> func) {
         final AsyncJob<T> source = this;
         return new AsyncJob<R>() {
             @Override

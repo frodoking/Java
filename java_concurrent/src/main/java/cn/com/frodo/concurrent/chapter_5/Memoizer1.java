@@ -21,6 +21,7 @@ public class Memoizer1<A, V> implements Computable<A, V> {
 
     /**
      * (synchronized)性能瓶颈,会有明显的可伸缩性问题：每次只有一个线程能够执行compute
+     *
      * @param arg
      * @return
      * @throws InterruptedException

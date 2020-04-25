@@ -1,12 +1,11 @@
 package cn.com.frodo.knowledge.msgsubscriber.step_seven_breaking_thins2;
 
-import java.util.Collections;
-import java.util.List;
-
-import java.net.URI;
-
 import cn.com.frodo.knowledge.msgsubscriber.Cat;
 import cn.com.frodo.knowledge.msgsubscriber.step_four_generics.Callback;
+
+import java.net.URI;
+import java.util.Collections;
+import java.util.List;
 
 public class CatsHelper {
 

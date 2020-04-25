@@ -30,9 +30,9 @@ public class BoundedHashSet<T> {
         }
     }
 
-    public boolean remove(Object o){
+    public boolean remove(Object o) {
         boolean wasRemoved = set.remove(o);
-        if(wasRemoved)
+        if (wasRemoved)
             semaphore.release();
 
         return wasRemoved;

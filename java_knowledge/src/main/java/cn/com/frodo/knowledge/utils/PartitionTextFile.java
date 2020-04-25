@@ -1,11 +1,6 @@
 package cn.com.frodo.knowledge.utils;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * TEXT 文件分割，该分割方式按行分割

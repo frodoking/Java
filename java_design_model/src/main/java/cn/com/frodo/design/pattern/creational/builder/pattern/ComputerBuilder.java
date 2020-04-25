@@ -1,17 +1,17 @@
 package cn.com.frodo.design.pattern.creational.builder.pattern;
 
 public interface ComputerBuilder {
-	void buildCpu();
+    void buildCpu();
 
-	void buildRam();
+    void buildRam();
 
-	void buildHardDisk();
+    void buildHardDisk();
 
-	void buildGraphicCard();
+    void buildGraphicCard();
 
-	void buildMonitor();
+    void buildMonitor();
 
-	void buildOs();
+    void buildOs();
 
-	Computer getResult();
+    Computer getResult();
 }

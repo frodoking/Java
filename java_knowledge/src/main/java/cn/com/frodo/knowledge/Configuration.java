@@ -6,8 +6,7 @@ import org.yaml.snakeyaml.Yaml;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 
-public class Configuration
-{
+public class Configuration {
     private static final Object GLOBAL_CONFIG;
 
     static {
@@ -16,25 +15,18 @@ public class Configuration
         GLOBAL_CONFIG = yaml.load(classloader.getResourceAsStream("config.yml"));
     }
 
-    public static Object get(String key)
-    {
-        if (GLOBAL_CONFIG instanceof LinkedHashMap)
-        {
+    public static Object get(String key) {
+        if (GLOBAL_CONFIG instanceof LinkedHashMap) {
             LinkedHashMap map = (LinkedHashMap) GLOBAL_CONFIG;
             Iterator<String> iterator = Splitter.on(".").split(key).iterator();
             Object result = map;
-            while (iterator.hasNext())
-            {
+            while (iterator.hasNext()) {
                 String next = iterator.next();
-                if (result instanceof LinkedHashMap)
-                {
-                    if (((LinkedHashMap) result).containsKey(next))
-                    {
+                if (result instanceof LinkedHashMap) {
+                    if (((LinkedHashMap) result).containsKey(next)) {
                         result = ((LinkedHashMap) result).get(next);
                     }
-                }
-                else
-                {
+                } else {
                     result = null;
                 }
             }

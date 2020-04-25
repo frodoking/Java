@@ -1,17 +1,17 @@
 package cn.com.frodo.design.pattern.behavior.memento.pattern;
 
 public class Memento {
-	private String state;
+    private String state;
 
-	public Memento(String state) {
-		this.state = state;
-	}
+    public Memento(String state) {
+        this.state = state;
+    }
 
-	public String getState() {
-		return state;
-	}
+    public String getState() {
+        return state;
+    }
 
-	public void setState(String state) {
-		this.state = state;
-	}
+    public void setState(String state) {
+        this.state = state;
+    }
 }

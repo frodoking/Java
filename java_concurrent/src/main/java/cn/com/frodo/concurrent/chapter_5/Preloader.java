@@ -18,7 +18,7 @@ public class Preloader {
 
     private final Thread thread = new Thread(future);
 
-    public void start(){
+    public void start() {
         thread.start();
     }
 
@@ -27,9 +27,9 @@ public class Preloader {
             return future.get();
         } catch (ExecutionException e) {
             Throwable cause = e.getCause();
-            if(cause instanceof DataLoadException){
-                throw (DataLoadException)cause;
-            }else{
+            if (cause instanceof DataLoadException) {
+                throw (DataLoadException) cause;
+            } else {
                 throw LaunderThrowable.launderThrowable(cause);
             }
         }
@@ -38,9 +38,11 @@ public class Preloader {
     ProductInfo loadProductInfo() throws DataLoadException {
         return null;
     }
+
     interface ProductInfo {
     }
 }
 
 
-class DataLoadException extends Exception { }
+class DataLoadException extends Exception {
+}

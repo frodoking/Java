@@ -23,12 +23,11 @@ import java.util.Map;
 /**
  * 高性能API Gateway
  */
-public class VertxSeverTest implements MockInterface
-{
+public class VertxSeverTest implements MockInterface {
     private static final Logger LOGGER = LoggerFactory.getLogger(VertxSeverTest.class);
 
-    @Override public void doTest()
-    {
+    @Override
+    public void doTest() {
         System.setProperty("vertx.logger-delegate-factory-class-name", "io.vertx.core.logging.Log4jLogDelegateFactory");
 
         VertxOptions options = new VertxOptions();
@@ -43,8 +42,7 @@ public class VertxSeverTest implements MockInterface
 
         router.route("/some/1").handler(routingContext -> {
             Cookie cookie = routingContext.getCookie("mycookie");
-            if (cookie != null)
-            {
+            if (cookie != null) {
                 String cookieValue = cookie.getValue();
                 LOGGER.info(cookieValue);
             }
@@ -75,8 +73,7 @@ public class VertxSeverTest implements MockInterface
             response.write("route3");
 
             Cookie cookie = routingContext.getCookie("testCKey");
-            if (cookie != null)
-            {
+            if (cookie != null) {
                 String cookieValue = cookie.getValue();
                 LOGGER.info("{}: {}", "testCKey", cookieValue);
             }
@@ -125,8 +122,7 @@ public class VertxSeverTest implements MockInterface
 
         server.requestHandler(router).listen(8080, ar -> {
             LOGGER.info("start status: {}", ar.succeeded());
-            if (!ar.succeeded())
-            {
+            if (!ar.succeeded()) {
                 ar.cause().printStackTrace();
             }
         });

@@ -4,13 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Variables {
-	Map<Variable, Integer> v = new HashMap<Variable, Integer>();
+    Map<Variable, Integer> v = new HashMap<Variable, Integer>();
 
-	public void put(Variable variable, int value) {
-		v.put(variable, value);
-	}
+    public void put(Variable variable, int value) {
+        v.put(variable, value);
+    }
 
-	public int getVariable(Variable variable) {
-		return v.get(variable);
-	}
+    public int getVariable(Variable variable) {
+        return v.get(variable);
+    }
 }

@@ -1,25 +1,21 @@
-package com.frodo.algorithm;
+package cn.com.frodo.algorithm.common.consistenthash;
 
-import com.frodo.Test;
+import cn.com.frodo.MockInterface;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ConsistentHashTest implements Test
-{
+public class ConsistentHashTest implements MockInterface {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ConsistentHashTest.class);
 
     // 产生随机字符串，视为key
-    public static String[] genKeys(int number)
-    {
+    public static String[] genKeys(int number) {
         String[] ary = new String[number];
         int length = 0;
-        for (int j = 0; j < number; j++)
-        {
+        for (int j = 0; j < number; j++) {
             String temp = "";
             length = (int) (Math.random() * 8 + 2);
-            for (int i = 0; i < length; i++)
-            {
+            for (int i = 0; i < length; i++) {
                 int intValue = (int) (Math.random() * 26 + 97);
                 temp += (char) intValue;
             }
@@ -28,8 +24,8 @@ public class ConsistentHashTest implements Test
         return ary;
     }
 
-    @Override public void doTest()
-    {
+    @Override
+    public void doTest() {
         String[] nodes =
                 {"10.10.25.11:6379", "10.10.25.12:6379", "10.10.25.13:6379", "10.10.25.14:6379", "10.10.25.15:6379"};
 

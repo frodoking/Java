@@ -1,11 +1,11 @@
 package cn.com.frodo.design.pattern.behavior.interpreter.pattern;
 
 public class TerminalExpression extends AbstractExpression {
-	TerminalExpression(AbstractExpression expression) {
-	}
+    TerminalExpression(AbstractExpression expression) {
+    }
 
-	@Override
-	public Object interpreter(Context context) {
-		return null;
-	}
+    @Override
+    public Object interpreter(Context context) {
+        return null;
+    }
 }

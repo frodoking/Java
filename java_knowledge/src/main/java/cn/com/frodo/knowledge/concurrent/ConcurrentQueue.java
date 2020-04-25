@@ -4,8 +4,7 @@ import cn.com.frodo.MockInterface;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-public abstract class ConcurrentQueue implements MockInterface
-{
+public abstract class ConcurrentQueue implements MockInterface {
     AtomicLong avg = new AtomicLong();
 
     AtomicLong avgPull = new AtomicLong();
@@ -18,35 +17,26 @@ public abstract class ConcurrentQueue implements MockInterface
 
     long callTime = 0;
 
-    public ConcurrentQueue()
-    {
+    public ConcurrentQueue() {
     }
 
-    public ConcurrentQueue(int producerNum, int producerWaitTime, int consumerNum, long callTime)
-    {
+    public ConcurrentQueue(int producerNum, int producerWaitTime, int consumerNum, long callTime) {
         this.producerNum = producerNum;
         this.producerWaitTime = producerWaitTime;
         this.consumerNum = consumerNum;
         this.callTime = callTime;
     }
 
-    void produce()
-    {
-        for (int i = 0; i < producerNum; i++)
-        {
-            new Thread(new Runnable()
-            {
-                @Override public void run()
-                {
-                    while (true)
-                    {
+    void produce() {
+        for (int i = 0; i < producerNum; i++) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    while (true) {
                         offer(new Call("xxxxx"));
-                        try
-                        {
+                        try {
                             Thread.sleep(producerWaitTime);
-                        }
-                        catch (InterruptedException e)
-                        {
+                        } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                     }
@@ -55,40 +45,30 @@ public abstract class ConcurrentQueue implements MockInterface
         }
     }
 
-    void consume()
-    {
-        for (int i = 0; i < consumerNum; i++)
-        {
+    void consume() {
+        for (int i = 0; i < consumerNum; i++) {
             new Thread(() -> {
-                while (true)
-                {
+                while (true) {
                     long startTime = System.nanoTime();
                     Call call = poll();
                     long tackTime = System.nanoTime() - startTime;
                     // System.out.println("TackTime: " + tackTime);
-                    if (avgPull.get() == 0)
-                    {
+                    if (avgPull.get() == 0) {
                         avgPull.set(tackTime);
                     }
                     avgPull.set((avgPull.get() + tackTime) / 2);
-                    if (call != null)
-                    {
-                        try
-                        {
+                    if (call != null) {
+                        try {
                             long startCallTime = System.nanoTime() - call.timestamp;
-                            if (avg.get() == 0)
-                            {
+                            if (avg.get() == 0) {
                                 avg.set(startCallTime);
                             }
                             avg.set((avg.get() + startCallTime) / 2);
 
-                            if (callTime > 0)
-                            {
+                            if (callTime > 0) {
                                 Thread.sleep(callTime);
                             }
-                        }
-                        catch (InterruptedException e)
-                        {
+                        } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                     }
@@ -97,24 +77,19 @@ public abstract class ConcurrentQueue implements MockInterface
         }
     }
 
-    @Override public void doTest()
-    {
+    @Override
+    public void doTest() {
         produce();
         consume();
-        new Thread(new Runnable()
-        {
-            @Override public void run()
-            {
-                while (true)
-                {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
                     // System.out.println("Avg: " + avg.get() + " Avg Pull: " + avgPull.get() + " Queue Size: " + queue.size());
                     System.out.println("Avg: " + avg.get() + " Avg Pull: " + avgPull.get());
-                    try
-                    {
+                    try {
                         Thread.sleep(100);
-                    }
-                    catch (InterruptedException e)
-                    {
+                    } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
@@ -126,14 +101,12 @@ public abstract class ConcurrentQueue implements MockInterface
 
     abstract void offer(Call call);
 
-    static class Call
-    {
+    static class Call {
         long timestamp = System.nanoTime();
 
         String name;
 
-        public Call(String name)
-        {
+        public Call(String name) {
             this.name = name;
         }
     }

@@ -4,26 +4,20 @@ import cn.com.frodo.MockInterface;
 
 import java.util.concurrent.CountDownLatch;
 
-public class CountDownLatch2Test implements MockInterface
-{
+public class CountDownLatch2Test implements MockInterface {
 
-    @Override public void doTest()
-    {
+    @Override
+    public void doTest() {
         CountDownLatch countDownLatch = new CountDownLatch(20);
-        for (int i = 0; i < 20; i++)
-        {
+        for (int i = 0; i < 20; i++) {
             final int index = i;
-            new Thread(new Runnable()
-            {
-                @Override public void run()
-                {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
                     System.out.println("------------start--->" + index);
-                    try
-                    {
+                    try {
                         Thread.sleep(100 * index);
-                    }
-                    catch (InterruptedException e)
-                    {
+                    } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                     countDownLatch.countDown();
@@ -32,14 +26,11 @@ public class CountDownLatch2Test implements MockInterface
             }).start();
         }
 
-        try
-        {
+        try {
             System.out.println("---main---------start--->");
             countDownLatch.await();
-            System.out.println("---main---------end----->" );
-        }
-        catch (InterruptedException e)
-        {
+            System.out.println("---main---------end----->");
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }

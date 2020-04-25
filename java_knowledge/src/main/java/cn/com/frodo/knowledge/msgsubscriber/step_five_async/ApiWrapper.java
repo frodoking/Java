@@ -1,13 +1,11 @@
 package cn.com.frodo.knowledge.msgsubscriber.step_five_async;
 
-import java.net.URI;
-import java.util.List;
-
-import java.net.URI;
-
 import cn.com.frodo.knowledge.msgsubscriber.Cat;
 import cn.com.frodo.knowledge.msgsubscriber.step_four_generics.Callback;
 import cn.com.frodo.knowledge.msgsubscriber.step_three_asynchronous2.Api;
+
+import java.net.URI;
+import java.util.List;
 
 public class ApiWrapper {
     Api api;

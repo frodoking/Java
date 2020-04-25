@@ -5,7 +5,6 @@ import cn.com.frodo.concurrent.annotations.GuardedBy;
 import java.util.concurrent.*;
 
 /**
- *
  * 当缓冲的是Future而不是值时，将导致缓存污染（Cache Pollution）问题：
  * 如果某个计算被取消或者失败，那么在计算这个结果时将致命计算过程被取消或者失败。
  * 为了避免这种情况，如果Memoizer发现计算被取消，那么将Future从缓存中移除。
@@ -25,7 +24,7 @@ public class Memoizer<A, V> implements Computable<A, V> {
 
     @Override
     public V compute(final A arg) throws InterruptedException {
-        while (true){
+        while (true) {
             Future<V> f = cache.get(arg);
             if (f == null) {
                 Callable<V> eval = new Callable<V>() {
@@ -42,8 +41,8 @@ public class Memoizer<A, V> implements Computable<A, V> {
             }
             try {
                 return f.get();
-            } catch (CancellationException e){
-                cache.remove(arg,f);
+            } catch (CancellationException e) {
+                cache.remove(arg, f);
             } catch (ExecutionException e1) {
                 throw LaunderThrowable.launderThrowable(e1.getCause());
             }

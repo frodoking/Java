@@ -7,11 +7,11 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Description TODO
+ *
  * @author frodoking
  * @version [V1, 2019/8/1 16:03]
  */
-public class ReentrantLockTest implements MockInterface
-{
+public class ReentrantLockTest implements MockInterface {
     static final int SIZE = 10;
 
     static volatile int size = 0;
@@ -22,19 +22,13 @@ public class ReentrantLockTest implements MockInterface
 
     static Condition notEmpty = lock.newCondition();
 
-    public static class Producer
-    {
-        void produce()
-        {
+    public static class Producer {
+        void produce() {
             lock.lock();
-            if (size == SIZE)
-            {
-                try
-                {
+            if (size == SIZE) {
+                try {
                     notFull.await();
-                }
-                catch (InterruptedException e)
-                {
+                } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
@@ -46,19 +40,13 @@ public class ReentrantLockTest implements MockInterface
         }
     }
 
-    public static class Consumer
-    {
-        void consume()
-        {
+    public static class Consumer {
+        void consume() {
             lock.lock();
-            if (size == 0)
-            {
-                try
-                {
+            if (size == 0) {
+                try {
                     notEmpty.wait();
-                }
-                catch (InterruptedException e)
-                {
+                } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
@@ -69,38 +57,29 @@ public class ReentrantLockTest implements MockInterface
         }
     }
 
-    @Override public void doTest()
-    {
-        final Producer producer = new  Producer();
-        final  Consumer consumer = new  Consumer();
-        for (int i = 0; i < SIZE; i++)
-        {
-            new Thread(new Runnable()
-            {
-                @Override public void run()
-                {
+    @Override
+    public void doTest() {
+        final Producer producer = new Producer();
+        final Consumer consumer = new Consumer();
+        for (int i = 0; i < SIZE; i++) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
                     producer.produce();
-                    try
-                    {
+                    try {
                         Thread.sleep(20);
-                    }
-                    catch (InterruptedException e)
-                    {
+                    } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
             }).start();
-            new Thread(new Runnable()
-            {
-                @Override public void run()
-                {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
                     consumer.consume();
-                    try
-                    {
+                    try {
                         Thread.sleep(90);
-                    }
-                    catch (InterruptedException e)
-                    {
+                    } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }

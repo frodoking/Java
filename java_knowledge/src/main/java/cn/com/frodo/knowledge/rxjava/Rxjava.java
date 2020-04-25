@@ -23,7 +23,7 @@ public class Rxjava implements MockInterface {
             @Override
             public void onNext(Integer value) {
                 i("Rxjava >> %s %s", "onNext", value.toString());
-                if (value==2) {
+                if (value == 2) {
                     mDisposable.dispose();
                 }
             }
@@ -41,9 +41,8 @@ public class Rxjava implements MockInterface {
     }
 
 
-
     private <T> Consumer<T> mockConsumer() {
-         return new Consumer<T>() {
+        return new Consumer<T>() {
             @Override
             public void accept(T t) {
                 i("Rxjava >> Observer thread is :%s", Thread.currentThread().getName());

@@ -10,14 +10,14 @@ import java.math.BigInteger;
  */
 public class Factorizer extends GenericServlet implements Servlet {
 
-    private final Computable<BigInteger,BigInteger[]> c = new Computable<BigInteger, BigInteger[]>() {
+    private final Computable<BigInteger, BigInteger[]> c = new Computable<BigInteger, BigInteger[]>() {
         @Override
         public BigInteger[] compute(BigInteger arg) throws InterruptedException {
             return factor(arg);
         }
     };
 
-    private final Computable<BigInteger,BigInteger[]> cache = new Memoizer<BigInteger, BigInteger[]>(c);
+    private final Computable<BigInteger, BigInteger[]> cache = new Memoizer<BigInteger, BigInteger[]>(c);
 
     @Override
     public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
@@ -25,7 +25,7 @@ public class Factorizer extends GenericServlet implements Servlet {
             BigInteger i = extractFromRequest(servletRequest);
             encodeIntoResponse(servletResponse, cache.compute(i));
         } catch (InterruptedException e) {
-            encodeError(servletResponse,"factorization interrupted");
+            encodeError(servletResponse, "factorization interrupted");
         }
     }
 

@@ -8,34 +8,30 @@ import org.apache.commons.io.Charsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ClientHandler extends ChannelInboundHandlerAdapter
-{
+public class ClientHandler extends ChannelInboundHandlerAdapter {
     private static final Logger LOGGER = LoggerFactory.getLogger(ClientHandler.class);
 
-    @Override public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception
-    {
-        try
-        {
+    @Override
+    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+        try {
             ByteBuf bb = (ByteBuf) msg;
             byte[] respByte = new byte[bb.readableBytes()];
             bb.readBytes(respByte);
             String respStr = new String(respByte, Charsets.UTF_8);
             //LOGGER.warn("client--收到响应 [ {} ]" , respStr);
 
-        }
-        finally
-        {
+        } finally {
             ReferenceCountUtil.release(msg);
         }
     }
 
-    @Override public void channelReadComplete(ChannelHandlerContext ctx) throws Exception
-    {
+    @Override
+    public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
         //LOGGER.info("客户端读取数据完毕");
     }
 
-    @Override public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception
-    {
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         //LOGGER.error("client 读取数据出现异常");
         ctx.close();
     }

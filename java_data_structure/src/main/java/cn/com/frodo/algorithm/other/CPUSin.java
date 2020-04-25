@@ -6,7 +6,7 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * Created by frodoking on 2019/3/17 上午11:32.
  * Description:
  */
-public class CPUSin  implements IAlgorithm {
+public class CPUSin implements IAlgorithm {
 
     public void sin() throws InterruptedException {
         final int SAMPLING_COUNT = 200;

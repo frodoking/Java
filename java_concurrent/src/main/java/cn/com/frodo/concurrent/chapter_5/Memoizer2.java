@@ -12,7 +12,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * 解决办法：<p/>
  * 我们希望通过某种方法来表达“线程X计算f（27）”这种情况，这样当另外一个线程查找f（27）时，<p/>
  * 它能够知道高效的方法是等待线程X计算结束，然后再去查询缓存“f（27）的结果是多少？”<p/>
- *
+ * <p>
  * FutureTask可以解决这个问题
  * ）
  * Created by frodo on 2015/1/15.

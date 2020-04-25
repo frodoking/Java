@@ -20,7 +20,7 @@ public class CreatingObservables {
     }
 
     public Observable<Integer> justObservable() {
-        return Observable.just(1, 2,3);
+        return Observable.just(1, 2, 3);
     }
 
     public Observable<Integer> emptyObservable() {
@@ -28,7 +28,7 @@ public class CreatingObservables {
     }
 
     public Observable<Integer> fromObservable() {
-        return Observable.fromArray(1,2,3);
+        return Observable.fromArray(1, 2, 3);
     }
 
     public Observable<Long> intervalObservable() {

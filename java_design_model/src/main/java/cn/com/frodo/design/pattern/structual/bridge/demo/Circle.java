@@ -2,12 +2,12 @@ package cn.com.frodo.design.pattern.structual.bridge.demo;
 
 public class Circle extends AbstractShape {
 
-	Circle(Color color) {
-		super(color);
-	}
+    Circle(Color color) {
+        super(color);
+    }
 
-	@Override
-	public void onDraw() {
-		System.out.println("使用" + color.getColor() + "画圆形");
-	}
+    @Override
+    public void onDraw() {
+        System.out.println("使用" + color.getColor() + "画圆形");
+    }
 }

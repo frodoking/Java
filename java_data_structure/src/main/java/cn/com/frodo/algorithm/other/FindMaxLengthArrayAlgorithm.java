@@ -35,7 +35,7 @@ public class FindMaxLengthArrayAlgorithm {
 
         System.out.println("deep = [" + rootNode.deep() + "]");
 
-         List<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<String>();
         rootNode.findDeepList(list);
 
         return list.toArray(new String[list.size()]);

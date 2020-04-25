@@ -1,18 +1,21 @@
 package cn.com.frodo.knowledge.encrypt;
 
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
+
 /**
  * Created by frodo on 2017/5/18.
  * AES对称加密和解密
  */
-@Slf4j
+//@Slf4j
 public class UnifiedManager {
 
+    private static Logger log = LoggerFactory.getLogger(UnifiedManager.class);
     private static final String SPECIAL_CHARACTER = "!@#$%^&*";
     private static final Map<String, Integer> T9 = new HashMap<>();
 

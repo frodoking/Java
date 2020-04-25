@@ -1,10 +1,10 @@
 package cn.com.frodo.knowledge.msgsubscriber.step_four_generics;
 
+import cn.com.frodo.knowledge.msgsubscriber.Cat;
+
 import java.net.URI;
 import java.util.Collections;
 import java.util.List;
-
-import cn.com.frodo.knowledge.msgsubscriber.Cat;
 
 public class CatsHelper {
 

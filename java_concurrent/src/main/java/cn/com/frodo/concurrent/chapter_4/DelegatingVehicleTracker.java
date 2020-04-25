@@ -20,7 +20,8 @@ public class DelegatingVehicleTracker {
     }
 
     /**
-     *使用时候 返回车辆位置的快照
+     * 使用时候 返回车辆位置的快照
+     *
      * @return
      */
     public Map<String, Point> getLocations() {
@@ -33,6 +34,7 @@ public class DelegatingVehicleTracker {
 
     /**
      * 使用时返回的是一个不可修改但却实时的车辆位置视图
+     *
      * @param id
      * @param x
      * @param y

@@ -1,10 +1,10 @@
 main:
-  default: vertx
+  default: gc
   list:
     base:
       name: com.frodo.BasicObjectTest
     gc:
-      name: com.frodo.gc.GCTest
+      name: cn.com.frodo.knowledge.gc.GCTest
     clq:
       name: com.frodo.concurrent.ConcurrentLinkedQueueTest
       producerNum: 100
@@ -48,7 +48,7 @@ main:
     btrace:
       name: com.frodo.btrace.BTraceTest
     vertx:
-      name: com.frodo.vertx.VertxSeverTest
+      name: cn.com.frodo.knowledge.vertx.VertxSeverTest
     spi:
       name: com.frodo.spi.SPITest
     netty:

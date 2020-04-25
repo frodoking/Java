@@ -1,10 +1,9 @@
 package cn.com.frodo.knowledge.msgsubscriber.step_two_asynchronous;
 
-import java.util.List;
+import cn.com.frodo.knowledge.msgsubscriber.Cat;
 
 import java.net.URI;
-
-import cn.com.frodo.knowledge.msgsubscriber.Cat;
+import java.util.List;
 
 public interface Api {
     interface CatsQueryCallback {

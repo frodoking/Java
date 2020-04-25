@@ -1,22 +1,22 @@
 package cn.com.frodo.knowledge.msgsubscriber.step_three_asynchronous2;
 
-import java.util.Collections;
-import java.util.List;
+import cn.com.frodo.knowledge.msgsubscriber.Cat;
 
 import java.net.URI;
-
-import cn.com.frodo.knowledge.msgsubscriber.Cat;
+import java.util.Collections;
+import java.util.List;
 
 public class CatsHelper {
 
     public interface CutestCatCallback {
         void onCutestCatSaved(URI uri);
+
         void onError(Exception e);
     }
 
     Api api;
 
-    public void saveTheCutestCat(String query, final CutestCatCallback cutestCatCallback){
+    public void saveTheCutestCat(String query, final CutestCatCallback cutestCatCallback) {
         api.queryCats(query, new Api.CatsQueryCallback() {
             @Override
             public void onCatListReceived(List<Cat> cats) {

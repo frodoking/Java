@@ -1,10 +1,10 @@
 package cn.com.frodo.knowledge.msgsubscriber.step_nine_rxjava;
 
 import cn.com.frodo.knowledge.msgsubscriber.Cat;
-import java.net.URI;
 import io.reactivex.Observable;
 import io.reactivex.functions.Function;
 
+import java.net.URI;
 import java.util.Collections;
 import java.util.List;
 

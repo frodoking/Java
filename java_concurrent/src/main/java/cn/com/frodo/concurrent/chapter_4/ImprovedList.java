@@ -2,12 +2,15 @@ package cn.com.frodo.concurrent.chapter_4;
 
 import cn.com.frodo.concurrent.annotations.ThreadSafe;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 
 /**
  * ImprovedList
- *
+ * <p>
  * Implementing put-if-absent using composition
  * (通过组合实现“若没有则添加”)
  *
@@ -20,7 +23,9 @@ public class ImprovedList<T> implements List<T> {
     /**
      * PRE: list argument is thread-safe.
      */
-    public ImprovedList(List<T> list) { this.list = list; }
+    public ImprovedList(List<T> list) {
+        this.list = list;
+    }
 
     public synchronized boolean putIfAbsent(T x) {
         boolean contains = list.contains(x);
@@ -128,5 +133,7 @@ public class ImprovedList<T> implements List<T> {
         return list.subList(fromIndex, toIndex);
     }
 
-    public synchronized void clear() { list.clear(); }
+    public synchronized void clear() {
+        list.clear();
+    }
 }

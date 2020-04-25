@@ -3,7 +3,9 @@ package cn.com.frodo.concurrent.chapter_4;
 import cn.com.frodo.concurrent.annotations.NotThreadSafe;
 import cn.com.frodo.concurrent.annotations.ThreadSafe;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 
 /**
@@ -16,11 +18,12 @@ import java.util.*;
  */
 
 @NotThreadSafe
-class BadListHelper <E> {
+class BadListHelper<E> {
     public List<E> list = Collections.synchronizedList(new ArrayList<E>());
 
     /**
      * 当前方法相对于list的其他操作来说并不是原子的，因此无法确保当前方法执行时另外一个线程不会修改链表
+     *
      * @param x
      * @return
      */
@@ -33,11 +36,12 @@ class BadListHelper <E> {
 }
 
 @ThreadSafe
-class GoodListHelper <E> {
+class GoodListHelper<E> {
     public List<E> list = Collections.synchronizedList(new ArrayList<E>());
 
     /**
      * 针对list的加锁，保证对list操作都是使用同一个锁
+     *
      * @param x
      * @return
      */

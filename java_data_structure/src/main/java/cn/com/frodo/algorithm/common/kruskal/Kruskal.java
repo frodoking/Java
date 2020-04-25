@@ -4,9 +4,9 @@ import cn.com.frodo.algorithm.IAlgorithm;
 
 public class Kruskal implements IAlgorithm {
 
-	@Override
-	public void exec() {
+    @Override
+    public void exec() {
 
-	}
+    }
 
 }

@@ -1,11 +1,10 @@
 package cn.com.frodo.knowledge.msgsubscriber.step_one_synchronize;
 
-import java.util.Collections;
-import java.util.List;
+import cn.com.frodo.knowledge.msgsubscriber.Cat;
 
 import java.net.URI;
-
-import cn.com.frodo.knowledge.msgsubscriber.Cat;
+import java.util.Collections;
+import java.util.List;
 
 public class CatsHelper {
     URI someDefaultValue = null/*some default value*/;

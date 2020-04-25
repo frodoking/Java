@@ -7,11 +7,11 @@ import java.util.*;
 
 /**
  * Description 一致性hash算法
+ *
  * @author frodoking
  * @version [2019/8/1 16:59]
  */
-public class ConsistentHash
-{
+public class ConsistentHash {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ConsistentHash.class);
 
@@ -29,8 +29,7 @@ public class ConsistentHash
     // 虚拟节点，key表示虚拟节点的hash值，value表示虚拟节点的名称，采用平衡二叉搜索树结构存储
     private SortedMap<Integer, String> virtualNodes = new TreeMap<Integer, String>();
 
-    public ConsistentHash(String[] nodes, int virtualNodesPerRealNode)
-    {
+    public ConsistentHash(String[] nodes, int virtualNodesPerRealNode) {
         this.virtualNodesPerRealNode = virtualNodesPerRealNode;
         addNode(nodes);
     }
@@ -40,12 +39,10 @@ public class ConsistentHash
     }
 
     // 使用FNV1_32_HASH算法计算服务器的Hash值，hash空间为[0,2^32-1],程序控制实现逻辑的环形结构
-    private int getHash(String str)
-    {
+    private int getHash(String str) {
         final int p = 16777619;
         int hash = (int) 2166136261L;
-        for (int i = 0; i < str.length(); i++)
-        {
+        for (int i = 0; i < str.length(); i++) {
             hash = (hash ^ str.charAt(i)) * p;
         }
         hash += hash << 13;
@@ -60,54 +57,45 @@ public class ConsistentHash
     }
 
     // 根据某个key，首先访问到虚拟节点，再访问到真实节点。
-    public String visit(String key)
-    {
+    public String visit(String key) {
         // 得到该key的hash值
         int hash = getHash(key);
         // 得到大于该hash值的所有Map
         SortedMap<Integer, String> subMap = virtualNodes.tailMap(hash);
         String virtualNode = null;
-        if (subMap.isEmpty())
-        {
+        if (subMap.isEmpty()) {
             // 如果没有比该key的hash值更大的，表明该hash值刚好是一致性hash环的尾端
             // 此时从0开始，顺时针取第一个虚拟节点
             Integer i = virtualNodes.firstKey();
             // 返回对应的虚拟节点
             virtualNode = virtualNodes.get(i);
-        }
-        else
-        {
+        } else {
             // 按顺时针方向当前最近的虚拟结点
             Integer i = subMap.firstKey();
             // 返回对应的虚拟节点
             virtualNode = subMap.get(i);
         }
         // 截取virtualNode的前缀，获得真实节点
-        if (virtualNode != null)
-        {
+        if (virtualNode != null) {
             return virtualNode.substring(0, virtualNode.indexOf("##"));
         }
         return null;
     }
 
     // 增加节点，模拟服务器上线的情况。
-    public void addNode(String[] nodes)
-    {
+    public void addNode(String[] nodes) {
         // 维护元数据，包括真实节点信息，虚拟节点信息
-        for (String node : nodes)
-        {
+        for (String node : nodes) {
             // 维护真实节点信息
             realNodes.add(node);
             LinkedList<String> list = new LinkedList<>();
             // 维护虚拟节点信息，key为hash值，value的前缀为真实节点
-            for (int count = 0, sequence = 0; count < virtualNodesPerRealNode; )
-            {
+            for (int count = 0, sequence = 0; count < virtualNodesPerRealNode; ) {
                 String virtualNodeName = node + "##VN" + sequence++;
                 int hash = getHash(virtualNodeName);
 
                 // 一般来讲，当虚拟节点数量<<hash空间时，hash函数碰撞的可能性比较小，但严谨其见，此处应该考虑冲突。
-                if (!virtualNodes.containsKey(hash))
-                {
+                if (!virtualNodes.containsKey(hash)) {
                     virtualNodes.put(hash, virtualNodeName);
                     count++;
                     list.add(virtualNodeName);//维护虚拟节点与真实节点的映射关系
@@ -120,19 +108,14 @@ public class ConsistentHash
     }
 
     // 删除节点，模拟服务器下线的情况。
-    public void removeNode(String[] nodes)
-    {
-        for (String node : nodes)
-        {
-            if (realNodes.contains(node))
-            {
+    public void removeNode(String[] nodes) {
+        for (String node : nodes) {
+            if (realNodes.contains(node)) {
                 realNodes.remove(node);
             }
-            if (mapping.containsKey(node))
-            {
+            if (mapping.containsKey(node)) {
                 LinkedList<String> list = mapping.remove(node);
-                for (String virtual : list)
-                {
+                for (String virtual : list) {
                     virtualNodes.remove(getHash(virtual));
                 }
             }
@@ -141,23 +124,19 @@ public class ConsistentHash
     }
 
     // 获取元数据
-    public void getMetaData()
-    {
+    public void getMetaData() {
         LOGGER.info("真实节点：");
-        for (int i = 0; i < realNodes.size(); i++)
-        {
+        for (int i = 0; i < realNodes.size(); i++) {
             LOGGER.info(realNodes.get(i));
         }
         LOGGER.info("虚拟节点数量：" + totalVirtualNodes);
-        for (String str : mapping.keySet())
-        {
+        for (String str : mapping.keySet()) {
             LOGGER.info("{} - {} ", str, mapping.get(str).size());
         }
     }
 
     // 测试增删节点后各节点的负载
-    public void testLoadBalance(String[] keys)
-    {
+    public void testLoadBalance(String[] keys) {
         LOGGER.info("真实节点数量：" + realNodes.size());
         LOGGER.info("虚拟节点数量：" + totalVirtualNodes);
         LOGGER.info("各节点负载情况：");
@@ -165,19 +144,15 @@ public class ConsistentHash
         int realNodeNumber = realNodes.size();
         String hitNode = "";
         int[] count = new int[realNodeNumber];
-        for (int i = 0; i < keyNumber; i++)
-        {
+        for (int i = 0; i < keyNumber; i++) {
             hitNode = visit(keys[i]);
-            for (int j = 0; j < realNodeNumber; j++)
-            {
-                if (hitNode.equals(realNodes.get(j)))
-                {
+            for (int j = 0; j < realNodeNumber; j++) {
+                if (hitNode.equals(realNodes.get(j))) {
                     count[j] += 1;
                 }
             }
         }
-        for (int i = 0; i < realNodeNumber; i++)
-        {
+        for (int i = 0; i < realNodeNumber; i++) {
             LOGGER.info("[Node" + i + "-" + realNodes.get(i) + "]" + " : " + count[i]);
         }
     }

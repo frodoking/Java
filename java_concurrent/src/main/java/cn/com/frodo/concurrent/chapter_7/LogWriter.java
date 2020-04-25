@@ -24,7 +24,7 @@ public class LogWriter {
         this.logger = new LoggerThread(writer);
     }
 
-    public void start(){
+    public void start() {
         logger.start();
     }
 

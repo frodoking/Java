@@ -17,7 +17,6 @@ public abstract class PartitionFile {
      *
      * @param filePath
      * @param fileByte
-     *
      * @return
      */
     public int getPartitionFileNum(long fileByte, String filePath) {
@@ -35,9 +34,7 @@ public abstract class PartitionFile {
      * 获取文件长度
      *
      * @param file
-     *
      * @return
-     *
      * @throws IOException
      */
     public abstract long getFileLength(File file) throws IOException;
@@ -46,7 +43,6 @@ public abstract class PartitionFile {
      * 分割Byte文件
      *
      * @param srcFile
-     *
      * @throws IOException
      * @throws IOException
      */
@@ -57,7 +53,6 @@ public abstract class PartitionFile {
      *
      * @param files
      * @param newFile
-     *
      * @throws IOException
      */
     public abstract void uniteFile(String[] files, String newFile) throws IOException;

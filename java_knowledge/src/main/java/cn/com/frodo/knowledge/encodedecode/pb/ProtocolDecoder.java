@@ -1,11 +1,9 @@
 package cn.com.frodo.knowledge.encodedecode.pb;
 
-import io.protostuff.ProtostuffIOUtil;
 import io.protostuff.Schema;
 import io.protostuff.runtime.RuntimeSchema;
 
-public class ProtocolDecoder
-{
+public class ProtocolDecoder {
     <T> T decode(byte[] bytes, Class<T> clazz) {
         T obj = null;
         try {
