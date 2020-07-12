@@ -1,5 +1,8 @@
 package cn.com.frodo.algorithm.sort;
 
+import static cn.com.frodo.Arrays.show;
+import static cn.com.frodo.Arrays.swap;
+
 /**
  * 快速排序
  *
@@ -10,6 +13,7 @@ public class QuickSort extends Sort {
     @Override
     public void sort(int[] data) {
         quickSort(data, 0, data.length - 1);
+        show(data, "QuickSort");
     }
 
     private void quickSort(int[] data, int i, int j) {

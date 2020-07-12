@@ -1,4 +1,4 @@
-package com.frodo.netty;
+package cn.com.frodo.knowledge.netty;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.Unpooled;

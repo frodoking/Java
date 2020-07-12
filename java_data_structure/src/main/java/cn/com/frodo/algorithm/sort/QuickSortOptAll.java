@@ -1,5 +1,7 @@
 package cn.com.frodo.algorithm.sort;
 
+import static cn.com.frodo.Arrays.swap;
+
 /**
  * 优化步骤：
  * 1、每次递归选取哨兵pivot（第一歩选取一个随机数）;

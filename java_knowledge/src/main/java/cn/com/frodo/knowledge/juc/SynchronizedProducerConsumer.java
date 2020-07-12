@@ -27,7 +27,7 @@ public class SynchronizedProducerConsumer implements ProducerConsumer {
                         }
                     }
                     count++;
-                    System.out.println(Thread.currentThread().getName() + "生产：" + count);
+                    System.out.println(Thread.currentThread().getName() + "produce: " + count);
                     LOCK.notifyAll();
                 }
             }
@@ -52,7 +52,7 @@ public class SynchronizedProducerConsumer implements ProducerConsumer {
                         }
                     }
                     count--;
-                    System.out.println(Thread.currentThread().getName() + "消费：" + count);
+                    System.out.println(Thread.currentThread().getName() + "consume: " + count);
                     LOCK.notifyAll();
                 }
             }

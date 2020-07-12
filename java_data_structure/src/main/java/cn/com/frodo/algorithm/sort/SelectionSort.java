@@ -1,5 +1,7 @@
 package cn.com.frodo.algorithm.sort;
 
+import static cn.com.frodo.Arrays.swap;
+
 public class SelectionSort extends Sort {
 
     @Override

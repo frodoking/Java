@@ -5,12 +5,11 @@ public class SortTest {
 
     public static void main(String[] args) {
         //Sort sort = new InsertSort();
-        Sort sort = new BubbleSort();
+        Sort sort = new QuickSortTopK();
         // Sort sort = new SelectionSort();
         // Sort sort = new QuickSort();
         // Sort sort = new MergingSort();
 
         sort.sort(data);
-        sort.show(data, sort.toString());
     }
 }

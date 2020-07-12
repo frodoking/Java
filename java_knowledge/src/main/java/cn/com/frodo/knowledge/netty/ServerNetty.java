@@ -1,10 +1,7 @@
-package com.frodo.netty;
+package cn.com.frodo.knowledge.netty;
 
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelOption;
-import io.netty.channel.EventLoopGroup;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
@@ -16,7 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class ServerNetty {
 
-    private int port;
+    private final int port;
 
     public ServerNetty(int port) {
         this.port = port;
@@ -24,7 +21,7 @@ public class ServerNetty {
 
     public void start() throws InterruptedException {
         EventLoopGroup bossGroup = new NioEventLoopGroup(3, new ThreadFactory() {
-            AtomicInteger index = new AtomicInteger(0);
+            final AtomicInteger index = new AtomicInteger(0);
 
             @Override
             public Thread newThread(Runnable r) {
@@ -32,13 +29,16 @@ public class ServerNetty {
             }
         });
         EventLoopGroup workerGroup = new NioEventLoopGroup(10, new ThreadFactory() {
-            AtomicInteger index = new AtomicInteger(0);
+            final AtomicInteger index = new AtomicInteger(0);
 
             @Override
             public Thread newThread(Runnable r) {
                 return new Thread(r, "worker group:" + index.incrementAndGet());
             }
         });
+
+        // 非I/O事件处理
+        EventLoopGroup business = new DefaultEventLoopGroup(10);
 
         try {
             ServerBootstrap sbs = new ServerBootstrap();
@@ -48,7 +48,8 @@ public class ServerNetty {
                 @Override
                 protected void initChannel(SocketChannel socketChannel) throws Exception {
                     socketChannel.pipeline()
-                            .addLast(new ServerHandler());//.addFirst(new LoggingHandler(LogLevel.INFO));
+                            .addLast(business, new ServerHandler())
+                            .addFirst(new LoggingHandler(LogLevel.INFO));
                 }
             });
             ChannelFuture cf = sbs.bind(port).sync();

@@ -1,5 +1,8 @@
 package cn.com.frodo.algorithm.sort;
 
+import static cn.com.frodo.Arrays.show;
+import static cn.com.frodo.Arrays.swap;
+
 /**
  * 插入排序
  *

@@ -7,9 +7,7 @@ import cn.com.frodo.algorithm.leetcode.LC75SortColors;
 import cn.com.frodo.algorithm.leetcode.LC94InorderTraversal;
 import cn.com.frodo.algorithm.other.FindMaxLengthArrayAlgorithm;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class AlgorithmClient {
 
@@ -29,5 +27,6 @@ public class AlgorithmClient {
 
         _alAlgorithm = new LC75SortColors();
         _alAlgorithm.exec();
+        Deque<String> stack = new ArrayDeque<>();
     }
 }
