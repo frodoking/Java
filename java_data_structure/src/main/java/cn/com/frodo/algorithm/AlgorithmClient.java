@@ -1,10 +1,7 @@
 package cn.com.frodo.algorithm;
 
 import cn.com.frodo.algorithm.common.stringarrange.StringArrange;
-import cn.com.frodo.algorithm.leetcode.LC102LevelOrder;
-import cn.com.frodo.algorithm.leetcode.LC136SingleNumber;
-import cn.com.frodo.algorithm.leetcode.LC75SortColors;
-import cn.com.frodo.algorithm.leetcode.LC94InorderTraversal;
+import cn.com.frodo.algorithm.leetcode.*;
 import cn.com.frodo.algorithm.other.FindMaxLengthArrayAlgorithm;
 
 import java.util.*;
@@ -25,8 +22,11 @@ public class AlgorithmClient {
         String[] array = arrayAlgorithm.find(src, "a", "z");
         System.out.println("array:  " + Arrays.toString(array));
 
-        _alAlgorithm = new LC75SortColors();
+        _alAlgorithm = new LC15ThreeSum();
         _alAlgorithm.exec();
-        Deque<String> stack = new ArrayDeque<>();
+
+        int a = 36;
+        int len = 15;
+        System.out.println("args = " + (a & len));
     }
 }

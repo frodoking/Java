@@ -1,9 +1,6 @@
 package cn.com.frodo.knowledge.ali;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -13,30 +10,45 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class TaskScheduleEngine {
 
-    private BlockingQueue<String> queue = new ArrayBlockingQueue<>(100);
 
     private static final int PARALLEL_SIZE = 5;
+    private static final int MAX_QUEUE_SIZE = 100;
 
     /**
      * 并发处理因子
      */
-    private int parallelSize;
+    private final int parallelSize;
+    private final int queueSize;
 
     /**
      * 线程池
      */
-    private ExecutorService threadPool;
+    private final ExecutorService threadPool;
+    private final BlockingQueue<String> queue;
+    private final Thread[] preducers;
+    private final Thread[] consumers;
+    private boolean running = false;
 
 
-    public TaskScheduleEngine(int parallelSize) {
+    public TaskScheduleEngine(int producerNum, int consumerNum, int parallelSize, int queueSize) {
         if (parallelSize <= 0) {
             this.parallelSize = PARALLEL_SIZE;
         } else {
             this.parallelSize = parallelSize;
         }
-        this.threadPool = Executors.newFixedThreadPool(this.parallelSize, new ThreadFactory() {
+        if (queueSize <= 0) {
+            this.queueSize = MAX_QUEUE_SIZE;
+        } else {
+            this.queueSize = queueSize;
+        }
 
-            private AtomicInteger tag = new AtomicInteger(1);
+        queue = new LinkedBlockingQueue<>(queueSize);
+
+        this.threadPool = new ThreadPoolExecutor(parallelSize, parallelSize + 5,
+                30L, TimeUnit.SECONDS,
+                new LinkedBlockingQueue<Runnable>(queueSize), new ThreadFactory() {
+
+            private final AtomicInteger tag = new AtomicInteger(1);
 
             @Override
             public Thread newThread(Runnable r) {
@@ -44,28 +56,65 @@ public class TaskScheduleEngine {
                 thread.setName("调度器线程：" + tag.getAndIncrement());
                 return thread;
             }
-        });
+        }, new ThreadPoolExecutor.CallerRunsPolicy());
+
+        preducers = new Thread[producerNum];
+        consumers = new Thread[consumerNum];
+
+        for (int i = 0; i < producerNum; i++) {
+            preducers[i] = new Thread(() -> {
+                while (running) {
+                    List<String> data = getDataFromDB();
+                    try {
+                        Thread.sleep(5000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    for (String dataItem : data) {
+                        input(dataItem);
+                    }
+                }
+            }, "Preducer-" + i);
+        }
+        for (int i = 0; i < consumerNum; i++) {
+            consumers[i] = new Thread(() -> {
+                while (running || !queue.isEmpty()) {
+                    List<String> resultList = handle();
+                    batchSaveDataIntoDB(resultList);
+                }
+            }, "Consumer-" + i);
+        }
+    }
+
+
+    private void start() {
+        running = true;
+        for (int i = 0; i < preducers.length; i++) {
+            preducers[i].start();
+        }
+        for (int i = 0; i < consumers.length; i++) {
+            consumers[i].start();
+        }
     }
 
     public List<String> getDataFromDB() {
         List<String> dataList = new ArrayList<>();
-        for (int i = 0; i < 10000; i++) {
-            dataList.add("data:" + (i + 1));
+        long timestamp = System.nanoTime();
+        for (int i = 0; i < 100; i++) {
+            dataList.add("data:" + timestamp + ":" + i);
+
         }
         return dataList;
     }
 
     public void batchSaveDataIntoDB(List<String> values) {
-        System.out.println("do insert data ...");
+        System.out.println("do insert data ..." + Arrays.toString(values.toArray()));
     }
 
     public void input(String task) {
         try {
-            if (!queue.offer(task, 3, TimeUnit.SECONDS)) {
-                System.err.println(" 加入队列失败");
-            } else {
-                System.out.println(task + " 加入队列");
-            }
+            queue.put(task);
+            System.out.println(task + " 加入队列");
         } catch (InterruptedException e) {
             int retry = 3;
             while (retry-- > 0) {
@@ -78,12 +127,13 @@ public class TaskScheduleEngine {
 
     public List<String> handle() {
         Map<String, Future<String>> futureMap = new HashMap<>();
-        String next;
         try {
-            while ((next = this.queue.poll(3, TimeUnit.SECONDS)) != null) {
-                System.out.println("Get task: " + next);
-                Future<String> future = dispatch(next);
-                futureMap.put(next, future);
+            String next = this.queue.take();
+            System.out.println("Queue Size: " + queue.size() + ", Get task: " + next);
+            for (int i = 1; i <= 5; i++) {
+                String subTask = next + ":" + i;
+                Future<String> future = dispatch(subTask);
+                futureMap.put(subTask, future);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -93,10 +143,10 @@ public class TaskScheduleEngine {
             List<String> result = new ArrayList<>();
             for (String task : futureMap.keySet()) {
                 nextTask = task;
-                result.add(futureMap.get(task).get(3, TimeUnit.SECONDS));
+                result.add(futureMap.get(task).get());
             }
             return result;
-        } catch (InterruptedException | TimeoutException | ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             int retry = 3;
             while (retry-- > 0) {
                 if (queue.offer(nextTask)) {
@@ -111,33 +161,14 @@ public class TaskScheduleEngine {
         return this.threadPool.submit(() -> doTask(task));
     }
 
-    private String doTask(String task) {
+    private String doTask(String task) throws InterruptedException {
         System.out.println("do task: " + task);
+        Thread.sleep(3000);
         return task + " - another name";
     }
 
-    private void end() {
-        threadPool.shutdown();
-    }
-
     public static void main(String[] args) {
-        TaskScheduleEngine taskScheduleEngine = new TaskScheduleEngine(5);
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                List<String> data = taskScheduleEngine.getDataFromDB();
-                for (String dataItem : data) {
-                    taskScheduleEngine.input(dataItem);
-                }
-            }
-        }).start();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                List<String> resultList = taskScheduleEngine.handle();
-                taskScheduleEngine.batchSaveDataIntoDB(resultList);
-                taskScheduleEngine.end();
-            }
-        }).start();
+        TaskScheduleEngine taskScheduleEngine = new TaskScheduleEngine(2, 10, 5, 100);
+        taskScheduleEngine.start();
     }
 }

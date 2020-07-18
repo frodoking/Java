@@ -9,7 +9,7 @@ public class NettyTest implements MockInterface {
         for (int i = 0; i < 15; i++) {
             new Thread(() -> {
                 try {
-                    com.frodo.netty.ClientNetty clientNetty = new com.frodo.netty.ClientNetty("127.0.0.1", port);
+                    ClientNetty clientNetty = new ClientNetty("127.0.0.1", port);
                     for (; ; ) {
                         try {
                             Thread.sleep(100);
@@ -24,7 +24,7 @@ public class NettyTest implements MockInterface {
             }).start();
         }
         try {
-            new com.frodo.netty.ServerNetty(port).start();
+            new ServerNetty(port).start();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
