@@ -7,6 +7,7 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
+import io.netty.util.concurrent.DefaultThreadFactory;
 
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -20,22 +21,8 @@ public class ServerNetty {
     }
 
     public void start() throws InterruptedException {
-        EventLoopGroup bossGroup = new NioEventLoopGroup(3, new ThreadFactory() {
-            final AtomicInteger index = new AtomicInteger(0);
-
-            @Override
-            public Thread newThread(Runnable r) {
-                return new Thread(r, "boss group:" + index.incrementAndGet());
-            }
-        });
-        EventLoopGroup workerGroup = new NioEventLoopGroup(10, new ThreadFactory() {
-            final AtomicInteger index = new AtomicInteger(0);
-
-            @Override
-            public Thread newThread(Runnable r) {
-                return new Thread(r, "worker group:" + index.incrementAndGet());
-            }
-        });
+        EventLoopGroup bossGroup = new NioEventLoopGroup(3, new DefaultThreadFactory("Boss"));
+        EventLoopGroup workerGroup = new NioEventLoopGroup(10, new DefaultThreadFactory("Worker"));
 
         // 非I/O事件处理
         EventLoopGroup business = new DefaultEventLoopGroup(10);

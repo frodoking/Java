@@ -22,11 +22,7 @@ public class AlgorithmClient {
         String[] array = arrayAlgorithm.find(src, "a", "z");
         System.out.println("array:  " + Arrays.toString(array));
 
-        _alAlgorithm = new LC15ThreeSum();
+        _alAlgorithm = new LC76MinWindow();
         _alAlgorithm.exec();
-
-        int a = 36;
-        int len = 15;
-        System.out.println("args = " + (a & len));
     }
 }

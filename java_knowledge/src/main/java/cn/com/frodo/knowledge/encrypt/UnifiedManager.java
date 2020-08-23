@@ -1,5 +1,8 @@
 package cn.com.frodo.knowledge.encrypt;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
@@ -9,6 +12,8 @@ import java.util.Map;
  * AES对称加密和解密
  */
 public class UnifiedManager {
+
+    private static final Logger log = LoggerFactory.getLogger(UnifiedManager.class);
 
     private static final String SPECIAL_CHARACTER = "!@#$%^&*";
     private static final Map<String, Integer> T9 = new HashMap<>();
@@ -52,15 +57,15 @@ public class UnifiedManager {
 
         int len = aChar.length + bChar.length;
         char[] chars = new char[len];
-        char[] maxChar = aChar.length> bChar.length ? aChar : bChar;
+        char[] maxChar = aChar.length > bChar.length ? aChar : bChar;
         int i = 0;
         int position = 0;
-        for (; i < aChar.length && i< bChar.length; i++) {
+        for (; i < aChar.length && i < bChar.length; i++) {
             chars[i * 2] = aChar[i];
             chars[i * 2 + 1] = bChar[i];
-            position = (i+1) * 2;
+            position = (i + 1) * 2;
         }
-        for (;i<maxChar.length ; i++) {
+        for (; i < maxChar.length; i++) {
             chars[position++] = maxChar[i];
         }
         return String.valueOf(chars);
@@ -72,11 +77,15 @@ public class UnifiedManager {
         String encodeContent = encode(encodeRules, base64);
         String filterContent = encodeContent.replaceAll("[^0-9a-zA-Z]+", "");
 
-        System.out.println("base64: " + base64 + "\n aesContent: " + encodeContent + "\n filterContent: " + filterContent);
+        log.info("base64: {}", base64);
+        log.info("encodeContent: {}", encodeContent);
+        log.info("filterContent: {}", filterContent);
+
+
         if (isDigital) {
             String result = getSubstring(filterContent, length);
             result = result.toLowerCase();
-            System.out.println("result: " + result);
+            log.info("result: {}", result);
             String resultDigital = "";
             for (int i = 0; i < result.length(); i++) {
                 char c = result.charAt(i);
@@ -86,15 +95,16 @@ public class UnifiedManager {
                     }
                 }
             }
-            System.out.println("resultDigital: " + resultDigital);
+            log.info("resultDigital: {}", resultDigital);
             return resultDigital;
         } else {
             char sChar = SPECIAL_CHARACTER.charAt(base64.length() / length);
             char eChar = SPECIAL_CHARACTER.charAt(base64.length() % length);
             String result = getSubstring(filterContent, length - 2);
             result = sChar + result + eChar;
-            System.out.println("result: " + result);
+            log.info("result: {}", result);
             return result;
         }
     }
+
 }
