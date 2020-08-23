@@ -1,144 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--日志级别以及优先级排序: OFF > FATAL > ERROR > WARN > INFO > DEBUG > TRACE > ALL -->
-<!--Configuration后面的status,这个用于设置log4j2自身内部的信息输出,可以不设置,当设置成trace时,你会看到log4j2内部各种详细输出-->
-<!--monitorInterval：Log4j能够自动检测修改配置 文件和重新配置本身,设置间隔秒数-->
-<configuration status="off" monitorInterval="60">
+<!-- monitorInterval配置成一个正整数，则每隔这么久的时间（秒），log4j2会刷新一次配置。如果不配置则不会动态刷新 -->
+<Configuration status="INFO" monitorInterval="30">
     <Properties>
-        <!-- 日志默认存放的位置,这里设置为项目根路径下,也可指定绝对路径 -->
-        <!-- ${web:rootDir}是web项目根路径,java项目没有这个变量,需要删掉,否则会报异常 ;${sys:catalina.home}默认是tomcat的根目录,根据需要调整,可以设置项目服务器绝对路径-->
-        <property name="basePath">logs</property>
-        <property name="loggz">loggz</property>
-
-        <!-- 控制台默认输出格式,"%-5level":日志级别,"%l":输出完整的错误位置,是小写的L,因为有行号显示,所以影响日志输出的性能 -->
-        <property name="console_log_pattern">%-d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] %l - %m%n</property>
-        <!-- 日志文件默认输出格式,不带行号输出(行号显示会影响日志输出性能);%C:大写,类名;%M:方法名;%m:错误信息;%n:换行 -->
-        <property name="log_pattern">%-d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] %C.%M - %m%n</property>
-
-        <!-- 日志默认切割的最小单位 -->
-        <property name="every_file_size">20MB</property>
-        <!-- 日志默认输出级别 -->
-        <property name="output_log_level">INFO</property>
-
-        <!-- 日志默认存放路径(所有级别日志) -->
-        <!--<property name="rolling_fileName">${basePath}/all.log</property>-->
-        <!--&lt;!&ndash; 日志默认压缩路径,将超过指定文件大小的日志,自动存入按"年月"建立的文件夹下面并进行压缩,作为存档 &ndash;&gt;-->
-        <property name="rolling_filePattern">${basePath}/${loggz}/all-${date:yyyy-MM-dd}-%i.log.gz</property>
-        <!--&lt;!&ndash; 日志默认同类型日志,同一文件夹下可以存放的数量,不设置此属性则默认为7个 &ndash;&gt;-->
-        <property name="rolling_max">50</property>
-
-        <!-- Info日志默认存放路径(Info级别日志) -->
-        <property name="info_fileName">${basePath}/info-${date:yyyy-MM-dd}.log</property>
-        <!-- Info日志默认压缩路径,将超过指定文件大小的日志,自动存入按"年月"建立的文件夹下面并进行压缩,作为存档 -->
-        <property name="info_filePattern">${basePath}/${loggz}/info-${date:yyyy-MM-dd}-%i.log.gz</property>
-        <!-- Info日志默认同一文件夹下可以存放的数量,不设置此属性则默认为7个 -->
-        <property name="info_max">30</property>
-
-        <!-- Warn日志默认存放路径(Warn级别日志) -->
-        <property name="warn_fileName">${basePath}/warn-${date:yyyy-MM-dd}.log</property>
-        <!-- Warn日志默认压缩路径,将超过指定文件大小的日志,自动存入按"年月"建立的文件夹下面并进行压缩,作为存档 -->
-        <property name="warn_filePattern">${basePath}/${loggz}/warn-${date:yyyy-MM-dd}-%i.log.gz</property>
-        <!-- Warn日志默认同一文件夹下可以存放的数量,不设置此属性则默认为7个 -->
-        <property name="warn_max">30</property>
-
-        <!-- Error日志默认存放路径(Error级别日志) -->
-        <property name="error_fileName">${basePath}/error-${date:yyyy-MM-dd}.log</property>
-        <!-- Error日志默认压缩路径,将超过指定文件大小的日志,自动存入按"年月"建立的文件夹下面并进行压缩,作为存档 -->
-        <property name="error_filePattern">${basePath}/${loggz}/error-${date:yyyy-MM-dd}-%i.log.gz</property>
-        <!-- Error日志默认同一文件夹下可以存放的数量,不设置此属性则默认为7个 -->
-        <property name="error_max">30</property>
-
-        <!-- 控制台显示的日志最低级别 -->
-        <property name="console_print_level">DEBUG</property>
-
+        <!-- 应用需要修改为合适的log路径 -->
+        <Property name="baseLogDir">logs</Property>
+        <Property name="pattern">%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Property>
     </Properties>
-
-    <!--定义appender -->
-    <appenders>
-        <!-- 用来定义输出到控制台的配置 -->
+    <!-- 先定义所有的appender -->
+    <Appenders>
+        <!-- 这个输出控制台的配置 -->
         <Console name="Console" target="SYSTEM_OUT">
-            <!-- 设置控制台只输出level及以上级别的信息(onMatch),其他的直接拒绝(onMismatch)-->
-            <ThresholdFilter level="${console_print_level}" onMatch="ACCEPT" onMismatch="DENY"/>
-            <!-- 设置输出格式,不设置默认为:%m%n -->
-            <PatternLayout pattern="${console_log_pattern}"/>
+            <PatternLayout>
+                <Pattern>${pattern}</Pattern>
+            </PatternLayout>
         </Console>
-
-        <!-- 打印INFO级别的日志到文件 -->
-        <RollingFile name="InfoFile" fileName="${info_fileName}" filePattern="${info_filePattern}">
-            <!--设置输出日志的编码格式,根据需求自行调整.-->
-            <PatternLayout charset="UTF-8" pattern="${log_pattern}"/>
+        <!-- 系统日志，可以作为root logger的appender，供打印一些中间件的日志 -->
+        <RollingRandomAccessFile name="SYS_APPENDER" fileName="${baseLogDir}/server.log"
+                                 filePattern="${baseLogDir}/server.log.%d{yyyyMMddHH}.%i.gz">
+            <PatternLayout>
+                <Pattern>${pattern}</Pattern>
+            </PatternLayout>
             <Policies>
-                <SizeBasedTriggeringPolicy size="${every_file_size}"/>
+                <SizeBasedTriggeringPolicy size="200MB"/>
                 <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
             </Policies>
-            <DefaultRolloverStrategy max="${info_max}"/>
-            <!-- 匹配INFO级别 -->
             <Filters>
+                <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <!-- max=6标识一小时内最多产生6个日志文件 -->
+            <DefaultRolloverStrategy max="6">
+                <!-- 对于指定的路径下的指定后缀的文件，只保留1天的日志文件，那么最多会有24小时*6个日志文件 -->
+                <Delete basePath="${baseLogDir}" maxDepth="1">
+                    <IfFileName glob="*.gz"/>
+                    <IfLastModified age="1d"/>
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingRandomAccessFile>
+        <!-- 应用info日志 -->
+        <RollingRandomAccessFile name="APPINFO_APPENDER" fileName="${baseLogDir}/info.log"
+                                 filePattern="${baseLogDir}/appinfo.log.%d{yyyyMMddHH}.%i.gz">
+            <PatternLayout>
+                <Pattern>${pattern}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="500MB"/>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+            <Filters>
+                <!-- 当前appender只打印info日志，warn及以上日志忽略，由后面的appender决定是否需要打印 -->
                 <ThresholdFilter level="WARN" onMatch="DENY" onMismatch="NEUTRAL"/>
                 <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
             </Filters>
-        </RollingFile>
-
-        <!-- 打印WARN级别的日志到文件 -->
-        <RollingFile name="WarnFile" fileName="${warn_fileName}" filePattern="${warn_filePattern}">
-            <PatternLayout charset="UTF-8" pattern="${log_pattern}"/>
+            <!-- max=20标识一小时内最多产生20个日志文件 -->
+            <DefaultRolloverStrategy max="20">
+                <!-- 对于指定的路径下的指定后缀的文件，只保留3天的日志文件，那么最多会有3天*24小时*20个日志文件 -->
+                <!-- 注意应用需要根据业务需求和磁盘大小评估需要保留的日志个数，对于500M的日志文件来说，要根据应用日志的情况，观察单个日志压缩后文件大小，并计算总大小需要的空间 -->
+                <Delete basePath="${baseLogDir}" maxDepth="1">
+                    <IfFileName glob="*.gz"/>
+                    <IfLastModified age="3d"/>
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingRandomAccessFile>
+        <!-- 应用错误日志 -->
+        <RollingRandomAccessFile name="APPERROR_APPENDER" fileName="${baseLogDir}/error.log"
+                                 filePattern="${baseLogDir}/apperror.log.%d{yyyyMMddHH}.%i.gz">
+            <PatternLayout>
+                <Pattern>${pattern}</Pattern>
+            </PatternLayout>
             <Policies>
+                <SizeBasedTriggeringPolicy size="500MB"/>
                 <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
-                <SizeBasedTriggeringPolicy size="20 MB"/>
             </Policies>
-            <DefaultRolloverStrategy max="${warn_max}"/>
-            <!-- 匹配WARN级别 -->
             <Filters>
-                <ThresholdFilter level="ERROR" onMatch="DENY" onMismatch="NEUTRAL"/>
                 <ThresholdFilter level="WARN" onMatch="ACCEPT" onMismatch="DENY"/>
             </Filters>
-        </RollingFile>
+            <!-- max=10标识一小时内最多产生10个日志文件 -->
+            <DefaultRolloverStrategy max="10">
+                <!-- 对于指定的路径下的指定后缀的文件，只保留3天的日志文件，那么最多会有3*24小时*10个日志文件 -->
+                <Delete basePath="${baseLogDir}" maxDepth="1">
+                    <IfFileName glob="*.gz"/>
+                    <IfLastModified age="3d"/>
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingRandomAccessFile>
+    </Appenders>
 
-        <!-- 打印ERROR级别的日志到文件 -->
-        <RollingFile name="ErrorFile" fileName="${error_fileName}" filePattern="${error_filePattern}">
-            <PatternLayout charset="UTF-8" pattern="${log_pattern}"/>
-            <Policies>
-                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
-                <SizeBasedTriggeringPolicy size="20 MB"/>
-            </Policies>
-            <DefaultRolloverStrategy max="${error_max}"/>
-            <!-- 匹配ERROR级别 -->
-            <Filters>
-                <ThresholdFilter level="FATAL" onMatch="DENY" onMismatch="NEUTRAL"/>
-                <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
-            </Filters>
-        </RollingFile>
-    </appenders>
-
-    <!--然后定义logger,只有定义了logger并引入的appender,appender才会生效-->
-    <loggers>
-        <!-- 设置对打印sql语句的支持 -->
-        <logger name="java.sql" level="debug" additivity="false">
-            <appender-ref ref="Console"/>
-        </logger>
-
-
-        <!--过滤掉spring和mybatis的一些无用的DEBUG信息-->
-        <logger name="org.springframework" level="info"></logger>
-        <logger name="org.mybatis" level="info"></logger>
-
-        <!-- 第三方日志系统 -->
-
-        <logger name="org.springframework.core" level="info" additivity="true">
-        </logger>
-        <logger name="org.springframework.beans" level="info">
-        </logger>
-        <logger name="org.springframework.context" level="info">
-        </logger>
-        <logger name="org.springframework.web" level="info">
-        </logger>
-
-        <!--建立一个默认的root的logger-->
-        <root level="${output_log_level}">
-            <!--<appender-ref ref="RollingFile"/>-->
-            <appender-ref ref="Console"/>
-            <appender-ref ref="InfoFile"/>
-            <appender-ref ref="WarnFile"/>
-            <appender-ref ref="ErrorFile"/>
-        </root>
-    </loggers>
-</configuration>
+    <Loggers>
+        <!-- root是默认的logger，也就是公共的logger，供记录一些不常打印的系统参数或者其他组件参数 -->
+        <AsyncRoot level="WARN">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="SYS_APPENDER"/>
+        </AsyncRoot>
+        <!-- 常打印的应用日志，建议独立配置，并采用异步模式。name根据实际的包名修改，生产环境中additivity建议设置为false以避免在root logger中重复打印 -->
+        <AsyncLogger name="cn.com.frodo" level="INFO" includeLocation="false" additivity="false">
+            <AppenderRef ref="APPINFO_APPENDER"/>
+            <AppenderRef ref="APPERROR_APPENDER"/>
+        </AsyncLogger>
+    </Loggers>
+</Configuration>
