@@ -22,7 +22,7 @@ public class AlgorithmClient {
         String[] array = arrayAlgorithm.find(src, "a", "z");
         System.out.println("array:  " + Arrays.toString(array));
 
-        _alAlgorithm = new LC76MinWindow();
+        _alAlgorithm = new LC204CountPrimes();
         _alAlgorithm.exec();
     }
 }

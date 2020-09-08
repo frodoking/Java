@@ -5,11 +5,19 @@ import cn.com.frodo.algorithm.IAlgorithm;
 import java.util.Arrays;
 
 /**
+ * 统计所有小于非负整数 n 的质数的数量。
+ *
+ * 示例:
+ *
+ * 输入: 10
+ * 输出: 4
+ * 解释: 小于 10 的质数一共有 4 个, 它们是 2, 3, 5, 7 。
+ *
  * @author frodoking
  * @ClassName: CountPrimes
  * @date 2020/7/4
  */
-public class CountPrimes implements IAlgorithm {
+public class LC204CountPrimes implements IAlgorithm {
 
     private static final int NUMBER = 100;
 
@@ -32,7 +40,7 @@ public class CountPrimes implements IAlgorithm {
         }
 
         int count = 0;
-        for (int i = 0; i < number; i++) {
+        for (int i = 1; i < number; i++) {
             if (flags[i]) {
                 count++;
                 System.out.println("shusu = " + i);
