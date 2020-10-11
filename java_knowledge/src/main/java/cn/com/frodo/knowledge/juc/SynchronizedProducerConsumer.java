@@ -7,7 +7,7 @@ package cn.com.frodo.knowledge.juc;
 public class SynchronizedProducerConsumer implements ProducerConsumer {
     public static int count = 0;
     public static final int FULL = 10;
-    public static final String LOCK = "lock";
+    public static final Object LOCK = new Object();
 
     @Override
     public void produce() {

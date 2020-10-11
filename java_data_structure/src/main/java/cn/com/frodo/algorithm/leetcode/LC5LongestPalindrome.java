@@ -14,6 +14,7 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/longest-palindromic-substring
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ * 用状态来表示，用下三角形来表示开始点和结束点之间是否时回文，如果子串是回文，i，j相等则当前外部也是回文，对角线上一定是回文，ij距离不超过2时也是回文
  *
  * @author frodoking
  * @ClassName: LC5LongestPalindrome

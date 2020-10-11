@@ -42,7 +42,7 @@ import java.util.HashMap;
  * @ClassName: LCLRUCache
  * @date 2020/9/8
  */
-public class LCLRUCache  implements IAlgorithm {
+public class LCLRUCache implements IAlgorithm {
 
     // key -> Node(key, val)
     private HashMap<Integer, DoubleNode> map;

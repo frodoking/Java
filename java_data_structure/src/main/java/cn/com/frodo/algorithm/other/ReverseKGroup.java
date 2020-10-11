@@ -1,4 +1,4 @@
-package cn.com.frodo.algorithm.leetcode;
+package cn.com.frodo.algorithm.other;
 
 import cn.com.frodo.LinkedNode;
 import cn.com.frodo.algorithm.IAlgorithm;

@@ -4,7 +4,6 @@ import cn.com.frodo.Arrays;
 import cn.com.frodo.algorithm.IAlgorithm;
 import com.google.common.collect.Lists;
 
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -47,7 +46,7 @@ public class LC15ThreeSum implements IAlgorithm {
             int tSum = sum - array[i];
             if (tSum > 0) {
                 List<List<Integer>> list = twoSum(array, i, tSum);
-                list.forEach(l-> l.add(array[0]));
+                list.forEach(l -> l.add(array[0]));
                 res.addAll(list);
             }
             Arrays.swap(array, i, 0);
@@ -63,9 +62,9 @@ public class LC15ThreeSum implements IAlgorithm {
         List<List<Integer>> res = Lists.newArrayList();
         while (i < j) {
             int s = i + j;
-            if (s> sum) {
+            if (s > sum) {
                 j--;
-            } else if (s<sum) {
+            } else if (s < sum) {
                 i++;
             } else {
                 res.add(Lists.newArrayList(i, j));

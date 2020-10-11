@@ -2,6 +2,9 @@ package cn.com.frodo.algorithm.leetcode;
 
 import cn.com.frodo.algorithm.IAlgorithm;
 
+import static cn.com.frodo.Arrays.show;
+import static cn.com.frodo.Arrays.swap;
+
 
 /**
  * @author frodoking
@@ -17,25 +20,12 @@ public class LC46Permutation implements IAlgorithm {
         perum(array, 0, array.length - 1);
     }
 
-    public void printArray(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i]);
-        }
-        System.out.println();
-    }
-
-    public void swap(int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
-
     // 对数组arr进行全排列
     public void perum(int[] arr, int p, int q) {
         // for循环将数组中所有的元素和第一个元素进行交换。然后进行全排列。
         // 递归结束条件
         if (p == q) {
-            printArray(arr);
+            show(arr, getClass().getName());
         }
         for (int i = p; i <= q; i++) {
             swap(arr, i, p);

@@ -4,6 +4,8 @@ import cn.com.frodo.algorithm.IAlgorithm;
 
 import java.util.Arrays;
 
+import static cn.com.frodo.Arrays.swap;
+
 /**
  * @author frodoking
  * @ClassName: LC75SortColors
@@ -29,12 +31,5 @@ public class LC75SortColors implements IAlgorithm {
             }
         }
         System.out.println(Arrays.toString(array));
-    }
-
-
-    public void swap(int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
     }
 }

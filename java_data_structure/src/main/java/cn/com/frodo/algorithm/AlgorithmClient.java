@@ -1,6 +1,5 @@
 package cn.com.frodo.algorithm;
 
-import cn.com.frodo.algorithm.common.stringarrange.StringArrange;
 import cn.com.frodo.algorithm.leetcode.*;
 import cn.com.frodo.algorithm.other.FindMaxLengthArrayAlgorithm;
 
@@ -12,9 +11,6 @@ public class AlgorithmClient {
         IAlgorithm _alAlgorithm = null;
         //_alAlgorithm = new LCS();
         //_alAlgorithm = new Kruskal();
-        _alAlgorithm = new StringArrange();
-        _alAlgorithm.exec();
-
         FindMaxLengthArrayAlgorithm arrayAlgorithm = new FindMaxLengthArrayAlgorithm();
         String[] src = {"abc", "cde", "cdf", "ex", "lmn", "xyz"};
         List<String> list = Arrays.asList(src);
@@ -22,7 +18,10 @@ public class AlgorithmClient {
         String[] array = arrayAlgorithm.find(src, "a", "z");
         System.out.println("array:  " + Arrays.toString(array));
 
-        _alAlgorithm = new LC204CountPrimes();
+        _alAlgorithm = new LC46Permutation2();
+        _alAlgorithm.exec();
+
+        _alAlgorithm = new LC78SubSets();
         _alAlgorithm.exec();
     }
 }

@@ -10,6 +10,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class ReentrantLockProducerConsumer implements ProducerConsumer {
 
     public static int count = 0;
+    public static final int EMPTY = 0;
     public static final int FULL = 10;
 
     private ReentrantLock lock = new ReentrantLock();
@@ -28,7 +29,7 @@ public class ReentrantLockProducerConsumer implements ProducerConsumer {
 
                 try {
                     lock.lock();
-                    while (count == FULL) {
+                    if (count == FULL) {
                         try {
                             notFull.await();
                         } catch (InterruptedException e) {
@@ -57,7 +58,7 @@ public class ReentrantLockProducerConsumer implements ProducerConsumer {
 
                 try {
                     lock.lock();
-                    while (count == 0) {
+                    if (count == EMPTY) {
                         try {
                             notEmpty.await();
                         } catch (InterruptedException e) {
