@@ -31,7 +31,8 @@ public class Arrays {
     }
 
     public static void show(int[] data, String flag) {
-        System.out.println("=======" + flag + "======");
+        if (flag != null)
+            System.out.println("=======" + flag + "======");
         for (int i = 0; i < data.length; i++) {
             System.out.print(data[i] + "\t");
         }
@@ -40,7 +41,8 @@ public class Arrays {
 
 
     public static void show(String text, String flag) {
-        System.out.println("=======" + flag + "======");
+        if (flag != null)
+            System.out.println("=======" + flag + "======");
         System.out.println(text);
     }
 }

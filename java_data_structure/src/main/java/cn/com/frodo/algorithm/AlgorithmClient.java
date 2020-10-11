@@ -1,6 +1,8 @@
 package cn.com.frodo.algorithm;
 
 import cn.com.frodo.algorithm.leetcode.*;
+import cn.com.frodo.algorithm.other.ABCABC;
+import cn.com.frodo.algorithm.other.ABCABC2;
 import cn.com.frodo.algorithm.other.FindMaxLengthArrayAlgorithm;
 
 import java.util.*;
@@ -18,10 +20,12 @@ public class AlgorithmClient {
         String[] array = arrayAlgorithm.find(src, "a", "z");
         System.out.println("array:  " + Arrays.toString(array));
 
-        _alAlgorithm = new LC46Permutation2();
+        _alAlgorithm = new LC46Permutation();
         _alAlgorithm.exec();
 
         _alAlgorithm = new LC78SubSets();
+        _alAlgorithm.exec();
+        _alAlgorithm = new ABCABC2();
         _alAlgorithm.exec();
     }
 }
