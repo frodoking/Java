@@ -1,6 +1,9 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.Arrays;
 import cn.com.frodo.algorithm.IAlgorithm;
+
+import java.util.Random;
 
 /**
  * 在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。
@@ -26,8 +29,41 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * @date 2020/10/17
  */
 public class LC215FindKthLargest  implements IAlgorithm {
+
+    Random random = new Random();
+
     @Override
     public void exec() {
 
+    }
+
+    public int findKthLargest(int[] nums, int k) {
+        return quickSelect(nums, 0, nums.length - 1, nums.length - k);
+    }
+
+    public int quickSelect(int[] a, int l, int r, int index) {
+        int q = randomPartition(a, l, r);
+        if (q == index) {
+            return a[q];
+        } else {
+            return q < index ? quickSelect(a, q + 1, r, index) : quickSelect(a, l, q - 1, index);
+        }
+    }
+
+    public int randomPartition(int[] a, int l, int r) {
+        int i = random.nextInt(r - l + 1) + l;
+        Arrays.swap(a, i, r);
+        return partition(a, l, r);
+    }
+
+    public int partition(int[] a, int l, int r) {
+        int x = a[r], i = l - 1;
+        for (int j = l; j < r; ++j) {
+            if (a[j] <= x) {
+                Arrays.swap(a, ++i, j);
+            }
+        }
+        Arrays.swap(a, i + 1, r);
+        return i + 1;
     }
 }
