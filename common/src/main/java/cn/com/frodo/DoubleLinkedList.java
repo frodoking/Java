@@ -5,13 +5,13 @@ package cn.com.frodo;
  * @ClassName: DoubleList
  * @date 2020/9/8
  */
-public class DoubleList {
+public class DoubleLinkedList {
 
     private DoubleNode head = null;
     private DoubleNode tail = null;
     private int size;
 
-    public DoubleList() {
+    public DoubleLinkedList() {
         head = new DoubleNode(0,0);
         tail = new DoubleNode(0,0);
         head.next = tail;

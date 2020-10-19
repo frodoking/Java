@@ -1,6 +1,6 @@
 package cn.com.frodo.algorithm.leetcode;
 
-import cn.com.frodo.DoubleList;
+import cn.com.frodo.DoubleLinkedList;
 import cn.com.frodo.DoubleNode;
 import cn.com.frodo.algorithm.IAlgorithm;
 
@@ -42,12 +42,12 @@ import java.util.HashMap;
  * @ClassName: LCLRUCache
  * @date 2020/9/8
  */
-public class LCLRUCache implements IAlgorithm {
+public class LC146LRUCache implements IAlgorithm {
 
     // key -> Node(key, val)
     private HashMap<Integer, DoubleNode> map;
     // Node(k1, v1) <-> Node(k2, v2)
-    private DoubleList cache;
+    private DoubleLinkedList cache;
     // 最大容量
     private int capacity;
 
