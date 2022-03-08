@@ -3,7 +3,6 @@ package cn.com.frodo.knowledge.socket;
 import cn.com.frodo.MockInterface;
 import cn.com.frodo.knowledge.callback.CallMe;
 import cn.com.frodo.knowledge.callback.EventNotifier;
-import cn.com.frodo.knowledge.rxjava.Rxjava;
 
 import javax.net.ssl.*;
 import java.io.DataInputStream;
@@ -39,8 +38,6 @@ public class DownloadWithSSLTest implements MockInterface {
             entry.getKey();
             entry.getValue();
         }
-
-        new Rxjava().doTest();
 
         try {
             downloadFile("http://g-cdn.quyiyuan.com/img/website/desktop/common/default/default-health-info.png", "default-health-info.png");

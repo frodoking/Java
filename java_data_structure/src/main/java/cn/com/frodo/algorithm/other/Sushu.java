@@ -93,9 +93,6 @@ public class Sushu implements IAlgorithm {
 
     /**
      * 检查单个数是否是素数
-     *
-     * @param value
-     * @return
      */
     private boolean isSuShu(Long value) {
         for (int i = 2; i <= Math.sqrt(value); i++) {

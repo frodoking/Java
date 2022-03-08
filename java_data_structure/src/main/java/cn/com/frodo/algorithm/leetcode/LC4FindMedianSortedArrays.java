@@ -55,7 +55,10 @@ import cn.com.frodo.algorithm.IAlgorithm;
 public class LC4FindMedianSortedArrays implements IAlgorithm {
     @Override
     public void exec() {
-
+        int[] nums1 = {1,2};
+        int[] nums2 = {-1,3};
+        double d = findMedianSortedArrays2(nums1, nums2);
+        System.out.println(d);
     }
 
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
@@ -94,5 +97,49 @@ public class LC4FindMedianSortedArrays implements IAlgorithm {
 
         return (m + n) % 2 == 0 ? (median1 + median2) / 2.0 : median1;
     }
+
+    public double findMedianSortedArrays2(int[] nums1, int[] nums2) {
+        int len1 = nums1.length;
+        int len2 = nums2.length;
+
+        if (len1 == 0) {
+            return case0(nums2);
+        }
+
+        if (len2 == 0) {
+            return case0(nums1);
+        }
+
+        int p = 0;
+        int i = 0, j = 0;
+        int startV = -10000;
+        boolean isA = true;
+        while (p < (len1 + len2) / 2) {
+            if (nums1[i] - startV > nums2[j] - startV) {
+                startV = nums2[j++];
+                isA = false;
+            } else {
+                startV = nums1[i++];
+                isA = true;
+            }
+            p++;
+        }
+
+        if ((len1 + len2) % 2 == 1) return Math.min(nums1[i], nums2[j]);
+
+        if (isA) {
+            if (i < len1 - 1) return (startV + nums1[i]) / 2.0;
+            else return (startV + nums2[j]) / 2.0;
+        } else {
+            if (j < len2 - 1) return (startV + nums2[j]) / 2.0;
+            else return (startV + nums1[i]) / 2.0;
+        }
+    }
+
+    private double case0(int[] nums) {
+        int len = nums.length;
+        return len % 2 == 1 ? nums[len / 2] : (nums[len / 2] + nums[len / 2 + 1]) / 2.0;
+    }
+
 
 }

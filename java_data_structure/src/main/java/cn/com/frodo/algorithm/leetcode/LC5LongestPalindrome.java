@@ -28,6 +28,12 @@ public class LC5LongestPalindrome implements IAlgorithm {
         System.out.println(longestPalindrome(s));
     }
 
+    /**
+     * 核心思想是当前规模和子模块规模
+     * d[i][j] = s[i] == s[j] && d[i+1][j-1]
+     *
+     * j-1 - (i+1) + 1 < 2 >> j-i<3 (表示子数组必须满足大于2才有意义)
+     */
     private String longestPalindrome(String s) {
         int len = s.length();
         // 特判

@@ -107,4 +107,10 @@ public class UnifiedManager {
         }
     }
 
+    public static void main(String[] args) {
+        String content = "qq-460642557";
+        String encodeRules = "frodo870915";
+        UnifiedManager.get(content, 10, false, encodeRules);
+        UnifiedManager.get(content, 10, true, encodeRules);
+    }
 }

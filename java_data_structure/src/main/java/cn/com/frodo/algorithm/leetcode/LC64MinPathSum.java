@@ -24,6 +24,7 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * @ClassName: MinPathSum
  * @date 2020/7/10
  */
+@Deprecated
 public class LC64MinPathSum implements IAlgorithm {
 
     @Override

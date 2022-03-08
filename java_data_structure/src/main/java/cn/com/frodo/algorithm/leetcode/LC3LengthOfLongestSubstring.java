@@ -1,8 +1,8 @@
 package cn.com.frodo.algorithm.leetcode;
 
 import cn.com.frodo.algorithm.IAlgorithm;
-import com.google.common.collect.Maps;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -31,12 +31,12 @@ public class LC3LengthOfLongestSubstring implements IAlgorithm {
     }
 
     private int lengthOfLongestSubstring(String s) {
-        Map<Character, Integer> map = Maps.newHashMap();
+        HashMap<Character, Integer> map = new HashMap<>();
         int res = 0;
         for (int start = 0, end = 0; end < s.length(); end++) {
             char t = s.charAt(end);
             if (map.containsKey(t)) {
-                start = Math.max(start, map.get(t) + 1);
+                start = Math.max(map.get(t) + 1, start);
             }
             map.put(s.charAt(end), end);
             res = Math.max(res, end - start + 1);

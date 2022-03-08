@@ -39,6 +39,15 @@ public class Arrays {
         System.out.println();
     }
 
+    public static void show(String[] data, String flag) {
+        if (flag != null)
+            System.out.println("=======" + flag + "======");
+        for (int i = 0; i < data.length; i++) {
+            System.out.print(data[i] + "\t");
+        }
+        System.out.println();
+    }
+
 
     public static void show(String text, String flag) {
         if (flag != null)

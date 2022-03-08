@@ -1,5 +1,5 @@
 main:
-  default: gc
+  default: relt
   list:
     base:
       name: com.frodo.BasicObjectTest
@@ -57,3 +57,5 @@ main:
       name: com.frodo.algorithm.ConsistentHashTest
     pb:
       name: com.frodo.encodedecode.pb.ProtocolTest
+    relt:
+      name: cn.com.frodo.knowledge.concurrent.ReentrantLockThreadTest

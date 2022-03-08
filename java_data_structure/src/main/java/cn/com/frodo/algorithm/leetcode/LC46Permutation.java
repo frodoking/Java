@@ -26,6 +26,7 @@ public class LC46Permutation implements IAlgorithm {
         // 递归结束条件
         if (p == q) {
             show(arr, getClass().getName());
+            return;
         }
         for (int i = p; i <= q; i++) {
             swap(arr, i, p);

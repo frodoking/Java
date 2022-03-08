@@ -95,6 +95,7 @@
         <AsyncLogger name="cn.com.frodo" level="INFO" includeLocation="false" additivity="false">
             <AppenderRef ref="APPINFO_APPENDER"/>
             <AppenderRef ref="APPERROR_APPENDER"/>
+            <AppenderRef ref="Console"/>
         </AsyncLogger>
     </Loggers>
 </Configuration>

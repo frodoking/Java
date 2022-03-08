@@ -28,6 +28,7 @@ import java.util.List;
  * @ClassName: LC15ThreeSum
  * @date 2020/7/13
  */
+@Deprecated
 public class LC15ThreeSum implements IAlgorithm {
 
     public static final int[] array = {-1, 0, 1, 2, -1, -4};
@@ -45,7 +46,7 @@ public class LC15ThreeSum implements IAlgorithm {
         for (int i = 0; i < array.length; i++) {
             int tSum = sum - array[i];
             if (tSum > 0) {
-                List<List<Integer>> list = twoSum(array, i, tSum);
+                List<List<Integer>> list = twoSum(array, tSum);
                 list.forEach(l -> l.add(array[0]));
                 res.addAll(list);
             }
@@ -55,13 +56,13 @@ public class LC15ThreeSum implements IAlgorithm {
         return res;
     }
 
-    private List<List<Integer>> twoSum(int[] array, int index, int sum) {
-        int i = 0;
+    private List<List<Integer>> twoSum(int[] array, int sum) {
+        int i = 1;
         int j = array.length - 1;
 
         List<List<Integer>> res = Lists.newArrayList();
         while (i < j) {
-            int s = i + j;
+            int s = array[i] + array[j];
             if (s > sum) {
                 j--;
             } else if (s < sum) {

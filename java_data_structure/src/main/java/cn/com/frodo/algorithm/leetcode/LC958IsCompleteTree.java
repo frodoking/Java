@@ -50,7 +50,7 @@ public class LC958IsCompleteTree implements IAlgorithm {
     }
 
     public boolean isCompleteTree(BinaryTreeNode root) {
-        List<ANode> nodes = new ArrayList();
+        List<ANode> nodes = new ArrayList<>();
         nodes.add(new ANode(root, 1));
         int i = 0;
         while (i < nodes.size()) {
