@@ -11,6 +11,22 @@ public class LinkedNode {
     public int data;
     public LinkedNode next = null;
 
+    public static LinkedNode link(int[] array) {
+        LinkedNode head = null;
+        LinkedNode linkedNode = null;
+        for (int i = 0; i < array.length; i++) {
+            LinkedNode ln = new LinkedNode(array[i]);
+            if (Objects.isNull(linkedNode)) {
+                head = ln;
+                linkedNode = head;
+            } else {
+                linkedNode.next = ln;
+                linkedNode = linkedNode.next ;
+            }
+        }
+        return head;
+    }
+
     public LinkedNode(int data) {
         this.data = data;
     }

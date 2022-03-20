@@ -24,7 +24,7 @@ public class AlgorithmClient {
 //
 //        _alAlgorithm = new LC78SubSets();
 //        _alAlgorithm.exec();
-        _alAlgorithm = new ReverseKGroup();
+        _alAlgorithm = new LC41FirstMissingPositive();
         _alAlgorithm.exec();
     }
 }

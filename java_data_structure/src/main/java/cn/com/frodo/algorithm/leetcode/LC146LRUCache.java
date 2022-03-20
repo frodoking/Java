@@ -5,6 +5,8 @@ import cn.com.frodo.DoubleNode;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * 运用你所掌握的数据结构，设计和实现一个  LRU (最近最少使用) 缓存机制。它应该支持以下操作： 获取数据 get 和 写入数据 put 。
@@ -53,7 +55,6 @@ public class LC146LRUCache implements IAlgorithm {
 
     @Override
     public void exec() {
-
     }
 
     public int get(int key) {
@@ -62,12 +63,6 @@ public class LC146LRUCache implements IAlgorithm {
         }
         makeRecently(key);
         return map.get(key).val;
-    }
-
-    private void makeRecently(int key) {
-        DoubleNode node = map.get(key);
-        cache.remove(node);
-        cache.addLast(node);
     }
 
     public void put(int key, int value) {
@@ -81,6 +76,12 @@ public class LC146LRUCache implements IAlgorithm {
             removeLeastRecently();
         }
         addRecently(key, value);
+    }
+
+    private void makeRecently(int key) {
+        DoubleNode node = map.get(key);
+        cache.remove(node);
+        cache.addLast(node);
     }
 
     private void removeLeastRecently() {
@@ -98,5 +99,19 @@ public class LC146LRUCache implements IAlgorithm {
         DoubleNode node = map.get(key);
         cache.remove(node);
         map.remove(key);
+    }
+
+    public class LRUCache<K, V> extends LinkedHashMap<K, V> {
+        private final int cacheSize;
+
+        public LRUCache(int cacheSize) {
+            super(16, 0.75f, true);
+            this.cacheSize = cacheSize;
+        }
+
+        @Override
+        protected boolean removeEldestEntry(Map.Entry<K, V> eldest) {
+            return size() >= cacheSize;
+        }
     }
 }

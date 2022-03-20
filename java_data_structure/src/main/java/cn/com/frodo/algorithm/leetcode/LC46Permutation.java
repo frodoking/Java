@@ -11,6 +11,7 @@ import static cn.com.frodo.Arrays.swap;
  * @ClassName: AllRange
  * @date 2020/7/10
  */
+@Deprecated
 public class LC46Permutation implements IAlgorithm {
 
     public static final int[] array = {1, 2, 3};

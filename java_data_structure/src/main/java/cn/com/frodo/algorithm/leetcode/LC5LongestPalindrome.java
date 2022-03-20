@@ -20,6 +20,7 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * @ClassName: LC5LongestPalindrome
  * @date 2020/7/13
  */
+@Deprecated
 public class LC5LongestPalindrome implements IAlgorithm {
 
     @Override
