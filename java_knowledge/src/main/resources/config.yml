@@ -1,5 +1,5 @@
 main:
-  default: relt
+  default: kafka
   list:
     base:
       name: com.frodo.BasicObjectTest
@@ -59,3 +59,5 @@ main:
       name: com.frodo.encodedecode.pb.ProtocolTest
     relt:
       name: cn.com.frodo.knowledge.concurrent.ReentrantLockThreadTest
+    kafka:
+      name: cn.com.frodo.knowledge.kafka.KafkaClient
