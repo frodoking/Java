@@ -2,10 +2,8 @@ package cn.com.frodo.knowledge.multiThread;
 
 import cn.com.frodo.MockInterface;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Description 触发条件：线程数=maximumPoolSize 且 queue已满
@@ -17,23 +15,29 @@ public class ThreadPoolTest implements MockInterface {
     @SuppressWarnings("unchecked")
     @Override
     public void doTest() {
-        ExecutorService executorService = new ThreadPoolExecutor(4, 14, 10L, TimeUnit.MICROSECONDS, new LinkedBlockingQueue(10));
+        ExecutorService executorService = new ThreadPoolExecutor(10, 10, 2,
+                TimeUnit.SECONDS, new ArrayBlockingQueue<>(1));
 
-        for (int i = 0; i < 25; i++) {
+        AtomicInteger counter = new AtomicInteger(0);
+        for (int i = 0; i < 11; i++) {
             final int index = i;
-            executorService.submit(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        Thread.sleep(10000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+            try {
+                executorService.execute(new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            TimeUnit.SECONDS.sleep(3);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        System.out.println(index + ".....execute " + counter.incrementAndGet());
                     }
-                    System.out.println(".....execute " + index + " " + System.currentTimeMillis());
-                }
-            });
+                }));
+            } catch (Exception e) {
+                System.out.println(index + ".....rejected  ");
+            }
         }
-
+        executorService.shutdown();
     }
 }
 

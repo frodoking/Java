@@ -22,6 +22,7 @@ import java.util.Map;
  * @ClassName: LC3LengthOfLongestSubstring
  * @date 2020/7/13
  */
+@Deprecated
 public class LC3LengthOfLongestSubstring implements IAlgorithm {
 
     @Override

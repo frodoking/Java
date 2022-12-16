@@ -1,5 +1,5 @@
 main:
-  default: relt
+  default: tp
   list:
     base:
       name: com.frodo.BasicObjectTest
@@ -36,13 +36,13 @@ main:
       name: com.frodo.encodedecode.gson.GsonMultiThreadTest
       runLoop: 100
     tp:
-      name: com.frodo.thread.ThreadPoolTest
+      name: cn.com.frodo.knowledge.multiThread.ThreadPoolTest
     ty:
-      name: com.frodo.thread.ThreadYieldTest
+      name: cn.com.frodo.knowledge.multiThread.ThreadYieldTest
     cdl:
-      name: com.frodo.thread.CountDownLatchTest
+      name: cn.com.frodo.knowledge.multiThread.CountDownLatchTest
     cdl2:
-      name: com.frodo.thread.CountDownLatch2Test
+      name: cn.com.frodo.knowledge.multiThread.CountDownLatch2Test
     cb:
       name: com.frodo.concurrent.CyclicBarrierTest
     btrace:
@@ -59,3 +59,5 @@ main:
       name: com.frodo.encodedecode.pb.ProtocolTest
     relt:
       name: cn.com.frodo.knowledge.concurrent.ReentrantLockThreadTest
+    generics:
+      name: cn.com.frodo.knowledge.generics.GenericsTest

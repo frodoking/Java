@@ -1,4 +1,4 @@
-package com.frodo.thread;
+package cn.com.frodo.knowledge.multiThread;
 
 import cn.com.frodo.MockInterface;
 

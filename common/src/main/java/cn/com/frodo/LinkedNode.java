@@ -21,7 +21,7 @@ public class LinkedNode {
                 linkedNode = head;
             } else {
                 linkedNode.next = ln;
-                linkedNode = linkedNode.next ;
+                linkedNode = linkedNode.next;
             }
         }
         return head;
@@ -32,36 +32,16 @@ public class LinkedNode {
     }
 
     public LinkedNode reverse() {
-        LinkedNode head = this;
-        LinkedNode p = null;
-        LinkedNode q = head;
-        while (head.next != null) {
-            p = head.next;
-            head.next = p.next;
-            p.next = q;
-            q = p;
-        }
-        return q;
-    }
-
-    /**
-     * 普通逆置
-     */
-    public static LinkedNode reverseNormal(LinkedNode current) {
+        LinkedNode curr = this;
         LinkedNode pre = null;
-        LinkedNode head = current;
-        LinkedNode next = head.next;
-        while (next != null) {
-            System.out.print(head.next.data + " -->  ");
-            head.next = pre;
-            pre = head;
-            head = next;
-            next = next.next;
+        LinkedNode tmp;
+        while (curr != null) {
+            tmp = curr.next;
+            curr.next = pre;
+            pre = curr;
+            curr = tmp;
         }
-
-        head.next = pre;
-
-        return head;
+        return pre;
     }
 
     /**

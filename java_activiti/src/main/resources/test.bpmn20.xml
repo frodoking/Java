@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+             typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath"
+             targetNamespace="http://www.activiti.org/processdef">
+    <process id="test" name="test" isExecutable="true">
+        <endEvent id="EndEvent_1" name="End Event 1">
+            <terminateEventDefinition id="TerminateEventDefinition_1"/>
+        </endEvent>
+        <endEvent id="EndEvent_2" name="End Event 2">
+            <compensateEventDefinition waitForCompletion="false" id="CompensateEventDefinition_1"/>
+        </endEvent>
+        <exclusiveGateway id="ExclusiveGateway_1" name="Exclusive Gateway 1"/>
+        <inclusiveGateway id="InclusiveGateway_1" name="Inclusive Gateway 1"/>
+        <intermediateCatchEvent id="Event_1" name="Event 1">
+            <conditionalEventDefinition id="ConditionalEventDefinition_1">
+                <condition>true</condition>
+            </conditionalEventDefinition>
+        </intermediateCatchEvent>
+        <intermediateCatchEvent id="Event_2" name="Event 2">
+            <conditionalEventDefinition id="ConditionalEventDefinition_2">
+                <condition>true</condition>
+            </conditionalEventDefinition>
+        </intermediateCatchEvent>
+        <parallelGateway id="ParallelGateway_1" name="Parallel Gateway 1"/>
+        <sequenceFlow sourceRef="Event_2" targetRef="InclusiveGateway_1" id="Event_2-InclusiveGateway_1"/>
+        <sequenceFlow sourceRef="EndEvent_2" targetRef="StartEvent_2" id="EndEvent_2-StartEvent_2"/>
+        <sequenceFlow sourceRef="StartEvent_1" targetRef="ExclusiveGateway_1" id="StartEvent_1-ExclusiveGateway_1"/>
+        <sequenceFlow sourceRef="Event_1" targetRef="StartEvent_2" id="Event_1-StartEvent_2"/>
+        <serviceTask id="ServiceTask_1" name="Service Task 1"/>
+        <startEvent id="StartEvent_1" name="Start Event 1"/>
+        <startEvent id="StartEvent_2" name="Start Event 2">
+            <messageEventDefinition id="MessageEventDefinition_1"/>
+        </startEvent>
+    </process>
+    <bpmndi:BPMNDiagram id="BPMNDiagram_test">
+        <bpmndi:BPMNPlane bpmnElement="test" id="BPMNPlane_test">
+            <bpmndi:BPMNShape bpmnElement="StartEvent_1">
+                <omgdc:Bounds height="48.0" width="48.0" x="286.0" y="169.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="ExclusiveGateway_1">
+                <omgdc:Bounds height="48.0" width="48.0" x="403.0" y="172.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="Event_1">
+                <omgdc:Bounds height="48.0" width="48.0" x="354.0" y="318.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="StartEvent_2">
+                <omgdc:Bounds height="48.0" width="48.0" x="434.0" y="392.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="EndEvent_1">
+                <omgdc:Bounds height="48.0" width="48.0" x="407.0" y="579.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="ParallelGateway_1">
+                <omgdc:Bounds height="48.0" width="48.0" x="426.0" y="508.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="InclusiveGateway_1">
+                <omgdc:Bounds height="48.0" width="48.0" x="560.0" y="434.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="EndEvent_2">
+                <omgdc:Bounds height="48.0" width="48.0" x="772.0" y="204.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="Event_2">
+                <omgdc:Bounds height="48.0" width="48.0" x="788.0" y="102.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="ServiceTask_1">
+                <omgdc:Bounds height="48.0" width="120.0" x="58.0" y="339.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge bpmnElement="Event_2-InclusiveGateway_1">
+                <omgdi:waypoint x="812.0" y="126.0"/>
+                <omgdi:waypoint x="584.0" y="458.0"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="EndEvent_2-StartEvent_2">
+                <omgdi:waypoint x="796.0" y="228.0"/>
+                <omgdi:waypoint x="458.0" y="416.0"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="StartEvent_1-ExclusiveGateway_1">
+                <omgdi:waypoint x="310.0" y="193.0"/>
+                <omgdi:waypoint x="427.0" y="196.0"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="Event_1-StartEvent_2">
+                <omgdi:waypoint x="378.0" y="342.0"/>
+                <omgdi:waypoint x="458.0" y="416.0"/>
+            </bpmndi:BPMNEdge>
+        </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+</definitions>

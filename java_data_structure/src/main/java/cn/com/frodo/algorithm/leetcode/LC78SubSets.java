@@ -19,16 +19,14 @@ public class LC78SubSets implements IAlgorithm {
 
     @Override
     public void exec() {
-        List<List<Integer>> res = Lists.newArrayList();
-        backtrack(0, array, res, Lists.newArrayList());
+        backtrack(0, array, Lists.newArrayList());
     }
 
-    private void backtrack(int i, int[] nums, List<List<Integer>> res, ArrayList<Integer> tmp) {
-        res.add(tmp);
+    private void backtrack(int i, int[] nums,ArrayList<Integer> tmp) {
         Arrays.show(tmp, getClass().getName());
         for (int j = i; j < nums.length; j++) {
             tmp.add(nums[j]);
-            backtrack(j + 1, nums, res, tmp);
+            backtrack(j + 1, nums, tmp);
             tmp.remove(tmp.size() - 1);
         }
     }
