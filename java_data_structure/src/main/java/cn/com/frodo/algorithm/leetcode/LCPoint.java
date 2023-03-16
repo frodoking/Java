@@ -25,7 +25,7 @@ public @interface LCPoint {
     }
 
     enum Category {
-        _byte, array, tree,
+        _byte, array, linklist, stack, tree, graph
     }
 
     enum Company {
