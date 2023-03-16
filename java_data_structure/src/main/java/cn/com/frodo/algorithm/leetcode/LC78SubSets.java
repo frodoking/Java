@@ -1,6 +1,5 @@
 package cn.com.frodo.algorithm.leetcode;
 
-import cn.com.frodo.Arrays;
 import cn.com.frodo.algorithm.IAlgorithm;
 import com.google.common.collect.Lists;
 
@@ -21,15 +20,16 @@ public class LC78SubSets implements IAlgorithm {
     public void exec() {
         List<List<Integer>> res = Lists.newArrayList();
         backtrack(0, array, res, Lists.newArrayList());
+
+        System.out.println(res);
     }
 
-    private void backtrack(int i, int[] nums, List<List<Integer>> res, ArrayList<Integer> tmp) {
-        res.add(tmp);
-        Arrays.show(tmp, getClass().getName());
+    private void backtrack(int i, int[] nums, List<List<Integer>> res, ArrayList<Integer> path) {
+        res.add(new ArrayList<>(path));
         for (int j = i; j < nums.length; j++) {
-            tmp.add(nums[j]);
-            backtrack(j + 1, nums, res, tmp);
-            tmp.remove(tmp.size() - 1);
+            path.add(nums[j]);
+            backtrack(j + 1, nums, res, path);
+            path.remove(path.size() - 1);
         }
     }
 }

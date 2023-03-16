@@ -41,6 +41,18 @@ public class Arrays {
         System.out.println();
     }
 
+    public static void show(int[][] data, String flag) {
+        if (flag != null)
+            System.out.println("=======" + flag + "======");
+        for (int i = 0; i < data.length; i++) {
+            for (int j = 0; j < data[i].length; j++) {
+                System.out.print(data[i][j] + "\t");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
     public static void show(String[] data, String flag) {
         if (flag != null)
             System.out.println("=======" + flag + "======");

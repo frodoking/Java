@@ -56,13 +56,15 @@ import cn.com.frodo.algorithm.IAlgorithm;
 public class LC4FindMedianSortedArrays implements IAlgorithm {
     @Override
     public void exec() {
-        int[] nums1 = {100001};
-        int[] nums2 = {100000};
-        double d = findMedianSortedArrays(nums1, nums2);
+        int[] nums1 = {1, 3};
+        int[] nums2 = {2};
+        double d = findMedianSortedArrays2(nums1, nums2);
         System.out.println(d);
     }
 
-    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+    // 时间复杂度不够
+    @Deprecated
+    private double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int start1 = 0;
         int start2 = 0;
         int len1 = nums1.length;
@@ -79,11 +81,50 @@ public class LC4FindMedianSortedArrays implements IAlgorithm {
         }
 
         if ((len & 1) == 0) {
-            return  (left + right) / 2.0;
+            return (left + right) / 2.0;
         } else {
             return right;
         }
     }
 
+    private double findMedianSortedArrays2(int[] nums1, int[] nums2) {
+        if (nums1.length > nums2.length) {
+            return findMedianSortedArrays2(nums2, nums1);
+        }
 
+        int len1 = nums1.length;
+        int len2 = nums2.length;
+
+        int left = 0;
+        int right = nums1.length;
+
+        int index1 = 0;
+        int index2 = 0;
+        int totalLeft = (len1 + len2 + 1) >> 1;
+        while (left < right) {
+            // 下一轮搜索的游标等于开始位置+区间大小除2
+            index1 = left + (right - left + 1) >> 1;
+            index2 = totalLeft - index1;
+
+            // 找小了
+            if (nums1[index1 - 1] > nums2[index2]) {
+                right = index1 - 1;
+            } else {
+                left = index1;
+            }
+        }
+
+        index1 = left;
+        index2 = totalLeft - index1;
+
+        int L1 = index1 == 0 ? Integer.MIN_VALUE : nums1[index1 - 1];
+        int R1 = index1 == len1 ? Integer.MAX_VALUE : nums1[index1];
+
+        int L2 = index2 == 0 ? Integer.MIN_VALUE : nums2[index2 - 1];
+        int R2 = index2 == len2 ? Integer.MAX_VALUE : nums2[index2];
+
+        return (len1 + len2) % 2 == 1 ?
+                Math.max(L1, L2) :
+                ((double) (Math.max(L1, L2) + Math.min(R1, R2))) / 2;
+    }
 }

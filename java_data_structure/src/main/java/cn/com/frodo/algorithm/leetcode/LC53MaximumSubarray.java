@@ -17,20 +17,30 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * @ClassName: LC53MaximumSubarray
  * @date 2022/3/8
  */
+@LCPoint
 @Deprecated
 public class LC53MaximumSubarray  implements IAlgorithm {
     @Override
     public void exec() {
-
+        int[] nums = {-2,1,-3,4,-1,2,1,-5,4};
+        int max = maxSubArray(nums);
+        System.out.println(max);
     }
 
+    /**
+     * 重点思路就是，如果前面总和为负数就不要加入到后边序列中
+     */
     public int maxSubArray(int[] nums) {
-        int max = 0;
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i-1] > 0) {
-                nums[i] += nums[i-1];
+        int pre = nums[0];
+        int max = pre;
+        int size = nums.length;
+        for (int i = 1; i < size; i++) {
+            if (pre > 0) {
+                pre += nums[i];
+            } else {
+                pre = nums[i];
             }
-            max = Math.max(max, nums[i]);
+            max = Math.max(max, pre);
         }
         return max;
     }

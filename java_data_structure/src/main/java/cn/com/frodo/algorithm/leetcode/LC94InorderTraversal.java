@@ -1,8 +1,11 @@
 package cn.com.frodo.algorithm.leetcode;
 
 import cn.com.frodo.BinaryTreeNode;
+import cn.com.frodo.TreeNode;
 import cn.com.frodo.algorithm.IAlgorithm;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -10,27 +13,34 @@ import java.util.Stack;
  * @ClassName: InorderTraversal
  * @date 2020/7/11
  */
+@LCPoint(difficulty = LCPoint.Difficulty.easy)
+@Deprecated
 public class LC94InorderTraversal implements IAlgorithm {
     @Override
     public void exec() {
         BinaryTreeNode root = new BinaryTreeNode(1);
         root.right = new BinaryTreeNode(2);
         root.right.left = new BinaryTreeNode(3);
-        inorderTraversal2(root);
+        inorderTraversal(root);
     }
 
-    public void inorderTraversal(BinaryTreeNode binaryTreeNode) {
-        if (binaryTreeNode.left == null && binaryTreeNode.right == null) {
-            System.out.println(binaryTreeNode.data);
+    public List<Integer> inorderTraversal(BinaryTreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        inorderTraversal(root, list);
+        return list;
+    }
+
+    public void inorderTraversal(BinaryTreeNode node, List<Integer> result) {
+        if (node.left == null && node.right == null) {
+            result.add(node.data);
             return;
         }
-        if (binaryTreeNode.left != null) {
-            inorderTraversal(binaryTreeNode.left);
-            System.out.println(binaryTreeNode.data);
+        if (node.left != null) {
+            inorderTraversal(node.left, result);
         }
-        if (binaryTreeNode.right != null) {
-            System.out.println(binaryTreeNode.data);
-            inorderTraversal(binaryTreeNode.right);
+        result.add(node.data);
+        if (node.right != null) {
+            inorderTraversal(node.right, result);
         }
     }
 

@@ -19,6 +19,7 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * @ClassName: LC6MaxArea
  * @date 2022/3/15
  */
+@Deprecated
 public class LC11MaxArea implements IAlgorithm {
     @Override
     public void exec() {

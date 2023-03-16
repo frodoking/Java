@@ -1,5 +1,6 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.LinkedNode;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 import java.util.Objects;
@@ -20,39 +21,39 @@ import java.util.Objects;
 public class LC2AddTwoNumbers implements IAlgorithm {
     @Override
     public void exec() {
-        ListNode l1 = new ListNode(9);
-        l1.next = new ListNode(9);
-        l1.next.next = new ListNode(9);
+        LinkedNode l1 = new LinkedNode(9);
+        l1.next = new LinkedNode(9);
+        l1.next.next = new LinkedNode(9);
 
-        ListNode l2 = new ListNode(9);
-        l2.next = new ListNode(9);
-        l2.next.next = new ListNode(9);
-        l2.next.next.next = new ListNode(9);
+        LinkedNode l2 = new LinkedNode(9);
+        l2.next = new LinkedNode(9);
+        l2.next.next = new LinkedNode(9);
+        l2.next.next.next = new LinkedNode(9);
 
-        ListNode l = addTwoNumbers(l1, l2);
+        LinkedNode l = addTwoNumbers(l1, l2);
        while (Objects.nonNull(l)) {
-           System.out.println(l.val);
+           System.out.println(l.data);
            l = l.next;
        }
     }
 
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode head = new ListNode((l1.val + l2.val) % 10);
-        ListNode nextNode = head;
-        int next = (l1.val + l2.val) / 10;
+    public LinkedNode addTwoNumbers(LinkedNode l1, LinkedNode l2) {
+        LinkedNode head = new LinkedNode((l1.data + l2.data) % 10);
+        LinkedNode nextNode = head;
+        int next = (l1.data + l2.data) / 10;
         l1 = l1.next;
         l2 = l2.next;
         while (Objects.nonNull(l1) || Objects.nonNull(l2)) {
-            ListNode currNode;
+            LinkedNode currNode;
             int total = 0;
             if (Objects.isNull(l1)) {
-                total =l2.val + next;
+                total =l2.data + next;
             } else if (Objects.isNull(l2)) {
-                total =l1.val + next;
+                total =l1.data + next;
             }else {
-                total =l1.val + l2.val + next;
+                total =l1.data + l2.data + next;
             }
-            currNode = new ListNode(total % 10);
+            currNode = new LinkedNode(total % 10);
             nextNode.next = currNode;
             nextNode = currNode;
             next = total / 10;
@@ -64,25 +65,8 @@ public class LC2AddTwoNumbers implements IAlgorithm {
                 l2 = l2.next;
         }
         if (next!=0) {
-            nextNode.next =  new ListNode(next);
+            nextNode.next =  new LinkedNode(next);
         }
         return head;
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
     }
 }
