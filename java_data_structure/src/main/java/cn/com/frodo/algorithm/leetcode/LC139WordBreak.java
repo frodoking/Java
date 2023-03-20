@@ -33,7 +33,7 @@ import java.util.Set;
  * 输出: false
  */
 @LCPoint(difficulty = LCPoint.Difficulty.medium,
-        category = LCPoint.Category._byte)
+        category = LCPoint.Category.digit)
 public class LC139WordBreak implements IAlgorithm {
 
     @Override

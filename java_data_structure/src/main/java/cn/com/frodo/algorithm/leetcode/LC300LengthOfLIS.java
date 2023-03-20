@@ -24,6 +24,9 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * @ClassName: LC300lengthOfLIS
  * @date 2020/10/17
  */
+@Deprecated
+@LCPoint(difficulty = LCPoint.Difficulty.medium,
+        category = LCPoint.Category.array)
 public class LC300LengthOfLIS implements IAlgorithm {
     @Override
     public void exec() {
