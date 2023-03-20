@@ -1,6 +1,7 @@
 package cn.com.frodo.algorithm.leetcode;
 
 import cn.com.frodo.algorithm.IAlgorithm;
+import org.junit.Assert;
 
 /**
  * 121. 买卖股票的最佳时机
@@ -33,19 +34,42 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * @ClassName: LC121MaxProfit
  * @date 2020/10/11
  */
+@LCPoint(difficulty = LCPoint.Difficulty.medium,
+        category = LCPoint.Category.digit)
 public class LC121MaxProfit implements IAlgorithm {
     @Override
     public void exec() {
-//        int[] array = {7, 1, 5, 3, 6, 4};
-        int[] array = {7, 6, 4, 3, 1};
-        System.out.println(maxProfit(array));
+        int[] array = {7, 1, 5, 3, 6, 4};
+
+        Assert.assertEquals(5, maxProfitWithDp(array));
+        Assert.assertEquals(5, maxProfit(array));
     }
 
-    private int maxProfit(int[] array) {
+    /**
+     * 思路：动态规划
+     * dp[i]=max(dp[i−1],prices[i]−minprice)
+     */
+    private int maxProfitWithDp(int[] prices) {
+        int size = prices.length;
+        int[] dp = new int[size];
+        int minPrice = prices[0];
+        dp[0] = 0;
+        for (int i = 1; i < size; i++) {
+            dp[i] = Math.max(dp[i - 1], prices[i] - minPrice);
+            minPrice = Math.min(minPrice, prices[i]);
+        }
+
+        return dp[size - 1];
+    }
+
+    /**
+     * 由于动态规划里dp[i]里多存储了这样的数据，所以直接用变量存储做转移即可
+     */
+    private int maxProfit(int[] prices) {
         int last = 0;
         int profit = 0;
-        for (int i = 0; i < array.length - 1; i++) {
-            last = Math.max(0, last + array[i + 1] - array[i]);
+        for (int i = 0; i < prices.length - 1; i++) {
+            last = Math.max(0, last + prices[i + 1] - prices[i]);
             profit = Math.max(last, profit);
         }
         return profit;
