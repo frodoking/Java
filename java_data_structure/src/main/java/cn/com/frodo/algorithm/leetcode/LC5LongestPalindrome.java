@@ -66,6 +66,8 @@ public class LC5LongestPalindrome implements IAlgorithm {
                 } else {
                     // 相等的情况下
                     // 考虑头尾去掉以后没有字符剩余，或者剩下一个字符的时候，肯定是回文串
+                    // 如果下一步个数小于2个则不用再比较
+                    // j-1 - (i+1) + 1 < 2
                     if (j - i < 3) {
                         dp[i][j] = true;
                     } else {

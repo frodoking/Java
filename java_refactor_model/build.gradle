@@ -1,6 +1,6 @@
 apply plugin: 'java'
 
 dependencies {
-    compile fileTree(dir: 'lib', include: ['*.jar'])
-    compile project(':common')
+    implementation fileTree(dir: 'lib', include: ['*.jar'])
+    implementation project(':common')
 }

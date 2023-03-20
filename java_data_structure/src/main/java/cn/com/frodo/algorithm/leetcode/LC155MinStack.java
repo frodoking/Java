@@ -37,14 +37,15 @@ import java.util.LinkedList;
  * 提示：
  *
  * pop、top 和 getMin 操作总是在 非空栈 上调用。
+ *  https://leetcode.cn/problems/min-stack/
  *
- * 来源：力扣（LeetCode）
- * 链接：https://leetcode-cn.com/problems/min-stack
- * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * @author frodoking
  * @ClassName: LC155MinStack
  * @date 2020/10/17
  */
+@Deprecated
+@LCPoint(difficulty = LCPoint.Difficulty.medium,
+        category = LCPoint.Category.stack)
 public class LC155MinStack  implements IAlgorithm {
 
     Deque<Integer> xStack;
@@ -60,13 +61,17 @@ public class LC155MinStack  implements IAlgorithm {
     public void exec() {
     }
 
+    /**
+     * 用最小堆上的值跟原始栈的最小值做占位，比如最底部最小1，那么整个辅助站里必定都是1
+     */
     public void push(int x) {
         xStack.push(x);
-        minStack.push(Math.min(xStack.peek(), x));
+        minStack.push(Math.min(minStack.peek(), x));
     }
 
     public void pop() {
         xStack.pop();
+        minStack.pop();
     }
 
     public int top() {

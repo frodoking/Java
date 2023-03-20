@@ -1,5 +1,5 @@
 main:
-  default: tp
+  default: kafka
   list:
     base:
       name: com.frodo.BasicObjectTest
@@ -36,13 +36,13 @@ main:
       name: com.frodo.encodedecode.gson.GsonMultiThreadTest
       runLoop: 100
     tp:
-      name: cn.com.frodo.knowledge.multiThread.ThreadPoolTest
+      name: com.frodo.thread.ThreadPoolTest
     ty:
-      name: cn.com.frodo.knowledge.multiThread.ThreadYieldTest
+      name: com.frodo.thread.ThreadYieldTest
     cdl:
-      name: cn.com.frodo.knowledge.multiThread.CountDownLatchTest
+      name: com.frodo.thread.CountDownLatchTest
     cdl2:
-      name: cn.com.frodo.knowledge.multiThread.CountDownLatch2Test
+      name: com.frodo.thread.CountDownLatch2Test
     cb:
       name: com.frodo.concurrent.CyclicBarrierTest
     btrace:
@@ -59,5 +59,5 @@ main:
       name: com.frodo.encodedecode.pb.ProtocolTest
     relt:
       name: cn.com.frodo.knowledge.concurrent.ReentrantLockThreadTest
-    generics:
-      name: cn.com.frodo.knowledge.generics.GenericsTest
+    kafka:
+      name: cn.com.frodo.knowledge.kafka.KafkaClient

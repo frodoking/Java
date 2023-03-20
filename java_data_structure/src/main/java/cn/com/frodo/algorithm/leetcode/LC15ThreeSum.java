@@ -1,9 +1,9 @@
 package cn.com.frodo.algorithm.leetcode;
 
-import cn.com.frodo.Arrays;
 import cn.com.frodo.algorithm.IAlgorithm;
-import com.google.common.collect.Lists;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -31,46 +31,52 @@ import java.util.List;
 @Deprecated
 public class LC15ThreeSum implements IAlgorithm {
 
-    public static final int[] array = {-1, 0, 1, 2, -1, -4};
+    public static final int[] array = {1,-1,-1,0};
 
     @Override
     public void exec() {
-        java.util.Arrays.sort(array);
+        Arrays.sort(array);
 
         List<List<Integer>> threeSum = threeSum(array, 0);
         System.out.println(threeSum.toString());
     }
 
     private List<List<Integer>> threeSum(int[] array, int sum) {
-        List<List<Integer>> res = Lists.newArrayList();
+        List<List<Integer>> res = new ArrayList<>();
         for (int i = 0; i < array.length; i++) {
-            int tSum = sum - array[i];
-            if (tSum > 0) {
-                List<List<Integer>> list = twoSum(array, tSum);
-                list.forEach(l -> l.add(array[0]));
-                res.addAll(list);
+            if (array[i] > sum) {
+                return res;
             }
-            Arrays.swap(array, i, 0);
+            if (i > 0 && array[i] == array[i - 1]) {
+                continue;
+            }
+            int l = i + 1;
+            int r = array.length - 1;
+            while (l < r) {
+                int sumT = array[i] + array[l] + array[r];
+                if (sumT < sum) {
+                    l++;
+                } else if (sumT > sum) {
+                    r--;
+                } else {
+                    List<Integer> list = new ArrayList<>();
+                    list.add(array[i]);
+                    list.add(array[l]);
+                    list.add(array[r]);
+                    res.add(list);
+                    while (l < r && array[l] == array[l + 1]) {
+                        l++;
+                    }
+                    while (l < r && array[r] == array[r - 1]) {
+                        r--;
+                    }
+                    l++;
+                    r--;
+                }
+            }
         }
 
         return res;
     }
 
-    private List<List<Integer>> twoSum(int[] array, int sum) {
-        int i = 1;
-        int j = array.length - 1;
-
-        List<List<Integer>> res = Lists.newArrayList();
-        while (i < j) {
-            int s = array[i] + array[j];
-            if (s > sum) {
-                j--;
-            } else if (s < sum) {
-                i++;
-            } else {
-                res.add(Lists.newArrayList(i, j));
-            }
-        }
-        return res;
-    }
 }

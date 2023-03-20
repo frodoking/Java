@@ -1,0 +1,9 @@
+spring:
+  kafka:
+    bootstrap-servers: 192.168.3.3:9092
+    consumer:
+      enable-auto-commit: false
+      group-id: frodo-test2
+      auto-offset-reset: earliest
+    listener:
+      ack-mode: manual

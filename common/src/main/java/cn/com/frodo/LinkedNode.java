@@ -11,7 +11,7 @@ public class LinkedNode {
     public int data;
     public LinkedNode next = null;
 
-    public static LinkedNode link(int[] array) {
+    public static LinkedNode link(int... array) {
         LinkedNode head = null;
         LinkedNode linkedNode = null;
         for (int i = 0; i < array.length; i++) {

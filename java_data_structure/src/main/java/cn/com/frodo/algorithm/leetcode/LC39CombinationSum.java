@@ -22,10 +22,16 @@ import java.util.List;
  * @ClassName: LC39CombinationSum
  * @date 2022/3/8
  */
+@LCPoint
 @Deprecated
 public class LC39CombinationSum implements IAlgorithm {
     @Override
     public void exec() {
+        int[] candidates = {2, 3, 6, 7};
+        int target = 7;
+        List<List<Integer>> list = combinationSum(candidates, target);
+        System.out.println("-------------");
+        System.out.println(list);
     }
 
     /**
@@ -40,18 +46,17 @@ public class LC39CombinationSum implements IAlgorithm {
     }
 
     public void dfs(int[] candidates, int begin, int target, Deque<Integer> path, List<List<Integer>> res) {
-        if (target < 0) {
-            return;
-        }
         if (target == 0) {
             res.add(new ArrayList<>(path));
             return;
         }
 
         for (int i = begin; i < candidates.length; i++) {
-            path.addLast(candidates[i]);
-            dfs(candidates, i, target - candidates[i], path, res);
-            path.removeLast();
+            if (target - candidates[i] >= 0) {
+                path.addLast(candidates[i]);
+                dfs(candidates, i, target - candidates[i], path, res);
+                path.removeLast();
+            }
         }
     }
 

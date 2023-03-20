@@ -13,6 +13,8 @@ import java.util.Queue;
  * @ClassName: LC102LevelOrder
  * @date 2020/7/11
  */
+@LCPoint(difficulty = LCPoint.Difficulty.medium)
+@Deprecated
 public class LC102LevelOrder implements IAlgorithm {
     @Override
     public void exec() {

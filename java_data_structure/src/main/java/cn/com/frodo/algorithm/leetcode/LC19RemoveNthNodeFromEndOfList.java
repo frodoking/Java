@@ -12,33 +12,45 @@ import java.util.Objects;
  * @ClassName: LC19
  * @date 2022/3/7
  */
+@Deprecated
 public class LC19RemoveNthNodeFromEndOfList implements IAlgorithm {
     @Override
     public void exec() {
-        LinkedNode head = new LinkedNode(1);
-        head.next = new LinkedNode(2);
-//        head.next.next = new LinkedNode(3);
-//        head.next.next.next = new LinkedNode(4);
-//        head.next.next.next.next = new LinkedNode(5);
+        LinkedNode head = LinkedNode.link(1, 2, 3, 4, 5);
 
-        LinkedNode linkedNode = removeNthFromEnd(head, 1);
+        head = removeNthFromEnd(head, 3);
+        head.print();
     }
 
     public LinkedNode removeNthFromEnd(LinkedNode head, int n) {
-        LinkedNode prevNode = head;
+        LinkedNode nextNode = head;
+        int size = 0;
+        while (nextNode != null) {
+            size++;
+            nextNode = nextNode.next;
+        }
+
+        if (size == 0) {
+            return null;
+        }
+
+        if (size == 1) {
+            return null;
+        }
+
+        if (size == n) {
+            return head.next;
+        }
+
         LinkedNode currNode = head;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < size - n - 1; i++) {
             currNode = currNode.next;
         }
+        LinkedNode preNode = currNode;
 
-        if (Objects.isNull(currNode)) return head.next;
-
-        while (Objects.nonNull(currNode)) {
-            prevNode = prevNode.next;
-            currNode = currNode.next;
-        }
-
-        prevNode.next = prevNode.next.next;
+        LinkedNode skipNode = preNode.next.next;
+        preNode.next.next = null;
+        preNode.next = skipNode;
 
         return head;
     }

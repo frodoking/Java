@@ -1,14 +1,36 @@
 apply plugin: 'java'
 
 dependencies {
-    compile fileTree(dir: 'lib', include: ['*.jar'])
-    compile 'io.reactivex.rxjava2:rxjava:2.1.7'
-    compile 'com.lmax:disruptor:3.3.4'
-    compile 'org.jctools:jctools-core:2.1.1'
+    implementation project(':common')
+
+
+    implementation group: 'junit', name: 'junit', version: '4.12'
+// slf4j的依赖
+    implementation 'org.slf4j:slf4j-api:1.7.26'
+// log4j2 的依赖
+    implementation 'org.apache.logging.log4j:log4j-api:2.11.2'
+    implementation 'org.apache.logging.log4j:log4j-core:2.11.2'
+// 用于与sfl4j保持桥接
+    implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.11.2'
+    implementation 'com.lmax:disruptor:3.4.2'
+
+// 用来无缝切换Log4j到log4j2的中间层 注意版本号要跟用的log4j2的版本号一致
+    implementation 'org.apache.logging.log4j:log4j-1.2-api:2.11.2'
+
+    annotationProcessor 'org.projectlombok:lombok:1.18.2'
+    implementation 'org.projectlombok:lombok:1.18.2'
+
+    implementation 'com.google.guava:guava:28.1-jre'
+
+
+    implementation fileTree(dir: 'lib', include: ['*.jar'])
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.7'
+    implementation 'com.lmax:disruptor:3.3.4'
+    implementation 'org.jctools:jctools-core:2.1.1'
     implementation 'com.google.code.gson:gson:2.8.5'
-    compile 'io.vertx:vertx-web:3.8.1'
-    compile 'io.vertx:vertx-web-templ-thymeleaf:3.8.1'
-    compile 'org.thymeleaf:thymeleaf:3.0.11.RELEASE'
+    implementation 'io.vertx:vertx-web:3.8.1'
+    implementation 'io.vertx:vertx-web-templ-thymeleaf:3.8.1'
+    implementation 'org.thymeleaf:thymeleaf:3.0.11.RELEASE'
 
     implementation 'com.sun.tools.btrace:btrace-client:1.2.3'
     implementation 'com.sun.tools.btrace:btrace-boot:1.2.3'
@@ -18,5 +40,7 @@ dependencies {
 
     implementation 'org.yaml:snakeyaml:1.26'
 
-    compile project(':common')
+    implementation 'org.apache.kafka:kafka-clients:3.2.1'
+
+
 }

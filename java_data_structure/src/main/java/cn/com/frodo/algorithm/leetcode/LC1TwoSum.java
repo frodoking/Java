@@ -14,6 +14,7 @@ import java.util.Arrays;
  * @ClassName: LC1TwoSum
  * @date 2022/3/7
  */
+@Deprecated
 public class LC1TwoSum implements IAlgorithm {
 
     @Override
