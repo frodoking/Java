@@ -3,6 +3,7 @@ package cn.com.frodo.knowledge.encrypt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.math.BigDecimal;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
@@ -108,9 +109,13 @@ public class UnifiedManager {
     }
 
     public static void main(String[] args) {
-        String content = "gmail-awangyun8";
+        String content = "qq-460642557";
         String encodeRules = "frodo870915";
         UnifiedManager.get(content, 10, false, encodeRules);
         UnifiedManager.get(content, 10, true, encodeRules);
+
+        BigDecimal bd = new BigDecimal("1.2222222");
+        int a= bd.scale();
+        System.out.println("args = " + a);
     }
 }

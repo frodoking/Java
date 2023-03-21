@@ -11,7 +11,7 @@ import static java.lang.annotation.ElementType.TYPE;
  * 重点算法
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target(value = {CONSTRUCTOR, FIELD, LOCAL_VARIABLE, METHOD, PACKAGE, MODULE, PARAMETER, TYPE})
+@Target(value = {CONSTRUCTOR, FIELD, LOCAL_VARIABLE, METHOD, PACKAGE, PARAMETER, TYPE})
 public @interface LCPoint {
 
     Difficulty difficulty() default Difficulty.easy;

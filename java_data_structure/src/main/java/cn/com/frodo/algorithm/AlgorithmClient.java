@@ -9,7 +9,7 @@ import java.util.Deque;
 public class AlgorithmClient {
 
     public static void main(String[] args) {
-        IAlgorithm algorithm = new LC309MaxProfit();
+        IAlgorithm algorithm = new LC416CanPartition();
         algorithm.exec();
 
 
