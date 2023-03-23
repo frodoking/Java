@@ -1,5 +1,6 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 /**
@@ -32,7 +33,7 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * @ClassName: LC33Search
  * @date 2022/3/13
  */
-@LCPoint
+@AlgorithmPoint
 @Deprecated
 public class LC33Search implements IAlgorithm {
     @Override

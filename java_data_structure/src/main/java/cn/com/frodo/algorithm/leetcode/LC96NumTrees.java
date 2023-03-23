@@ -1,11 +1,12 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@LCPoint(difficulty = LCPoint.Difficulty.medium)
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium)
 public class LC96NumTrees implements IAlgorithm {
 
     private Map<Integer, Integer> map= new HashMap<>();

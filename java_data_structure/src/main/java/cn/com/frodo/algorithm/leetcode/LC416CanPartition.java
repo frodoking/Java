@@ -1,5 +1,6 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 import org.junit.Assert;
 
@@ -24,8 +25,8 @@ import org.junit.Assert;
  * @ClassName: LC416CanPartition
  * @date 2023/3/21
  */
-@LCPoint(difficulty = LCPoint.Difficulty.medium,
-        category = LCPoint.Category._byte, company = LCPoint.Company.bytedance)
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
+        category = AlgorithmPoint.Category._byte, company = AlgorithmPoint.Company.bytedance)
 public class LC416CanPartition implements IAlgorithm {
 
     @Override

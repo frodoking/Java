@@ -1,6 +1,7 @@
 package cn.com.frodo.algorithm.leetcode;
 
 import cn.com.frodo.LinkedNode;
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 /**
@@ -34,8 +35,8 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * 进阶：你可以在 O(n log n) 时间复杂度和常数级空间复杂度下，对链表进行排序吗？
  */
 @Deprecated
-@LCPoint(difficulty = LCPoint.Difficulty.medium,
-        category = LCPoint.Category.linklist)
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium, company = AlgorithmPoint.Company.tencent,
+        category = AlgorithmPoint.Category.linklist)
 public class LC148SortList implements IAlgorithm {
     @Override
     public void exec() {

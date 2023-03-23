@@ -1,6 +1,8 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
+import org.junit.Assert;
 
 /**
  * 7. 整数反转
@@ -29,20 +31,23 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * @ClassName: LC7Reverse
  * @date 2020/10/11
  */
+@Deprecated
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium, company = AlgorithmPoint.Company.tencent,
+        category = AlgorithmPoint.Category.array)
 public class LC7Reverse implements IAlgorithm {
     @Override
     public void exec() {
-        System.out.println(reverse(-123));
+        Assert.assertEquals(-321, reverse(-123));
     }
 
     private int reverse(int x) {
         int ans = 0;
         while (x != 0) {
             int pop = x % 10;
-            if (ans > Integer.MAX_VALUE / 10 || (ans == Integer.MAX_VALUE / 10 && pop == 7)) {
+            if (ans > Integer.MAX_VALUE / 10 || (ans == Integer.MAX_VALUE / 10 && pop > 7)) {
                 return 0;
             }
-            if (ans < Integer.MIN_VALUE / 10 || (ans == Integer.MIN_VALUE / 10 && pop == -8)) {
+            if (ans < Integer.MIN_VALUE / 10 || (ans == Integer.MIN_VALUE / 10 && pop < -8)) {
                 return 0;
             }
             ans = ans * 10 + pop; // 此处容易导致数据溢出，因此需要提前感知，即/10

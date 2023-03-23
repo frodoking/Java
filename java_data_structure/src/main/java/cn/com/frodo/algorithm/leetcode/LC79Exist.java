@@ -1,5 +1,6 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 /**
@@ -30,7 +31,7 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * @ClassName: LC55CanJump
  * @date 2023/3/14
  */
-@LCPoint(difficulty = LCPoint.Difficulty.medium)
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium)
 @Deprecated
 public class LC79Exist implements IAlgorithm {
 

@@ -1,5 +1,6 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 import org.junit.Assert;
 
@@ -22,8 +23,8 @@ import org.junit.Assert;
  * 输入：nums = [3,1,3,4,2]
  * 输出：3
  */
-@LCPoint(difficulty = LCPoint.Difficulty.medium,
-        category = LCPoint.Category.array)
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
+        category = AlgorithmPoint.Category.array)
 public class LC287FindDuplicate implements IAlgorithm {
 
     @Override

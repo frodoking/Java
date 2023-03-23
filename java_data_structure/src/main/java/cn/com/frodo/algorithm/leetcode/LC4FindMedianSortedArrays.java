@@ -1,5 +1,6 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 /**
@@ -53,6 +54,8 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * @date 2020/10/25
  */
 @Deprecated
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium, company = { AlgorithmPoint.Company.xiaohongshu},
+        category = AlgorithmPoint.Category.array)
 public class LC4FindMedianSortedArrays implements IAlgorithm {
     @Override
     public void exec() {

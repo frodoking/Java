@@ -1,5 +1,6 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 import org.junit.Assert;
 
@@ -34,8 +35,8 @@ import org.junit.Assert;
  * @ClassName: LC121MaxProfit
  * @date 2020/10/11
  */
-@LCPoint(difficulty = LCPoint.Difficulty.medium,
-        category = LCPoint.Category.digit)
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
+        category = AlgorithmPoint.Category.digit)
 public class LC121MaxProfit implements IAlgorithm {
     @Override
     public void exec() {

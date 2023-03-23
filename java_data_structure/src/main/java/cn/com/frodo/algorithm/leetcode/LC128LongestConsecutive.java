@@ -1,5 +1,6 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 import java.util.HashMap;
@@ -23,9 +24,9 @@ import java.util.Map;
  * 输入：nums = [0,3,7,2,5,8,4,6,0,1]
  * 输出：9
  */
-@LCPoint(difficulty = LCPoint.Difficulty.medium,
-        category = LCPoint.Category.array,
-        company = LCPoint.Company.bytedance)
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
+        category = AlgorithmPoint.Category.array,
+        company = AlgorithmPoint.Company.bytedance)
 public class LC128LongestConsecutive implements IAlgorithm {
 
     @Override

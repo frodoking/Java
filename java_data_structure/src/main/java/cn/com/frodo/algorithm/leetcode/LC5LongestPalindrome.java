@@ -25,15 +25,16 @@ public class LC5LongestPalindrome implements IAlgorithm {
 
     @Override
     public void exec() {
-        String s = "pwwke";
+        String s = "ababa";
         System.out.println(longestPalindrome(s));
     }
 
     /**
      * 核心思想是当前规模和子模块规模
      * d[i][j] = s[i] == s[j] && d[i+1][j-1]
-     *
+     * <p>
      * j-1 - (i+1) + 1 < 2 >> j-i<3 (表示子数组必须满足大于2才有意义)
+     * 写得太复杂了
      */
     private String longestPalindrome(String s) {
         int len = s.length();
@@ -85,6 +86,25 @@ public class LC5LongestPalindrome implements IAlgorithm {
             }
         }
         // 4. 返回值
+        return s.substring(begin, begin + maxLen);
+    }
+
+    private String longestPalindrome2(String s) {
+        int len = s.length();
+        boolean[][] dp = new boolean[len][len];
+        int maxLen = 1;
+        int begin = 0;
+        for (int j = 1; j < len; j++) {
+            for (int i = 0; i < j; i++) {
+                if (s.charAt(i) == s.charAt(j) && (j - i <= 2 || dp[i + 1][j - 1])) {
+                    dp[i][j] = true;
+                    if (j - i + 1 > maxLen) {
+                        maxLen = j - i + 1;
+                        begin = i;
+                    }
+                }
+            }
+        }
         return s.substring(begin, begin + maxLen);
     }
 }

@@ -1,5 +1,6 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 import org.junit.Assert;
 
@@ -26,8 +27,8 @@ import org.junit.Assert;
  * 输出：0
  */
 @Deprecated
-@LCPoint(difficulty = LCPoint.Difficulty.medium,
-        category = LCPoint.Category.matrix)
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
+        category = AlgorithmPoint.Category.matrix)
 public class LC221MaximalSquare implements IAlgorithm {
     @Override
     public void exec() {

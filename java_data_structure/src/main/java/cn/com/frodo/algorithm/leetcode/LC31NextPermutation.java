@@ -1,6 +1,7 @@
 package cn.com.frodo.algorithm.leetcode;
 
 import cn.com.frodo.Arrays;
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 /**
@@ -36,7 +37,7 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * @ClassName: LC31NextPermutation
  * @date 2022/3/13
  */
-@LCPoint(difficulty = LCPoint.Difficulty.hard)
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.hard)
 @Deprecated
 public class LC31NextPermutation implements IAlgorithm {
 

@@ -1,6 +1,7 @@
 package cn.com.frodo.algorithm.leetcode;
 
 import cn.com.frodo.Arrays;
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 import java.util.Deque;
@@ -32,8 +33,8 @@ import java.util.LinkedList;
  * 输入：nums = [1], k = 1
  * 输出：[1]
  */
-@LCPoint(difficulty = LCPoint.Difficulty.hard,
-        category = LCPoint.Category.array)
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.hard,
+        category = AlgorithmPoint.Category.array)
 public class LC239MaxSlidingWindow implements IAlgorithm {
 
     @Override

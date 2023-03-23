@@ -1,5 +1,6 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 import java.util.ArrayDeque;
@@ -22,7 +23,7 @@ import java.util.List;
  * @ClassName: LC39CombinationSum
  * @date 2022/3/8
  */
-@LCPoint
+@AlgorithmPoint
 @Deprecated
 public class LC39CombinationSum implements IAlgorithm {
     @Override

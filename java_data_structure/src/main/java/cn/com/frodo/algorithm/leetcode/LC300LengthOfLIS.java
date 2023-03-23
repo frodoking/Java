@@ -1,5 +1,6 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 /**
@@ -25,8 +26,8 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * @date 2020/10/17
  */
 @Deprecated
-@LCPoint(difficulty = LCPoint.Difficulty.medium,
-        category = LCPoint.Category.array)
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
+        category = AlgorithmPoint.Category.array)
 public class LC300LengthOfLIS implements IAlgorithm {
     @Override
     public void exec() {

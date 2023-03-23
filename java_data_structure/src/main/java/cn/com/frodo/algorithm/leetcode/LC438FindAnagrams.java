@@ -1,7 +1,7 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
-import org.junit.Assert;
 
 import java.util.*;
 
@@ -30,8 +30,8 @@ import java.util.*;
  * 起始索引等于 2 的子串是 "ab", 它是 "ab" 的异位词。
  */
 @Deprecated
-@LCPoint(difficulty = LCPoint.Difficulty.medium, company = LCPoint.Company.bytedance,
-        category = LCPoint.Category._byte)
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium, company = AlgorithmPoint.Company.bytedance,
+        category = AlgorithmPoint.Category._byte)
 public class LC438FindAnagrams implements IAlgorithm {
     @Override
     public void exec() {

@@ -1,6 +1,7 @@
 package cn.com.frodo.algorithm.leetcode;
 
 import cn.com.frodo.BinaryTreeNode;
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 /**
@@ -28,8 +29,8 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * 输出: 9
  * 解释: 小偷一晚能够盗取的最高金额 4 + 5 = 9
  */
-@LCPoint(difficulty = LCPoint.Difficulty.medium,
-        category = LCPoint.Category.tree)
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
+        category = AlgorithmPoint.Category.tree)
 public class LC337Rob implements IAlgorithm {
 
     @Override

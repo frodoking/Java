@@ -1,6 +1,7 @@
 package cn.com.frodo.algorithm.leetcode;
 
 import cn.com.frodo.BinaryTreeNode;
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 /**
@@ -22,7 +23,7 @@ import cn.com.frodo.algorithm.IAlgorithm;
  *
  */
 @Deprecated
-@LCPoint(difficulty = LCPoint.Difficulty.easy)
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.easy)
 public class LC101IsSymmetric implements IAlgorithm {
     @Override
     public void exec() {

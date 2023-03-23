@@ -1,5 +1,6 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 /**
@@ -17,7 +18,7 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * @ClassName: LC53MaximumSubarray
  * @date 2022/3/8
  */
-@LCPoint
+@AlgorithmPoint
 @Deprecated
 public class LC53MaximumSubarray  implements IAlgorithm {
     @Override

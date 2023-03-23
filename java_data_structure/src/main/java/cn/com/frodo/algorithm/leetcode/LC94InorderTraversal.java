@@ -1,7 +1,7 @@
 package cn.com.frodo.algorithm.leetcode;
 
 import cn.com.frodo.BinaryTreeNode;
-import cn.com.frodo.TreeNode;
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import java.util.Stack;
  * @ClassName: InorderTraversal
  * @date 2020/7/11
  */
-@LCPoint(difficulty = LCPoint.Difficulty.easy)
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.easy)
 @Deprecated
 public class LC94InorderTraversal implements IAlgorithm {
     @Override

@@ -1,5 +1,6 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 import java.util.Deque;
@@ -44,8 +45,8 @@ import java.util.LinkedList;
  * @date 2020/10/17
  */
 @Deprecated
-@LCPoint(difficulty = LCPoint.Difficulty.medium,
-        category = LCPoint.Category.stack)
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium, company = AlgorithmPoint.Company.tencent,
+        category = AlgorithmPoint.Category.stack)
 public class LC155MinStack  implements IAlgorithm {
 
     Deque<Integer> xStack;

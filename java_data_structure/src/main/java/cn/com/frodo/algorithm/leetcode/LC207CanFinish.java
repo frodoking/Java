@@ -1,5 +1,6 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 import org.junit.Assert;
 
@@ -26,10 +27,24 @@ import java.util.*;
  * 输入：numCourses = 2, prerequisites = [[1,0],[0,1]]
  * 输出：false
  * 解释：总共有 2 门课程。学习课程 1 之前，你需要先完成​课程 0 ；并且学习课程 0 之前，你还应先完成课程 1 。这是不可能的。
+ *
+ * 变种题目：
+ * 在分布式项目中，各个微服务之间可以相互调用，现在给你一个字符串二维数组call，call[i]=["x","y"]，表示微服务"x"调用微服务"y"，请你判断这个任务数组中是否存在循环调用，如果存在，返回false。不存在返回true
+ * 输入：[["A","B"],["B","C"],["C","D"]]
+ * 输出：true
+ * 输入：[["A","B"],["B","C"],["C","A"],["C","D"]]
+ * 输出：false
+ * 实际上就是判断图中有没有环，可以用拓扑排序，看能不能把所有节点解放
+ *
+ * 作者：我的代码又有bug了
+ * 链接：https://leetcode.cn/circle/discuss/zyOLW6/
+ * 来源：力扣（LeetCode）
+ * 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
  */
 @Deprecated
-@LCPoint(difficulty = LCPoint.Difficulty.medium,
-        category = LCPoint.Category.graph)
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
+        category = AlgorithmPoint.Category.graph,
+        company = AlgorithmPoint.Company.bytedance)
 public class LC207CanFinish implements IAlgorithm {
     @Override
     public void exec() {

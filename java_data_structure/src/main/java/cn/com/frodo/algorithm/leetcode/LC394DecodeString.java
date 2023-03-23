@@ -1,5 +1,6 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 import org.junit.Assert;
 
@@ -39,8 +40,8 @@ import java.util.Queue;
  * @ClassName: LC394DecodeString
  * @date 2023/3/20
  */
-@LCPoint(difficulty = LCPoint.Difficulty.medium,
-        category = LCPoint.Category._byte, company = LCPoint.Company.bytedance)
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
+        category = AlgorithmPoint.Category._byte, company = AlgorithmPoint.Company.bytedance)
 public class LC394DecodeString implements IAlgorithm {
     @Override
     public void exec() {

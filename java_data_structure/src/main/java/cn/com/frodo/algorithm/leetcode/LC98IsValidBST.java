@@ -1,6 +1,7 @@
 package cn.com.frodo.algorithm.leetcode;
 
 import cn.com.frodo.BinaryTreeNode;
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 /**
@@ -14,7 +15,7 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * 所有左子树和右子树自身必须也是二叉搜索树。
  */
 @Deprecated
-@LCPoint(difficulty = LCPoint.Difficulty.medium)
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium)
 public class LC98IsValidBST implements IAlgorithm {
 
     @Override

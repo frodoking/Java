@@ -2,6 +2,7 @@ package cn.com.frodo.algorithm.leetcode;
 
 
 import cn.com.frodo.BinaryTreeNode;
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 import org.junit.Assert;
 
@@ -27,8 +28,8 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 输入：root = [5,4,8,11,null,13,4,7,2,null,null,5,1], targetSum = 22
  * 输出：3
  */
-@LCPoint(difficulty = LCPoint.Difficulty.medium, company = LCPoint.Company.bytedance,
-        category = LCPoint.Category.tree)
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium, company = AlgorithmPoint.Company.bytedance,
+        category = AlgorithmPoint.Category.tree)
 public class LC437PathSum implements IAlgorithm {
     @Override
     public void exec() {

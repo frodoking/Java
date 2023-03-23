@@ -1,6 +1,7 @@
 package cn.com.frodo.algorithm.leetcode;
 
 import cn.com.frodo.BinaryTreeNode;
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 import com.google.common.collect.Lists;
 
@@ -13,7 +14,7 @@ import java.util.Queue;
  * @ClassName: LC102LevelOrder
  * @date 2020/7/11
  */
-@LCPoint(difficulty = LCPoint.Difficulty.medium)
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium)
 @Deprecated
 public class LC102LevelOrder implements IAlgorithm {
     @Override

@@ -1,6 +1,7 @@
 package cn.com.frodo.algorithm.leetcode;
 
 import cn.com.frodo.Arrays;
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 /**
@@ -22,8 +23,8 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * 输入: nums = [-1,1,0,-3,3]
  * 输出: [0,0,9,0,0]
  */
-@LCPoint(difficulty = LCPoint.Difficulty.medium,
-        category = LCPoint.Category.array)
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
+        category = AlgorithmPoint.Category.array)
 public class LC238ProductExceptSelf implements IAlgorithm {
     @Override
     public void exec() {

@@ -1,5 +1,6 @@
 package cn.com.frodo.algorithm.other;
 
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 import java.util.concurrent.TimeUnit;
@@ -14,6 +15,10 @@ import static cn.com.frodo.Arrays.show;
  * @ClassName: ABCABC
  * @date 2020/10/11
  */
+@Deprecated
+@AlgorithmPoint(tag = AlgorithmPoint.Tag.interview,
+        difficulty = AlgorithmPoint.Difficulty.medium, company = { AlgorithmPoint.Company.ali},
+        category = AlgorithmPoint.Category.thread)
 public class ABCABC implements IAlgorithm {
 
     static class PrintClass implements Runnable {
@@ -26,13 +31,14 @@ public class ABCABC implements IAlgorithm {
         private final String printWord;
 
         //为了在控制台好看到效果，我这里打印5轮
-        private int count = 5;
+        private int count;
 
-        public PrintClass(Lock lock, Condition current, Condition next, String printWord) {
+        public PrintClass(Lock lock, Condition current, Condition next, String printWord, int count) {
             this.lock = lock;
             this.current = current;
             this.next = next;
             this.printWord = printWord;
+            this.count = count;
         }
 
         @Override
@@ -40,13 +46,10 @@ public class ABCABC implements IAlgorithm {
             lock.lock();
             try {
                 while (count > 0) {
+                    current.await();
                     show(printWord, getClass().getName());
-                    next.signal();  //唤醒利用下一个条件阻塞的线程
                     count--;
-                    //这里不加判断会导致程序停不下来，上篇文章分析过具体原因
-                    if (count > 0) {
-                        current.await(); //利用当前条件将当前线程阻塞
-                    }
+                    next.signal();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -63,14 +66,17 @@ public class ABCABC implements IAlgorithm {
         Condition a = lock.newCondition();
         Condition b = lock.newCondition();
         Condition c = lock.newCondition();
+        new Thread(new PrintClass(lock, a, b, "A", 3), "线程A").start();
+        new Thread(new PrintClass(lock, b, c, "B",3), "线程B").start();
+        new Thread(new PrintClass(lock, c, a, "C",3), "线程C").start();
+
         try {
-            new Thread(new PrintClass(lock, a, b, "A"), "线程A").start();
-            TimeUnit.SECONDS.sleep(1); //确保线程A最先执行
-            new Thread(new PrintClass(lock, b, c, "B"), "线程B").start();
-            TimeUnit.SECONDS.sleep(1); //确保线程B第2个执行
-            new Thread(new PrintClass(lock, c, a, "C"), "线程C").start();
+            TimeUnit.SECONDS.sleep(1);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        lock.lock();
+        a.signal();
+        lock.unlock();
     }
 }

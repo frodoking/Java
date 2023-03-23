@@ -1,7 +1,7 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
-import com.google.errorprone.annotations.DoNotCall;
 
 /**
  * 42. 接雨水
@@ -25,7 +25,7 @@ import com.google.errorprone.annotations.DoNotCall;
  * @ClassName: LC42Trap
  * @date 2022/3/14
  */
-@LCPoint
+@AlgorithmPoint
 @Deprecated
 public class LC42Trap implements IAlgorithm {
 

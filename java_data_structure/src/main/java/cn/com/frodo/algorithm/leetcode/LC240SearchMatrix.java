@@ -1,6 +1,7 @@
 package cn.com.frodo.algorithm.leetcode;
 
 
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 import org.junit.Assert;
 
@@ -24,8 +25,8 @@ import org.junit.Assert;
  * 输出：false
  */
 @Deprecated
-@LCPoint(difficulty = LCPoint.Difficulty.medium,
-        category = LCPoint.Category.array)
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
+        category = AlgorithmPoint.Category.array)
 public class LC240SearchMatrix implements IAlgorithm {
     @Override
     public void exec() {

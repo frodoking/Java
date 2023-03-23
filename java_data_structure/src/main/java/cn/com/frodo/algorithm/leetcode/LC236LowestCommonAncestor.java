@@ -1,6 +1,7 @@
 package cn.com.frodo.algorithm.leetcode;
 
 import cn.com.frodo.BinaryTreeNode;
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 /**
@@ -28,8 +29,8 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * 输入：root = [1,2], p = 1, q = 2
  * 输出：1
  */
-@LCPoint(difficulty = LCPoint.Difficulty.medium,
-        category = LCPoint.Category.tree)
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
+        category = AlgorithmPoint.Category.tree)
 public class LC236LowestCommonAncestor implements IAlgorithm {
     @Override
     public void exec() {

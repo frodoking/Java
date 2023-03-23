@@ -1,9 +1,9 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 import org.junit.Assert;
 
-import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -32,8 +32,8 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 输入：nums = [1], target = 1
  * 输出：1
  */
-@LCPoint(difficulty = LCPoint.Difficulty.medium,
-        category = LCPoint.Category.tree)
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
+        category = AlgorithmPoint.Category.tree)
 public class LC494FindTargetSumWays implements IAlgorithm {
     @Override
     public void exec() {

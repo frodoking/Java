@@ -1,6 +1,7 @@
 package cn.com.frodo.algorithm.leetcode;
 
 import cn.com.frodo.BinaryTreeNode;
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 /**
@@ -26,7 +27,7 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * 输出：[0]
  */
 @Deprecated
-@LCPoint(difficulty = LCPoint.Difficulty.medium, category = LCPoint.Category.tree)
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium, category = AlgorithmPoint.Category.tree)
 public class LC114Flatten implements IAlgorithm {
     @Override
     public void exec() {

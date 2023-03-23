@@ -1,9 +1,9 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 import org.junit.Assert;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,16 +43,20 @@ import java.util.Map;
  * @date 2020/9/8
  */
 @Deprecated
-@LCPoint(difficulty = LCPoint.Difficulty.medium,
-        category = LCPoint.Category.array)
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
+        company = {AlgorithmPoint.Company.tencent, AlgorithmPoint.Company.ali},
+        category = AlgorithmPoint.Category.array)
 public class LC146LRUCache implements IAlgorithm {
 
     private Map<Integer, Integer> map = new HashMap<>();
     private int[] list;
+    private int capacity;
+    private int cur;
 
     public LC146LRUCache(int capacity) {
+        this.capacity = capacity;
         list = new int[capacity];
-        Arrays.fill(list, Integer.MAX_VALUE);
+        cur = -1;
     }
 
     @Override
@@ -88,24 +92,23 @@ public class LC146LRUCache implements IAlgorithm {
             return -1;
         }
         int index = 0;
-        for (int i = 0; i < list.length; i++) {
+        for (int i = 0; i < capacity; i++) {
             if (list[i] == key) {
                 index = i;
                 break;
             }
         }
+        if (index == cur) {
+            return list[cur];
+        }
 
         int latest = list[index];
-        int updateIndex = index;
-        for (int i = index + 1; i < list.length; i++) {
-            if (list[i] != Integer.MAX_VALUE) {
-                list[i - 1] = list[i];
-                updateIndex = i;
-            }
+        for (int i = index + 1; i < cur; i++) {
+            list[i - 1] = list[i];
         }
-        list[updateIndex] = latest;
+        list[cur] = latest;
 
-        return result;
+        return latest;
     }
 
     public void put(int key, int value) {
@@ -113,23 +116,17 @@ public class LC146LRUCache implements IAlgorithm {
             get(key);
             map.put(key, value);
         } else {
-            int existIndex = -1;
-            for (int i = 0; i < list.length; i++) {
-                if (list[i] != Integer.MAX_VALUE) {
-                    existIndex = i;
-                }
-            }
-            if (existIndex + 1 < list.length) {
-                list[existIndex + 1] = key;
-                map.put(key, value);
+            if (cur < capacity - 1) {
+                list[cur + 1] = key;
+                cur++;
             } else {
                 map.remove(list[0]);
                 for (int i = 1; i < list.length; i++) {
                     list[i - 1] = list[i];
                 }
-                list[list.length - 1] = key;
-                map.put(key, value);
+                list[cur] = key;
             }
+            map.put(key, value);
         }
     }
 
