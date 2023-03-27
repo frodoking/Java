@@ -26,7 +26,7 @@ import org.junit.Assert;
  */
 @Deprecated
 @AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
-        category = AlgorithmPoint.Category.array)
+        category = AlgorithmPoint.Category.array, company = AlgorithmPoint.Company.didi)
 public class LC240SearchMatrix implements IAlgorithm {
     @Override
     public void exec() {

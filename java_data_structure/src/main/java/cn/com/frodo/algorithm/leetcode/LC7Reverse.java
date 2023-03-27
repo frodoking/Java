@@ -32,7 +32,8 @@ import org.junit.Assert;
  * @date 2020/10/11
  */
 @Deprecated
-@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium, company = AlgorithmPoint.Company.tencent,
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
+        company = {AlgorithmPoint.Company.tencent, AlgorithmPoint.Company.meituan},
         category = AlgorithmPoint.Category.array)
 public class LC7Reverse implements IAlgorithm {
     @Override

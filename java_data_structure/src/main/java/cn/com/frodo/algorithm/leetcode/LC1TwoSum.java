@@ -1,8 +1,11 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。
@@ -15,6 +18,10 @@ import java.util.Arrays;
  * @date 2022/3/7
  */
 @Deprecated
+@AlgorithmPoint(
+        tag = AlgorithmPoint.Tag.interview,
+        difficulty = AlgorithmPoint.Difficulty.easy,
+        category = AlgorithmPoint.Category.array)
 public class LC1TwoSum implements IAlgorithm {
 
     @Override
@@ -33,5 +40,19 @@ public class LC1TwoSum implements IAlgorithm {
             }
         }
         return new int[2];
+    }
+
+    /**
+     * 更快速，空间换时间
+     */
+    public int[] twoSum2(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for(int i = 0; i< nums.length; i++) {
+            if(map.containsKey(target - nums[i])) {
+                return new int[] {map.get(target-nums[i]),i};
+            }
+            map.put(nums[i], i);
+        }
+        throw new IllegalArgumentException("No two sum solution");
     }
 }

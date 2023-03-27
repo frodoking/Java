@@ -1,5 +1,6 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 /**
@@ -21,6 +22,11 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * @date 2020/7/13
  */
 @Deprecated
+@AlgorithmPoint(
+        tag = AlgorithmPoint.Tag.interview,
+        difficulty = AlgorithmPoint.Difficulty.medium,
+        company = {AlgorithmPoint.Company.didi, AlgorithmPoint.Company.meituan},
+        category = AlgorithmPoint.Category.array)
 public class LC5LongestPalindrome implements IAlgorithm {
 
     @Override

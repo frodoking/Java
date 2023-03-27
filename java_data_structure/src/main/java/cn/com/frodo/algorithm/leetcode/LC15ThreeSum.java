@@ -1,5 +1,6 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ import java.util.List;
  * <p>
  * <p>
  * 来源：力扣（LeetCode）
- * 链接：https://leetcode-cn.com/problems/3sum
+ * 链接：https://leetcode.cn/problems/3sum/
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  *
  * @author frodoking
@@ -29,6 +30,11 @@ import java.util.List;
  * @date 2020/7/13
  */
 @Deprecated
+@AlgorithmPoint(
+        tag = AlgorithmPoint.Tag.interview,
+        difficulty = AlgorithmPoint.Difficulty.medium,
+        company = {AlgorithmPoint.Company.xiaomi},
+        category = AlgorithmPoint.Category.array)
 public class LC15ThreeSum implements IAlgorithm {
 
     public static final int[] array = {1,-1,-1,0};
@@ -64,9 +70,11 @@ public class LC15ThreeSum implements IAlgorithm {
                     list.add(array[l]);
                     list.add(array[r]);
                     res.add(list);
+                    // 跳过相同项
                     while (l < r && array[l] == array[l + 1]) {
                         l++;
                     }
+                    // 跳过相同项
                     while (l < r && array[r] == array[r - 1]) {
                         r--;
                     }

@@ -1,6 +1,7 @@
 package cn.com.frodo.algorithm.leetcode;
 
 import cn.com.frodo.Arrays;
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 import java.util.ArrayList;
@@ -33,7 +34,11 @@ import java.util.List;
  * @ClassName: LC22GenerateParentheses
  * @date 2022/3/8
  */
-@Deprecated
+@AlgorithmPoint(
+        tag = AlgorithmPoint.Tag.interview,
+        difficulty = AlgorithmPoint.Difficulty.medium,
+        company = {AlgorithmPoint.Company.huawei},
+        category = AlgorithmPoint.Category.array)
 public class LC22GenerateParentheses implements IAlgorithm {
     @Override
     public void exec() {

@@ -23,7 +23,7 @@ public @interface AlgorithmPoint {
     Company[] company() default {Company.bytedance};
 
     enum Tag {
-        leetcode, interview
+        leetcode, offer, interview
     }
 
     enum Difficulty {
@@ -35,6 +35,6 @@ public @interface AlgorithmPoint {
     }
 
     enum Company {
-        bytedance, tencent, ali, baidu, meituan, didi, xiaohongshu
+        bytedance, tencent, ali, baidu, meituan, didi, xiaomi, xiaohongshu, huawei
     }
 }
