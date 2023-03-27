@@ -22,6 +22,8 @@ public @interface AlgorithmPoint {
 
     Company[] company() default {Company.bytedance};
 
+    Algorithm algorithm() default @Algorithm;
+
     enum Tag {
         leetcode, offer, interview
     }

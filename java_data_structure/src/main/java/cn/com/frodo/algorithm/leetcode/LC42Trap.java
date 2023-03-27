@@ -1,7 +1,13 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.Algorithm;
 import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
+import org.junit.Assert;
+
+import java.util.Arrays;
+import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * 42. 接雨水
@@ -25,67 +31,158 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * @ClassName: LC42Trap
  * @date 2022/3/14
  */
-@AlgorithmPoint
 @Deprecated
+@AlgorithmPoint(
+        tag = AlgorithmPoint.Tag.leetcode,
+        difficulty = AlgorithmPoint.Difficulty.hard,
+        category = AlgorithmPoint.Category.array,
+        algorithm = @Algorithm(value = {
+                Algorithm.AlgorithmEnum.dp,
+                Algorithm.AlgorithmEnum.twoPointers,
+                Algorithm.AlgorithmEnum.monotonicStack
+        }))
 public class LC42Trap implements IAlgorithm {
 
     @Override
     public void exec() {
-        int[] height = {1000, 999, 998, 966, 966};
-        int trap = trap(height);
-        System.out.println(trap);
+        int[] height = {4, 2, 0, 3, 2, 5};
+
+        Assert.assertEquals(9, trap(height));
+        Assert.assertEquals(9, trapWithDP(height));
+        Assert.assertEquals(9, trapWithStack(height));
+        Assert.assertEquals(9, trapWithTwoPointers(height));
     }
 
+    /**
+     * 暴力解法, 找每一个柱子的左右最大值
+     */
+    @Algorithm(value = Algorithm.AlgorithmEnum.force)
     public int trap(int[] height) {
-        int start = 0;
-        int end = 0;
-        int size = height.length;
-        int area = 0;
-        while (start <= end && end < size) {
-            if (start == end) {
-                end++;
-                continue;
+        int len = height.length;
+        if (len < 2) {
+            return 0;
+        }
+        int ans = 0;
+        for (int i = 0; i < len; i++) {
+            int left = i;
+            int leftMax = height[i];
+            int right = i;
+            int rightMax = height[i];
+            for (int j = 0; j < i; j++) {
+                if (height[j] > leftMax) {
+                    leftMax = height[j];
+                    left = j;
+                }
             }
 
-            if (height[start] > height[end]) {
-                end++;
-            } else {
-                int s = Math.min(height[start], height[end]) * (end - start - 1);
-                int exist = 0;
-                for (int i = start + 1; i < end; i++) {
-                    exist += height[i];
+            for (int j = i + 1; j < len; j++) {
+                if (height[j] > rightMax) {
+                    rightMax = height[j];
+                    right = j;
                 }
-                System.out.println(start + " 1 " + end + " " + (s - exist));
-                area += s - exist;
-
-                start = end;
             }
 
-            // 如果后边没有最高的点，那么需要从最高点找后边的次高点，继续搜索
-            if (end == size - 1) {
-                // 如果都到了最后一个就直接终止
-                if (start == end) {
-                    break;
-                }
-                int restMaxHeight = 0;
-                for (int i = start + 1; i < size; i++) {
-                    if (height[i] > restMaxHeight) {
-                        restMaxHeight = height[i];
-                        end = i;
-                    }
-                }
-                int s = Math.min(height[start], height[end]) * (end - start - 1);
-                int exist = 0;
-                for (int i = start + 1; i < end; i++) {
-                    exist += height[i];
-                }
-                System.out.println(start + " 2 " + end + " " + (s - exist));
-                area += s - exist;
+            ans += Math.min(height[left], height[right]) - height[i];
+            System.out.println("height = " + i + "--" + ans);
+        }
+        return ans;
+    }
 
-                start = end;
+    /**
+     * 动态规划
+     */
+    @Algorithm(value = Algorithm.AlgorithmEnum.dp)
+    public int trapWithDP(int[] height) {
+        int len = height.length;
+        if (len < 2) {
+            return 0;
+        }
+        int[] leftMaxArray = new int[len];
+        leftMaxArray[0] = height[0];
+        int[] rightMaxArray = new int[len];
+        rightMaxArray[len - 1] = height[len - 1];
+        for (int i = 1; i < len; i++) {
+            leftMaxArray[i] = leftMaxArray[i - 1];
+            if (height[i] > leftMaxArray[i - 1]) {
+                leftMaxArray[i] = height[i];
+            }
+
+            rightMaxArray[len - i - 1] = rightMaxArray[len - i];
+            if (height[i] > rightMaxArray[len - i]) {
+                rightMaxArray[len - i - 1] = height[len - i - 1];
             }
         }
 
-        return area;
+        int ans = 0;
+        for (int i = 0; i < len; i++) {
+            if (height[i] == leftMaxArray[i] || height[i] == rightMaxArray[i]) {
+                continue;
+            }
+
+            ans += Math.min(leftMaxArray[i], rightMaxArray[i]) - height[i];
+        }
+
+        return ans;
+    }
+
+    /**
+     * 单调递减栈，栈顶和当前元素对比，一定形成一个低洼
+     */
+    @Algorithm(value = Algorithm.AlgorithmEnum.monotonicStack)
+    public int trapWithStack(int[] height) {
+        int len = height.length;
+        if (len < 2) {
+            return 0;
+        }
+
+        Deque<Integer> stack = new LinkedList<>();
+        int ans = 0;
+        for (int i = 0; i < len; i++) {
+            while (!stack.isEmpty() && height[stack.peek()] < height[i]) {
+                int h = stack.pop();
+                if (stack.isEmpty()) {
+                    break;
+                }
+                int weight = i - stack.peek() - 1;
+
+                ans += weight * (Math.min(height[i], height[stack.peek()]) - height[h]);
+            }
+            stack.push(i);
+        }
+        return ans;
+    }
+
+    /**
+     * 双指针法，主要将最小柱子找完，在找最大柱子
+     */
+    @Algorithm(value = Algorithm.AlgorithmEnum.twoPointers)
+    public int trapWithTwoPointers(int[] height) {
+        int len = height.length;
+        if (len < 2) {
+            return 0;
+        }
+        int left = 0;
+        int right = len - 1;
+        int ans = 0;
+        int leftMax = 0;
+        int rightMax = 0;
+        while (left < right) {
+            if (height[left] < height[right]) {
+                if (height[left] >= leftMax) {
+                    leftMax = height[left];
+                } else {
+                    ans += leftMax - height[left];
+                }
+                left++;
+            } else {
+                if (height[right] >= rightMax) {
+                    rightMax = height[right];
+                } else {
+                    ans += rightMax - height[right];
+                }
+                right--;
+            }
+        }
+        return ans;
     }
 }

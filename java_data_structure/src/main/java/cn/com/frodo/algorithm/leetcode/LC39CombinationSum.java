@@ -54,9 +54,9 @@ public class LC39CombinationSum implements IAlgorithm {
 
         for (int i = begin; i < candidates.length; i++) {
             if (target - candidates[i] >= 0) {
-                path.addLast(candidates[i]);
+                path.push(candidates[i]);
                 dfs(candidates, i, target - candidates[i], path, res);
-                path.removeLast();
+                path.pop();
             }
         }
     }
