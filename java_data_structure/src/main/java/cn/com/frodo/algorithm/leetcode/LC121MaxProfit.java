@@ -1,5 +1,6 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.Algorithm;
 import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 import org.junit.Assert;
@@ -36,7 +37,8 @@ import org.junit.Assert;
  * @date 2020/10/11
  */
 @AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
-        category = AlgorithmPoint.Category.digit)
+        category = AlgorithmPoint.Category.digit,
+        algorithm = @Algorithm(value = Algorithm.AlgorithmEnum.dp))
 public class LC121MaxProfit implements IAlgorithm {
     @Override
     public void exec() {
@@ -50,6 +52,7 @@ public class LC121MaxProfit implements IAlgorithm {
      * 思路：动态规划
      * dp[i]=max(dp[i−1],prices[i]−minprice)
      */
+    @Algorithm(value = Algorithm.AlgorithmEnum.dp)
     private int maxProfitWithDp(int[] prices) {
         int size = prices.length;
         int[] dp = new int[size];

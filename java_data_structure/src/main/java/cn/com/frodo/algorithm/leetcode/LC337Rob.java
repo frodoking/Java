@@ -1,8 +1,10 @@
 package cn.com.frodo.algorithm.leetcode;
 
 import cn.com.frodo.BinaryTreeNode;
+import cn.com.frodo.algorithm.Algorithm;
 import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
+import org.junit.Assert;
 
 /**
  * 337. 打家劫舍 III
@@ -30,12 +32,17 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * 解释: 小偷一晚能够盗取的最高金额 4 + 5 = 9
  */
 @AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
-        category = AlgorithmPoint.Category.tree)
+        category = AlgorithmPoint.Category.tree,
+        algorithm = @Algorithm(value = Algorithm.AlgorithmEnum.dfs))
 public class LC337Rob implements IAlgorithm {
 
     @Override
     public void exec() {
-
+        int[] nums = {3,2,3,BinaryTreeNode._null.data,3,BinaryTreeNode._null.data,1};
+        BinaryTreeNode root = BinaryTreeNode.build(nums);
+        root.print();
+        Assert.assertEquals(7, rob(root));
+        Assert.assertEquals(7, rob2(root));
     }
 
     public int rob(BinaryTreeNode root) {

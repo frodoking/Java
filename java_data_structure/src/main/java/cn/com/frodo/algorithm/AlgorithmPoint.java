@@ -14,7 +14,7 @@ import static java.lang.annotation.ElementType.TYPE;
 @Target(value = {CONSTRUCTOR, FIELD, LOCAL_VARIABLE, METHOD, PACKAGE, PARAMETER, TYPE})
 public @interface AlgorithmPoint {
 
-    Tag tag() default Tag.leetcode;
+    Tag[] tag() default Tag.leetcode;
 
     Difficulty difficulty() default Difficulty.easy;
 
@@ -33,7 +33,7 @@ public @interface AlgorithmPoint {
     }
 
     enum Category {
-        _byte, digit, array, matrix, linklist, stack, tree, graph, thread
+        _byte, digit, str, array, matrix, linklist, stack, tree, graph, thread
     }
 
     enum Company {

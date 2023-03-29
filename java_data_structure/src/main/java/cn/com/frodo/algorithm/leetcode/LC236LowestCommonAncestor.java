@@ -3,6 +3,7 @@ package cn.com.frodo.algorithm.leetcode;
 import cn.com.frodo.BinaryTreeNode;
 import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
+import org.junit.Assert;
 
 /**
  * 236. 二叉树的最近公共祖先
@@ -34,12 +35,18 @@ import cn.com.frodo.algorithm.IAlgorithm;
 public class LC236LowestCommonAncestor implements IAlgorithm {
     @Override
     public void exec() {
+        int[] nums = {3, 5, 1, 6, 2, 0, 8, BinaryTreeNode._null.data, BinaryTreeNode._null.data, 7, 4};
+        BinaryTreeNode root = BinaryTreeNode.build(nums);
+        root.print();
+
+        Assert.assertEquals(3, lowestCommonAncestor(root, root.left, root.right).data);
+        Assert.assertEquals(5, lowestCommonAncestor(root, root.left, root.left.right.left).data);
     }
 
     /**
      * 非常重要的思路是如果左右最小公共祖先节点都不为空的时候，则当前节点就是最近公共祖先节点
      * 即：若其左子节点 root.left 和右子节点 root.right 都不是 p,q 的公共祖先，则称 root 是 “最近的公共祖先” 。
-     *
+     * <p>
      * 如果有一个不在这颗树上，那这个方法就不奏效
      */
     public BinaryTreeNode lowestCommonAncestor(BinaryTreeNode root, BinaryTreeNode p, BinaryTreeNode q) {

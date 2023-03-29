@@ -1,6 +1,9 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.Algorithm;
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
+import org.junit.Assert;
 
 import java.util.Arrays;
 
@@ -34,16 +37,20 @@ import java.util.Arrays;
  * @ClassName: LC322CoinChange
  * @date 2022/3/20
  */
+@AlgorithmPoint(tag = AlgorithmPoint.Tag.leetcode,
+        difficulty = AlgorithmPoint.Difficulty.medium,
+        category = AlgorithmPoint.Category.array,
+        algorithm = @Algorithm(value = Algorithm.AlgorithmEnum.dp))
 public class LC322CoinChange implements IAlgorithm {
     @Override
     public void exec() {
-        int[] coins = {186, 419, 83, 408};
-        int count = coinChange(coins, 6249);
-        System.out.println(count);
+        int[] coins = {2, 4, 5};
+        int count = coinChange(coins, 23);
+
+        Assert.assertEquals(3, count);
     }
 
     public int coinChange(int[] coins, int amount) {
-        // 自底向上的动态规划
         if (coins.length == 0) {
             return -1;
         }
@@ -55,12 +62,12 @@ public class LC322CoinChange implements IAlgorithm {
         Arrays.fill(dp, amount + 1);
         dp[0] = 0;
         for (int i = 1; i <= amount; i++) {
-            for (int j = 0; j < coins.length; j++) {
-                if (i - coins[j] >= 0) {
+            for (int coin : coins) {
+                if (i - coin >= 0) {
                     // dp[i]有两种实现的方式，
-                    // 一种是包含当前的coins[i],那么剩余钱就是 i-coins[i],这种操作要兑换的硬币数是 dp[i-coins[j]] + 1
+                    // 一种是包含当前的coins[i],那么剩余钱就是 i-coins[i],这种操作要兑换的硬币数是 dp[i-coin] + 1
                     // 另一种就是不包含，要兑换的硬币数是memo[i]
-                    dp[i] = Math.min(dp[i], dp[i - coins[j]] + 1);
+                    dp[i] = Math.min(dp[i], dp[i - coin] + 1);
                 }
             }
         }

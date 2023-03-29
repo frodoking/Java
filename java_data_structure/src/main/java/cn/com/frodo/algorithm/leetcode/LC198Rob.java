@@ -1,5 +1,6 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.Algorithm;
 import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 import org.junit.Assert;
@@ -30,7 +31,8 @@ import java.util.Map;
  */
 @Deprecated
 @AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
-        category = AlgorithmPoint.Category.array)
+        category = AlgorithmPoint.Category.array,
+        algorithm = @Algorithm(value = Algorithm.AlgorithmEnum.dfs))
 public class LC198Rob implements IAlgorithm {
 
     public Map<Integer, Integer> cache = new HashMap<>();

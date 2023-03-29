@@ -1,7 +1,11 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.Algorithm;
 import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
+import org.junit.Assert;
+
+import java.util.Arrays;
 
 /**
  * 给定一个无序的整数数组，找到其中最长上升子序列的长度。
@@ -27,11 +31,14 @@ import cn.com.frodo.algorithm.IAlgorithm;
  */
 @Deprecated
 @AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
-        category = AlgorithmPoint.Category.array)
+        category = AlgorithmPoint.Category.array,
+        algorithm = @Algorithm(value = Algorithm.AlgorithmEnum.dp))
 public class LC300LengthOfLIS implements IAlgorithm {
     @Override
     public void exec() {
+        int[] nums = {10, 9, 2, 5, 3, 7, 101, 18};
 
+        Assert.assertEquals(4, lengthOfLIS(nums));
     }
 
     public int lengthOfLIS(int[] nums) {
@@ -39,10 +46,9 @@ public class LC300LengthOfLIS implements IAlgorithm {
             return 0;
         }
         int[] dp = new int[nums.length];
-        dp[0] = 1;
+        Arrays.fill(dp, 1);
         int maxans = 1;
         for (int i = 1; i < nums.length; i++) {
-            dp[i] = 1;
             for (int j = 0; j < i; j++) {
                 if (nums[i] > nums[j]) {
                     dp[i] = Math.max(dp[i], dp[j] + 1);
