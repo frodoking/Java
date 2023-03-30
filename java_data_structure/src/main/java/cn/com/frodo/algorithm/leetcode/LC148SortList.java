@@ -1,6 +1,7 @@
 package cn.com.frodo.algorithm.leetcode;
 
 import cn.com.frodo.LinkedNode;
+import cn.com.frodo.algorithm.Algorithm;
 import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
@@ -35,8 +36,11 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * 进阶：你可以在 O(n log n) 时间复杂度和常数级空间复杂度下，对链表进行排序吗？
  */
 @Deprecated
-@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium, company = AlgorithmPoint.Company.tencent,
-        category = AlgorithmPoint.Category.linklist)
+@AlgorithmPoint(tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.frequently},
+        difficulty = AlgorithmPoint.Difficulty.medium,
+        company = AlgorithmPoint.Company.tencent,
+        category = AlgorithmPoint.Category.linklist,
+        algorithm = @Algorithm(value = Algorithm.AlgorithmEnum.mergeSort))
 public class LC148SortList implements IAlgorithm {
     @Override
     public void exec() {
@@ -47,6 +51,7 @@ public class LC148SortList implements IAlgorithm {
     /**
      * 递归实现 O(n*n)
      */
+    @Algorithm(value = Algorithm.AlgorithmEnum.dfs)
     public LinkedNode sortList(LinkedNode head) {
         if (head == null) {
             return null;
@@ -74,6 +79,7 @@ public class LC148SortList implements IAlgorithm {
     /**
      * 归并实现 O(n log n)
      */
+    @Algorithm(value = Algorithm.AlgorithmEnum.mergeSort)
     public LinkedNode sortList2(LinkedNode head) {
         if (head == null || head.next == null) {
             return head;

@@ -7,20 +7,20 @@ import org.junit.Assert;
 /**
  * 62. 不同路径
  * 一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为 “Start” ）。
- *
+ * <p>
  * 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为 “Finish” ）。
- *
+ * <p>
  * 问总共有多少条不同的路径？
- *
- *
- *
+ * <p>
+ * <p>
+ * <p>
  * 示例 1：
- *
- *
+ * <p>
+ * <p>
  * 输入：m = 3, n = 7
  * 输出：28
  * 示例 2：
- *
+ * <p>
  * 输入：m = 3, n = 2
  * 输出：3
  * 解释：
@@ -29,11 +29,11 @@ import org.junit.Assert;
  * 2. 向下 -> 向下 -> 向右
  * 3. 向下 -> 向右 -> 向下
  * 示例 3：
- *
+ * <p>
  * 输入：m = 7, n = 3
  * 输出：28
  * 示例 4：
- *
+ * <p>
  * 输入：m = 3, n = 3
  * 输出：6
  *
@@ -48,7 +48,7 @@ public class LC62UniquePaths implements IAlgorithm {
 
     @Override
     public void exec() {
-        int result = uniquePaths(3,2);
+        int result = uniquePaths(3, 2);
 
         Assert.assertEquals(3, result);
     }
@@ -64,11 +64,11 @@ public class LC62UniquePaths implements IAlgorithm {
 
         for (int i = 1; i < m; i++) {
             for (int j = 1; j < n; j++) {
-                dp[i][j] = dp[i-1][j] + dp[i][j];
+                dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
             }
         }
 
-        return dp[m][n];
+        return dp[m - 1][n - 1];
     }
 
 }

@@ -33,8 +33,11 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * @ClassName: LC33Search
  * @date 2022/3/13
  */
-@AlgorithmPoint
 @Deprecated
+@AlgorithmPoint(
+        tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.interview, AlgorithmPoint.Tag.frequently},
+        difficulty = AlgorithmPoint.Difficulty.medium,
+        category = AlgorithmPoint.Category.array)
 public class LC33Search implements IAlgorithm {
     @Override
     public void exec() {

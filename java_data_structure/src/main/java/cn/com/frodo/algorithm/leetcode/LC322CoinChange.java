@@ -37,7 +37,7 @@ import java.util.Arrays;
  * @ClassName: LC322CoinChange
  * @date 2022/3/20
  */
-@AlgorithmPoint(tag = AlgorithmPoint.Tag.leetcode,
+@AlgorithmPoint(tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.frequently},
         difficulty = AlgorithmPoint.Difficulty.medium,
         category = AlgorithmPoint.Category.array,
         algorithm = @Algorithm(value = Algorithm.AlgorithmEnum.dp))

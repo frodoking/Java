@@ -54,7 +54,10 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * @date 2020/10/25
  */
 @Deprecated
-@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium, company = { AlgorithmPoint.Company.xiaohongshu},
+@AlgorithmPoint(
+        tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.interview, AlgorithmPoint.Tag.frequently},
+        difficulty = AlgorithmPoint.Difficulty.medium,
+        company = {AlgorithmPoint.Company.xiaohongshu, AlgorithmPoint.Company.bytedance},
         category = AlgorithmPoint.Category.array)
 public class LC4FindMedianSortedArrays implements IAlgorithm {
     @Override

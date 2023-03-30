@@ -31,8 +31,11 @@ public class LC204CountPrimes implements IAlgorithm {
         boolean[] flags = new boolean[number];
         Arrays.fill(flags, true);
 
+        // 从 2 开始枚举到 sqrt(n)。
         for (int i = 2; i * i < number; i++) {
+            // 如果当前是素数
             if (flags[i]) {
+                // 就把从 i*i 开始，i 的所有倍数都设置为 false。
                 for (int j = i * i; j < number; j += i) {
                     flags[j] = false;
                 }

@@ -38,6 +38,7 @@ public class LC84LargestRectangleInHistogram implements IAlgorithm {
     @Override
     public void exec() {
         int[] heights = {2, 1, 5, 6, 2, 3};
+        Assert.assertEquals(10, largestRectangleArea(heights));
         Assert.assertEquals(10, largestRectangleArea2(heights));
     }
 

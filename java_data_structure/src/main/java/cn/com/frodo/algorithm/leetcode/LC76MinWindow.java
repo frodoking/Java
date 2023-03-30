@@ -1,5 +1,6 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 /**
@@ -34,6 +35,8 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * @ClassName: LC32MinWindow
  * @date 2020/7/19
  */
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.hard,
+        category = AlgorithmPoint.Category.str)
 public class LC76MinWindow implements IAlgorithm {
 
     @Override

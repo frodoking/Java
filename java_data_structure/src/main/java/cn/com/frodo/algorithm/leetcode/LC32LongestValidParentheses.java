@@ -26,7 +26,7 @@ import java.util.ArrayDeque;
  * 输出：0
  *
  * @author frodoking
- * @ClassName: LC31NextPermutation
+ * @ClassName: LC32LongestValidParentheses
  * @date 2022/3/13
  */
 @Deprecated

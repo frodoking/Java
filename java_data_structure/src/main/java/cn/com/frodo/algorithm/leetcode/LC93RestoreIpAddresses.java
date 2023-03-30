@@ -1,5 +1,6 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 import java.util.ArrayList;
@@ -32,6 +33,8 @@ import java.util.List;
  * @ClassName: LC93RestoreIpAddresses
  * @date 2022/3/19
  */
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
+        category = AlgorithmPoint.Category.str)
 public class LC93RestoreIpAddresses implements IAlgorithm {
     @Override
     public void exec() {

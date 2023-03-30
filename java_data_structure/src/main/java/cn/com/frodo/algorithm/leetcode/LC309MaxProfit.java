@@ -1,5 +1,6 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.Algorithm;
 import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 import org.junit.Assert;
@@ -25,8 +26,10 @@ import java.util.Arrays;
  * 输入: prices = [1]
  * 输出: 0
  */
-@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
-        category = AlgorithmPoint.Category.digit)
+@AlgorithmPoint(tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.frequently},
+        difficulty = AlgorithmPoint.Difficulty.medium,
+        category = AlgorithmPoint.Category.digit,
+        algorithm = @Algorithm(value = Algorithm.AlgorithmEnum.dp))
 public class LC309MaxProfit implements IAlgorithm {
 
     @Override

@@ -46,7 +46,7 @@ import org.junit.Assert;
  * @date 2020/7/4
  */
 @Deprecated
-@AlgorithmPoint(tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.offer},
+@AlgorithmPoint(tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.offer, AlgorithmPoint.Tag.frequently},
         difficulty = AlgorithmPoint.Difficulty.hard,
         category = AlgorithmPoint.Category.array,
         algorithm = @Algorithm(value = Algorithm.AlgorithmEnum.dp))

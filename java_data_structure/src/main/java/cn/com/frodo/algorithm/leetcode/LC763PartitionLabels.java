@@ -1,5 +1,6 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.Algorithm;
 import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
@@ -31,7 +32,8 @@ import java.util.*;
  * 1 <= s.length <= 500
  * s 仅由小写英文字母组成
  */
-@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
+@AlgorithmPoint(tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.frequently},
+        difficulty = AlgorithmPoint.Difficulty.medium,
         category = AlgorithmPoint.Category.str)
 public class LC763PartitionLabels implements IAlgorithm {
     @Override
@@ -46,7 +48,7 @@ public class LC763PartitionLabels implements IAlgorithm {
     /**
      * 不好的方法
      */
-    @Deprecated
+    @Algorithm(value = Algorithm.AlgorithmEnum.force)
     public List<Integer> partitionLabels(String s) {
         set.clear();
         int len = s.length();
@@ -76,6 +78,9 @@ public class LC763PartitionLabels implements IAlgorithm {
         return res;
     }
 
+    /**
+     * 存储某一个字符的最远下标
+     */
     public List<Integer> partitionLabels2(String s) {
         int len = s.length();
         if (len == 0) {

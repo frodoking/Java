@@ -25,8 +25,10 @@ import org.junit.Assert;
  * 解释：
  * 将中间的一个'A'替换为'B',字符串变为 "AABBBBA"。
  * 子串 "BBBB" 有最长重复字母, 答案为 4。
+ *
  */
-@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
+@AlgorithmPoint(tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.unlearn},
+        difficulty = AlgorithmPoint.Difficulty.medium,
         company = {AlgorithmPoint.Company.bytedance},
         category = AlgorithmPoint.Category.array)
 public class LC424LongestRepeatingCharacterReplacement implements IAlgorithm {

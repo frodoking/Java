@@ -35,7 +35,8 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * 进阶：如果二叉搜索树经常被修改（插入/删除操作）并且你需要频繁地查找第 k 小的值，你将如何优化算法？
  */
 @Deprecated
-@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium, company = AlgorithmPoint.Company.tencent,
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
+        company = AlgorithmPoint.Company.tencent,
         category = AlgorithmPoint.Category.stack)
 public class LC230KthSmallest implements IAlgorithm {
     @Override

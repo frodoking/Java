@@ -1,6 +1,7 @@
 package cn.com.frodo.algorithm.leetcode;
 
 import cn.com.frodo.Arrays;
+import cn.com.frodo.algorithm.Algorithm;
 import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
@@ -34,7 +35,8 @@ import java.util.LinkedList;
  * 输出：[1]
  */
 @AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.hard,
-        category = AlgorithmPoint.Category.array)
+        category = AlgorithmPoint.Category.array,
+        algorithm = @Algorithm(value = Algorithm.AlgorithmEnum.monotonicStack))
 public class LC239MaxSlidingWindow implements IAlgorithm {
 
     @Override
@@ -42,14 +44,14 @@ public class LC239MaxSlidingWindow implements IAlgorithm {
         // 输入：nums = [1,3,-1,-3,5,3,6,7], k = 3
         // 输出：[3,3,5,5,6,7]
 
-        int[] nums = {7, 2, 4};
-        int k = 2;
+        int[] nums = {1,3,-1,-3,5,3,6,7};
+        int k = 3;
 
         Arrays.show(maxSlidingWindow(nums, k), "LC239MaxSlidingWindow");
     }
 
     /**
-     * 思路：用单调队列记录最大值。为了满足滑块的概念，所以需要记录编号
+     * 思路：用单调递减队列记录最大值，最前边记录最大值。为了满足滑块的概念，所以需要记录编号
      */
     public int[] maxSlidingWindow(int[] nums, int k) {
         Deque<Integer> queue = new LinkedList<>();

@@ -33,7 +33,7 @@ import java.util.LinkedList;
  */
 @Deprecated
 @AlgorithmPoint(
-        tag = AlgorithmPoint.Tag.leetcode,
+        tag = {AlgorithmPoint.Tag.leetcode,AlgorithmPoint.Tag.frequently},
         difficulty = AlgorithmPoint.Difficulty.hard,
         category = AlgorithmPoint.Category.array,
         algorithm = @Algorithm(value = {

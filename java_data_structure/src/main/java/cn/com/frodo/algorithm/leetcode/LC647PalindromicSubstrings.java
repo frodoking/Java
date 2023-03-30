@@ -25,10 +25,12 @@ import org.junit.Assert;
  * <p>
  * 输入：s = "aaa"
  * 输出：6
+ *
+ * @see LC5LongestPalindrome
  */
 @AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
         category = AlgorithmPoint.Category.array)
-public class LC647CountSubstrings implements IAlgorithm {
+public class LC647PalindromicSubstrings implements IAlgorithm {
     @Override
     public void exec() {
         String s = "ababa";

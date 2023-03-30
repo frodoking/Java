@@ -30,7 +30,7 @@ import org.junit.Assert;
  * @date 2020/9/8
  */
 @Deprecated
-@AlgorithmPoint(tag = AlgorithmPoint.Tag.leetcode,
+@AlgorithmPoint(tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.frequently},
         difficulty = AlgorithmPoint.Difficulty.easy,
         category = AlgorithmPoint.Category.array)
 public class LC234IsPalindrome implements IAlgorithm {

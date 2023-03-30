@@ -19,7 +19,7 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * @date 2022/3/8
  */
 @Deprecated
-@AlgorithmPoint(tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.offer},
+@AlgorithmPoint(tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.offer, AlgorithmPoint.Tag.frequently},
         difficulty = AlgorithmPoint.Difficulty.medium,
         category = AlgorithmPoint.Category.array)
 public class LC53MaximumSubarray implements IAlgorithm {

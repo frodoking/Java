@@ -30,6 +30,9 @@ public class LC560SubarraySum implements IAlgorithm {
         Assert.assertEquals(1, subarraySum(nums, k));
     }
 
+    /**
+     * 计算每一个位置上的前序和，利用前序和的差求结果，前序和一定会减去前边重叠部分
+     */
     public int subarraySum(int[] nums, int k) {
         int len = nums.length;
         int[] prefixSumArray = new int[len];

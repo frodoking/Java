@@ -25,7 +25,7 @@ public @interface AlgorithmPoint {
     Algorithm algorithm() default @Algorithm;
 
     enum Tag {
-        leetcode, offer, interview
+        leetcode, offer, interview, frequently, unlearn
     }
 
     enum Difficulty {

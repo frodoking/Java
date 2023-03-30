@@ -23,10 +23,11 @@ import org.junit.Assert;
  * 输入：n = 19
  * 输出：true
  * 解释：
- * 12 + 92 = 82
- * 82 + 22 = 68
- * 62 + 82 = 100
- * 12 + 02 + 02 = 1
+ * 1^2 + 9^2 = 82
+ * 8^2 + 2^2 = 68
+ * 6^2 + 8^2 = 100
+ * 1^2 + 0^2 + 0^2 = 1
+ *
  * 示例 2：
  * <p>
  * 输入：n = 2
@@ -42,6 +43,9 @@ public class LC202HappyNumber implements IAlgorithm {
         Assert.assertTrue(isHappy(19));
     }
 
+    /**
+     * 快慢指针判断是否有环
+     */
     public boolean isHappy(int n) {
         int slow = n;
         int fast = n;

@@ -1,5 +1,8 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.Algorithm;
+import cn.com.frodo.algorithm.AlgorithmPoint;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -27,6 +30,10 @@ import java.util.Queue;
  * @ClassName: LC225Stack
  * @date 2022/3/15
  */
+@AlgorithmPoint(tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.frequently},
+        difficulty = AlgorithmPoint.Difficulty.medium,
+        category = AlgorithmPoint.Category.matrix,
+        algorithm = @Algorithm(value = Algorithm.AlgorithmEnum.dp))
 public class LC225Stack {
     Queue<Integer> queue1;
     Queue<Integer> queue2;

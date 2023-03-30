@@ -1,6 +1,7 @@
 package cn.com.frodo.algorithm.leetcode;
 
 import cn.com.frodo.Arrays;
+import cn.com.frodo.algorithm.Algorithm;
 import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 import org.junit.Assert;
@@ -29,7 +30,8 @@ import java.util.Deque;
  */
 @Deprecated
 @AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
-        category = AlgorithmPoint.Category.array)
+        category = AlgorithmPoint.Category.array,
+        algorithm = @Algorithm(value = Algorithm.AlgorithmEnum.monotonicStack))
 public class LC739DailyTemperatures implements IAlgorithm {
     @Override
     public void exec() {
@@ -42,6 +44,9 @@ public class LC739DailyTemperatures implements IAlgorithm {
         Assert.assertArrayEquals(expectedArray, dailyTemperatures(temperatures));
     }
 
+    /**
+     * 单调减队列来维持大的值
+     */
     public int[] dailyTemperatures(int[] temperatures) {
         int len = temperatures.length;
         int[] res = new int[len];

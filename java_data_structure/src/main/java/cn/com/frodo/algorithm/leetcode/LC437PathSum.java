@@ -25,7 +25,8 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 输入：root = [5,4,8,11,null,13,4,7,2,null,null,5,1], targetSum = 22
  * 输出：3
  */
-@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
+@AlgorithmPoint(tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.frequently},
+        difficulty = AlgorithmPoint.Difficulty.medium,
         company = AlgorithmPoint.Company.bytedance,
         category = AlgorithmPoint.Category.tree,
         algorithm = @Algorithm(value = Algorithm.AlgorithmEnum.dfs))

@@ -3,6 +3,7 @@ package cn.com.frodo.algorithm.leetcode;
 
 import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
+import org.junit.Assert;
 
 /**
  * 329. 矩阵中的最长递增路径
@@ -35,7 +36,13 @@ public class LC329LongestIncreasingPathInAMatrix implements IAlgorithm {
 
     @Override
     public void exec() {
+        int[][] matrix = {
+                {9, 9, 4},
+                {6, 6, 8},
+                {2, 1, 1}
+        };
 
+        Assert.assertEquals(4, longestIncreasingPath(matrix));
     }
 
     // 上，下，左，右

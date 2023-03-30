@@ -1,6 +1,7 @@
 package cn.com.frodo.algorithm.leetcode;
 
 import cn.com.frodo.LinkedNode;
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 /**
@@ -35,6 +36,10 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * @date 2023/3/8
  */
 @Deprecated
+@AlgorithmPoint(
+        tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.interview, AlgorithmPoint.Tag.frequently},
+        difficulty = AlgorithmPoint.Difficulty.medium,
+        category = AlgorithmPoint.Category.linklist)
 public class LC21MergeTwoLists implements IAlgorithm {
     @Override
     public void exec() {

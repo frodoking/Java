@@ -1,14 +1,13 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.Algorithm;
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
-
-import static cn.com.frodo.Arrays.show;
-import static cn.com.frodo.Arrays.swap;
 
 
 /**
@@ -17,6 +16,11 @@ import static cn.com.frodo.Arrays.swap;
  * @date 2020/7/10
  */
 @Deprecated
+@AlgorithmPoint(
+        tag = AlgorithmPoint.Tag.leetcode,
+        difficulty = AlgorithmPoint.Difficulty.medium,
+        category = AlgorithmPoint.Category.array,
+        algorithm = @Algorithm(value = Algorithm.AlgorithmEnum.backtrack))
 public class LC46Permutation implements IAlgorithm {
 
     public static final int[] array = {1, 2, 3};

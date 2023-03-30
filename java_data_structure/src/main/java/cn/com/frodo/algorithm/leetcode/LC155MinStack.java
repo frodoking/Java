@@ -45,7 +45,9 @@ import java.util.LinkedList;
  * @date 2020/10/17
  */
 @Deprecated
-@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium, company = AlgorithmPoint.Company.tencent,
+@AlgorithmPoint(tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.frequently},
+        difficulty = AlgorithmPoint.Difficulty.medium,
+        company = AlgorithmPoint.Company.tencent,
         category = AlgorithmPoint.Category.stack)
 public class LC155MinStack  implements IAlgorithm {
 

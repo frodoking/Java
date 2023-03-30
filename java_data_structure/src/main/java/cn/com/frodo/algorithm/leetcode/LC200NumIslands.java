@@ -42,6 +42,8 @@ import org.junit.Assert;
         category = AlgorithmPoint.Category.array)
 public class LC200NumIslands implements IAlgorithm {
 
+    private int[][] direct = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+
     @Override
     public void exec() {
         String[][] grid = {
@@ -79,9 +81,8 @@ public class LC200NumIslands implements IAlgorithm {
 
         grid[r][l] = "0";
 
-        dfsGrid(grid, r - 1, l);
-        dfsGrid(grid, r + 1, l);
-        dfsGrid(grid, r, l - 1);
-        dfsGrid(grid, r, l + 1);
+        for (int i = 0; i < direct.length; i++) {
+            dfsGrid(grid, r + direct[i][0], l + direct[i][1]);
+        }
     }
 }

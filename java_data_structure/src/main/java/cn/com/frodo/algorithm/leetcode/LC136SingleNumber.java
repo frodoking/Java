@@ -11,6 +11,8 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * 链接：https://leetcode-cn.com/problems/single-number/solution/zhi-chu-xian-yi-ci-de-shu-zi-by-leetcode-solution/
  * 来源：力扣（LeetCode）
  *
+ *  @see LC540SingleElementInASortedArray
+ *
  * @author frodoking
  * @ClassName: LC136SingleNumber
  * @date 2020/7/11

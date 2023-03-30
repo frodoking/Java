@@ -38,12 +38,16 @@ import java.util.Map;
  * lRUCache.get(3);    // 返回 3
  * lRUCache.get(4);    // 返回 4
  *
+ *
+ * LRU: Least Recently Used
+ * LFU: Least Frequently Used
  * @author frodoking
  * @ClassName: LCLRUCache
  * @date 2020/9/8
  */
 @Deprecated
-@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
+@AlgorithmPoint(tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.frequently},
+        difficulty = AlgorithmPoint.Difficulty.medium,
         company = {AlgorithmPoint.Company.tencent, AlgorithmPoint.Company.ali},
         category = AlgorithmPoint.Category.array)
 public class LC146LRUCache implements IAlgorithm {

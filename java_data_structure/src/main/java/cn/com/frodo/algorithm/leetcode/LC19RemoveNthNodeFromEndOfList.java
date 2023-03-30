@@ -1,6 +1,7 @@
 package cn.com.frodo.algorithm.leetcode;
 
 import cn.com.frodo.LinkedNode;
+import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
 import java.util.Objects;
@@ -13,6 +14,10 @@ import java.util.Objects;
  * @date 2022/3/7
  */
 @Deprecated
+@AlgorithmPoint(
+        tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.interview, AlgorithmPoint.Tag.frequently},
+        difficulty = AlgorithmPoint.Difficulty.medium,
+        category = AlgorithmPoint.Category.linklist)
 public class LC19RemoveNthNodeFromEndOfList implements IAlgorithm {
     @Override
     public void exec() {

@@ -24,7 +24,8 @@ import java.util.Map;
  * 输入：nums = [0,3,7,2,5,8,4,6,0,1]
  * 输出：9
  */
-@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
+@AlgorithmPoint(tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.frequently},
+        difficulty = AlgorithmPoint.Difficulty.medium,
         category = AlgorithmPoint.Category.array,
         company = AlgorithmPoint.Company.bytedance)
 public class LC128LongestConsecutive implements IAlgorithm {

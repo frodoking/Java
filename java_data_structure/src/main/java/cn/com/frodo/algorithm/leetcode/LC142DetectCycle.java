@@ -37,7 +37,8 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * 解释：链表中没有环。
  */
 @Deprecated
-@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
+@AlgorithmPoint(tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.frequently},
+        difficulty = AlgorithmPoint.Difficulty.medium,
         category = AlgorithmPoint.Category.linklist)
 public class LC142DetectCycle implements IAlgorithm {
     @Override
