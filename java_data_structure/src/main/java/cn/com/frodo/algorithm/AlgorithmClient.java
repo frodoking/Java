@@ -8,7 +8,9 @@ import cn.com.frodo.algorithm.other.ThreadExplainPrint;
 public class AlgorithmClient {
 
     public static void main(String[] args) {
-        IAlgorithm algorithm = new LC416CanPartition();
+        IAlgorithm algorithm = new LC93RestoreIpAddresses();
         algorithm.exec();
+        String a= "";
+        Integer b = 1;
     }
 }

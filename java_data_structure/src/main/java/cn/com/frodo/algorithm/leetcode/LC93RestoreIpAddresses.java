@@ -1,5 +1,6 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.Algorithm;
 import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
@@ -33,18 +34,28 @@ import java.util.List;
  * @ClassName: LC93RestoreIpAddresses
  * @date 2022/3/19
  */
-@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
-        category = AlgorithmPoint.Category.str)
+@Deprecated
+@AlgorithmPoint(tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.frequently},
+        difficulty = AlgorithmPoint.Difficulty.medium,
+        category = AlgorithmPoint.Category.str,
+        company = {AlgorithmPoint.Company.bytedance},
+        algorithm = @Algorithm(value = Algorithm.AlgorithmEnum.backtrack))
 public class LC93RestoreIpAddresses implements IAlgorithm {
+
     @Override
     public void exec() {
-        String s = "0000";
+        String s = "101023";
         List<String> l = restoreIpAddresses(s);
         for (String str : l) {
-            System.out.println(str);
+            System.out.println(">>" + str);
         }
+
+        l = new ArrayList<>();
+        restoreIpAddressesWithDP(s, l);
+        System.out.println(l);
     }
 
+    @Algorithm(value = Algorithm.AlgorithmEnum.force)
     public List<String> restoreIpAddresses(String s) {
         int len = s.length();
         ArrayList<String> res = new ArrayList<>();
@@ -74,5 +85,25 @@ public class LC93RestoreIpAddresses implements IAlgorithm {
         if (str.length() == 0) return false;
         if (str.length() > 1 && str.charAt(0) == '0') return false;
         return Integer.parseInt(str) <= 255;
+    }
+
+    @Algorithm(value = Algorithm.AlgorithmEnum.backtrack)
+    public void restoreIpAddressesWithDP(String s, List<String> res) {
+        if (s.isBlank() && res.size() == 4) {
+            System.out.println("////" + res);
+        }
+
+        if (s.isBlank() || res.size() > 4 || (4 - res.size()) * 3 < s.length()) {
+            return;
+        }
+
+        for (int i = 0; i < 3 && i < s.length(); i++) {
+            String s1 = s.substring(0, i + 1);
+            if (isValidNum(s1) && res.size() < 4) {
+                res.add(s1);
+                restoreIpAddressesWithDP(s.substring(i + 1), res);
+                res.remove(res.size() - 1);
+            }
+        }
     }
 }

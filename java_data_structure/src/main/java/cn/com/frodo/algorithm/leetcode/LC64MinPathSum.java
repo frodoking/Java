@@ -30,6 +30,7 @@ import cn.com.frodo.algorithm.IAlgorithm;
 @AlgorithmPoint(tag = AlgorithmPoint.Tag.leetcode,
         difficulty = AlgorithmPoint.Difficulty.medium,
         category = AlgorithmPoint.Category.array,
+        company = {AlgorithmPoint.Company.xiapi},
         algorithm = @Algorithm(value = Algorithm.AlgorithmEnum.dp))
 public class LC64MinPathSum implements IAlgorithm {
 

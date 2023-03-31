@@ -15,9 +15,10 @@ import java.util.List;
  */
 @Deprecated
 @AlgorithmPoint(
-        tag = AlgorithmPoint.Tag.leetcode,
+        tag = { AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.frequently},
         difficulty = AlgorithmPoint.Difficulty.medium,
         category = AlgorithmPoint.Category.array,
+        company = {AlgorithmPoint.Company.xiapi},
         algorithm = @Algorithm(value = Algorithm.AlgorithmEnum.backtrack))
 public class LC78SubSets implements IAlgorithm {
 

@@ -25,7 +25,7 @@ import org.junit.Assert;
  * 解释：2-2 = 1/22 = 1/4 = 0.25
  */
 @Deprecated
-@AlgorithmPoint(tag = AlgorithmPoint.Tag.leetcode,
+@AlgorithmPoint(tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.frequently},
         difficulty = AlgorithmPoint.Difficulty.medium,
         category = AlgorithmPoint.Category.digit,
         algorithm = @Algorithm(value = Algorithm.AlgorithmEnum.dfs))
