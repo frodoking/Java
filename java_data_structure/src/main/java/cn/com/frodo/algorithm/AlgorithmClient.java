@@ -8,7 +8,7 @@ import cn.com.frodo.algorithm.other.ThreadExplainPrint;
 public class AlgorithmClient {
 
     public static void main(String[] args) {
-        IAlgorithm algorithm = new LC329LongestIncreasingPathInAMatrix();
+        IAlgorithm algorithm = new LC416CanPartition();
         algorithm.exec();
     }
 }

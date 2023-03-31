@@ -37,28 +37,45 @@ public class LC416CanPartition implements IAlgorithm {
     public void exec() {
         int[] nums = {1, 5, 10, 6};
         Assert.assertTrue(canPartition(nums));
+        Assert.assertTrue(canPartitionWithOneRow(nums));
     }
 
+    /**
+     * 0,1 背包，问题，size是备选队列，target+1表示背包的大小，从0开始
+     * dp[i][j] 表示是否能在0..i之间找到和为j的数
+     * 当前值是否选择进入背包只有有两个情况：
+     *  1. 不选择 那么dp[i][j]=dp[i-1][j]
+     *  2. 选择 如果num[i]==j, 那么肯定dp[i][j]=true;如果小于则dp[i][j]=dp[i-1][j-nums[i]]
+     *
+     * @see LC322CoinChange
+     */
     public boolean canPartition(int[] nums) {
         int size = nums.length;
         int sum = 0;
+        int max = 0;
         for (int num : nums) {
             sum += num;
+            max = Math.max(max, num);
         }
         if ((sum & 1) == 1) {
             return false;
         }
 
         int target = sum / 2;
+        if (max > target) {
+            return false;
+        }
 
         boolean[][] dp = new boolean[size][target + 1];
 
+        // 先填表格第 0 行，第 1 个数只能让容积为它自己的背包恰好装满
         if (nums[0] <= target) {
             dp[0][nums[0]] = true;
         }
 
         for (int i = 1; i < size; i++) {
             for (int j = 0; j < target + 1; j++) {
+                // 直接从上一行先把结果抄下来，然后再修正
                 dp[i][j] = dp[i - 1][j];
                 if (j == nums[i]) {
                     dp[i][j] = true;
@@ -68,5 +85,32 @@ public class LC416CanPartition implements IAlgorithm {
             }
         }
         return dp[size - 1][target];
+    }
+
+    public boolean canPartitionWithOneRow(int[] nums) {
+        int size = nums.length;
+        int sum = 0;
+        int max = 0;
+        for (int num : nums) {
+            sum += num;
+            max = Math.max(max, num);
+        }
+        if ((sum & 1) == 1) {
+            return false;
+        }
+
+        int target = sum / 2;
+        if (max > target) {
+            return false;
+        }
+
+        boolean[] dp = new boolean[target + 1];
+        dp[nums[0]] = true;
+        for (int i = 1; i < size; i++) {
+            for (int j = target; j >0 && nums[i] <= j; j--) {
+                dp[j] |= dp[j - nums[i]];
+            }
+        }
+        return dp[target];
     }
 }

@@ -50,6 +50,10 @@ public class LC322CoinChange implements IAlgorithm {
         Assert.assertEquals(3, count);
     }
 
+    /**
+     * 0,1 背包问题
+     * @see LC416CanPartition
+     */
     public int coinChange(int[] coins, int amount) {
         if (coins.length == 0) {
             return -1;
