@@ -24,7 +24,9 @@ import java.util.Objects;
  * 输出: "56088"
  */
 @Deprecated
-@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium, company = AlgorithmPoint.Company.tencent,
+@AlgorithmPoint(tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.frequently},
+        difficulty = AlgorithmPoint.Difficulty.medium,
+        company = {AlgorithmPoint.Company.tencent, AlgorithmPoint.Company.meituan},
         category = AlgorithmPoint.Category.array)
 public class LC43Multiply implements IAlgorithm {
     @Override

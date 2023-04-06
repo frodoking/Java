@@ -31,6 +31,7 @@ import java.util.Deque;
 @Deprecated
 @AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
         category = AlgorithmPoint.Category.array,
+        company = {AlgorithmPoint.Company.bytedance},
         algorithm = @Algorithm(value = Algorithm.AlgorithmEnum.monotonicStack))
 public class LC739DailyTemperatures implements IAlgorithm {
     @Override

@@ -45,7 +45,7 @@ import java.util.*;
 @AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
         category = AlgorithmPoint.Category.graph,
         company = AlgorithmPoint.Company.bytedance)
-public class LC207CanFinish implements IAlgorithm {
+public class LC207CourseSchedule implements IAlgorithm {
     @Override
     public void exec() {
         int[][] prerequisites = {{1,0},{0,1},{1,2}};

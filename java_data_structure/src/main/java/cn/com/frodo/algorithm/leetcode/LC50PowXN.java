@@ -28,6 +28,7 @@ import org.junit.Assert;
 @AlgorithmPoint(tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.frequently},
         difficulty = AlgorithmPoint.Difficulty.medium,
         category = AlgorithmPoint.Category.digit,
+        company = AlgorithmPoint.Company.bytedance,
         algorithm = @Algorithm(value = Algorithm.AlgorithmEnum.dfs))
 public class LC50PowXN implements IAlgorithm {
 

@@ -35,7 +35,9 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * @ClassName: LC32MinWindow
  * @date 2020/7/19
  */
-@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.hard,
+@AlgorithmPoint(tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.frequently},
+        difficulty = AlgorithmPoint.Difficulty.hard,
+        company = AlgorithmPoint.Company.bytedance,
         category = AlgorithmPoint.Category.str)
 public class LC76MinWindow implements IAlgorithm {
 
@@ -86,15 +88,16 @@ public class LC76MinWindow implements IAlgorithm {
             }
 
             //移动到不满足条件为止
+            // count == t.length 表示窗口内部刚好够满足匹配串，这个时候需要移动左边界
             while (count == t.length()) {
                 ch = s.charAt(left);
+                // 这里移动左边界，直到while条件
                 if (needs[ch] > 0 && needs[ch] >= window[ch]) {
                     count--;
                 }
                 if (right - left + 1 < minLength) {
                     minLength = right - left + 1;
                     res = s.substring(left, right + 1);
-
                 }
                 window[ch]--;
                 left++;
