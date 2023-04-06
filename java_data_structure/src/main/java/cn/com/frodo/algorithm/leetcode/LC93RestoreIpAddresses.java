@@ -89,11 +89,11 @@ public class LC93RestoreIpAddresses implements IAlgorithm {
 
     @Algorithm(value = Algorithm.AlgorithmEnum.backtrack)
     public void restoreIpAddressesWithDP(String s, List<String> res) {
-        if (s.isBlank() && res.size() == 4) {
+        if (s.isEmpty() && res.size() == 4) {
             System.out.println("////" + res);
         }
 
-        if (s.isBlank() || res.size() > 4 || (4 - res.size()) * 3 < s.length()) {
+        if (s.isEmpty() || res.size() > 4 || (4 - res.size()) * 3 < s.length()) {
             return;
         }
 

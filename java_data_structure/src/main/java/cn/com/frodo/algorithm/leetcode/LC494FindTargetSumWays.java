@@ -1,5 +1,6 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.Arrays;
 import cn.com.frodo.algorithm.Algorithm;
 import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
@@ -35,7 +36,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 @AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
         category = AlgorithmPoint.Category.array,
-        algorithm = @Algorithm(value = Algorithm.AlgorithmEnum.dfs))
+        algorithm = @Algorithm(value = {Algorithm.AlgorithmEnum.dfs, Algorithm.AlgorithmEnum.dp}))
 public class LC494FindTargetSumWays implements IAlgorithm {
     @Override
     public void exec() {
@@ -47,6 +48,7 @@ public class LC494FindTargetSumWays implements IAlgorithm {
 
     private AtomicInteger counter = new AtomicInteger();
 
+    @Algorithm(value = Algorithm.AlgorithmEnum.dfs)
     public int findTargetSumWays(int[] nums, int target) {
         if (nums.length == 1 && (nums[0] + target == 0 || nums[0] - target == 0)) {
             return 1;
@@ -68,5 +70,41 @@ public class LC494FindTargetSumWays implements IAlgorithm {
             dfs(nums, index + 1, target + num);
             dfs(nums, index + 1, target - num);
         }
+    }
+
+    @Algorithm(value = Algorithm.AlgorithmEnum.dp)
+    public int findTargetSumWaysWithDP(int[] nums, int target) {
+        int size = nums.length;
+        if (size == 1) {
+            return (nums[0] == target || nums[0] == -target)? 1:0;
+        }
+        int sum = 0;
+        for (int i = 0; i < size; i++) {
+            sum += nums[i];
+        }
+
+        int len = sum * 2 + 1;
+        int[][] dp = new int[size][len];
+        dp[0][sum - nums[0]] += 1;
+        dp[0][sum + nums[0]] += 1;
+        for (int i = 1; i < size; i++) {
+            for (int j = 0; j < len; j++) {
+                // 边界
+                int l = (j - nums[i]);
+                if (l < 0) {
+                    l = 0;
+                }
+                int r = (j + nums[i]);
+                if (r > len - 1) {
+                    r = 0;
+                }
+
+                dp[i][j] = dp[i - 1][l] + dp[i - 1][r];
+            }
+        }
+
+        Arrays.show(dp, "");
+
+        return dp[size - 1][sum + target];
     }
 }

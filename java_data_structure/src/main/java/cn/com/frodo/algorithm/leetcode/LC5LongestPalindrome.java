@@ -27,7 +27,7 @@ import cn.com.frodo.algorithm.IAlgorithm;
 @AlgorithmPoint(
         tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.interview, AlgorithmPoint.Tag.frequently},
         difficulty = AlgorithmPoint.Difficulty.medium,
-        company = {AlgorithmPoint.Company.didi, AlgorithmPoint.Company.meituan},
+        company = {AlgorithmPoint.Company.didi, AlgorithmPoint.Company.meituan, AlgorithmPoint.Company.bytedance},
         category = AlgorithmPoint.Category.array)
 public class LC5LongestPalindrome implements IAlgorithm {
 
