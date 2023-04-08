@@ -37,7 +37,8 @@ import cn.com.frodo.algorithm.IAlgorithm;
  * @ClassName: LC31NextPermutation
  * @date 2022/3/13
  */
-@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.hard)
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.hard,
+        company = {AlgorithmPoint.Company.bytedance})
 @Deprecated
 public class LC31NextPermutation implements IAlgorithm {
 
