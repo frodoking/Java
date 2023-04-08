@@ -1,6 +1,7 @@
 package cn.com.frodo.algorithm;
 
-import cn.com.frodo.algorithm.leetcode.LC143ReorderList;
+import cn.com.frodo.algorithm.leetcode.LC504Base7;
+import cn.com.frodo.algorithm.other.ThreeSqrt;
 
 /**
  * 3.31 leetcode面经地址: https://leetcode.cn/circle/interview/newest/?query=&page=7&tag=mian-shi-jing-yan
@@ -10,9 +11,7 @@ import cn.com.frodo.algorithm.leetcode.LC143ReorderList;
 public class AlgorithmClient {
 
     public static void main(String[] args) {
-        IAlgorithm algorithm = new LC143ReorderList();
+        IAlgorithm algorithm = new ThreeSqrt();
         algorithm.exec();
-        String a = "";
-        a.intern();
     }
 }

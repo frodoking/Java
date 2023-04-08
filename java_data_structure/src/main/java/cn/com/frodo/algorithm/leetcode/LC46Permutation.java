@@ -4,10 +4,7 @@ import cn.com.frodo.algorithm.Algorithm;
 import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.List;
+import java.util.*;
 
 
 /**
@@ -20,13 +17,13 @@ import java.util.List;
         tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.frequently},
         difficulty = AlgorithmPoint.Difficulty.medium,
         category = AlgorithmPoint.Category.array,
+        company = {AlgorithmPoint.Company.bytedance},
         algorithm = @Algorithm(value = Algorithm.AlgorithmEnum.backtrack))
 public class LC46Permutation implements IAlgorithm {
 
-    public static final int[] array = {1, 2, 3};
-
     @Override
     public void exec() {
+        int[] array = {1, 2, 3};
         List<List<Integer>> permute = permute(array);
 
         System.out.println(permute);
@@ -43,7 +40,7 @@ public class LC46Permutation implements IAlgorithm {
         return permute;
     }
 
-    public void dfs(List<List<Integer>> all, Deque<Integer> path, int[] nums, boolean[] status, int depth) {
+    public void dfs(List<List<Integer>> all, Queue<Integer> path, int[] nums, boolean[] status, int depth) {
         if (depth == nums.length) {
             all.add(new ArrayList<>(path));
             return;
@@ -51,10 +48,10 @@ public class LC46Permutation implements IAlgorithm {
 
         for (int i = 0; i < nums.length; i++) {
             if (!status[i]) {
-                path.push(nums[i]);
+                path.add(nums[i]);
                 status[i] = true;
                 dfs(all, path, nums, status, depth + 1);
-                path.pop();
+                path.remove(nums[i]);
                 status[i] = false;
             }
         }

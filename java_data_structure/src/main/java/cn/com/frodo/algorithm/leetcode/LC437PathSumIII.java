@@ -30,7 +30,7 @@ import java.util.concurrent.atomic.AtomicInteger;
         company = AlgorithmPoint.Company.bytedance,
         category = AlgorithmPoint.Category.tree,
         algorithm = @Algorithm(value = Algorithm.AlgorithmEnum.dfs))
-public class LC437PathSum implements IAlgorithm {
+public class LC437PathSumIII implements IAlgorithm {
     @Override
     public void exec() {
         int[] array = {5, 4, 8, 11, BinaryTreeNode._null.data, 13, 4, 7, 2, BinaryTreeNode._null.data, BinaryTreeNode._null.data, 5, 1};

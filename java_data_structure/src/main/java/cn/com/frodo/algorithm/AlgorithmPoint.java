@@ -37,6 +37,6 @@ public @interface AlgorithmPoint {
     }
 
     enum Company {
-        bytedance, tencent, ali, baidu, meituan, didi, xiaomi, xiaohongshu, huawei, xiapi,sina
+        bytedance, tencent, ali, baidu, meituan, didi, xiaomi, jd, xiaohongshu, huawei, xiapi,sina
     }
 }
