@@ -4,6 +4,7 @@ import cn.com.frodo.BinaryTreeNode;
 import cn.com.frodo.algorithm.Algorithm;
 import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
+import org.junit.Assert;
 
 /**
  * 124. 二叉树中的最大路径和
@@ -44,11 +45,34 @@ public class LC124BinaryTreeMaximumPathSum implements IAlgorithm {
 
     @Override
     public void exec() {
+        int[] array = {1,2,3};
+        BinaryTreeNode root = BinaryTreeNode.build(array);
 
+        Assert.assertEquals(6, maxPathSum(root));
     }
 
-    public int maxPathSum(BinaryTreeNode root) {
 
-        return 0;
+    public int maxPathSum(BinaryTreeNode root) {
+        maxPathSum0(root);
+        return max;
+    }
+
+    private int max = Integer.MIN_VALUE;
+    public int maxPathSum0(BinaryTreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+
+        int left = maxPathSum0(root.left);
+        int right = maxPathSum0(root.right);
+
+        // 如果当前节点就是最大和的话，当前节点就是root节点，那么和一定是左右加跟
+        int lmr = root.data + Math.max(left, 0) + Math.max(right, 0);
+        // 当前节点非跟节点，那么需要寻找左链，或者右链的最大值
+        int ret = root.data + Math.max(0, Math.max(left, right));
+
+        // 计算当次最大值，那么可以避免再次便利节点
+        max = Math.max(max, Math.max(lmr, ret));
+        return ret;
     }
 }
