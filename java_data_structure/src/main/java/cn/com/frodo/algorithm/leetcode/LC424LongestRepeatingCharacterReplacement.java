@@ -27,7 +27,7 @@ import org.junit.Assert;
  * 子串 "BBBB" 有最长重复字母, 答案为 4。
  *
  */
-@AlgorithmPoint(tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.unlearn},
+@AlgorithmPoint(tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.frequently},
         difficulty = AlgorithmPoint.Difficulty.medium,
         company = {AlgorithmPoint.Company.bytedance},
         category = AlgorithmPoint.Category.array)

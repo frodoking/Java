@@ -1,6 +1,8 @@
 package cn.com.frodo.algorithm;
 
 import cn.com.frodo.algorithm.leetcode.LC124BinaryTreeMaximumPathSum;
+import cn.com.frodo.algorithm.leetcode.LCReverseNodesInKGroup;
+import cn.com.frodo.algorithm.other.FindMaxRight;
 
 /**
  * 3.31 leetcode面经地址: https://leetcode.cn/circle/interview/newest/?query=&page=7&tag=mian-shi-jing-yan
@@ -10,7 +12,7 @@ import cn.com.frodo.algorithm.leetcode.LC124BinaryTreeMaximumPathSum;
 public class AlgorithmClient {
 
     public static void main(String[] args) {
-        IAlgorithm algorithm = new LC124BinaryTreeMaximumPathSum();
+        IAlgorithm algorithm = new FindMaxRight();
         algorithm.exec();
     }
 }
