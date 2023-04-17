@@ -65,6 +65,9 @@ public class LC46Permutation implements IAlgorithm {
         }
     }
 
+    /**
+     * 有个数限制的全排列
+     */
     public List<List<Integer>> permuteLimits(int[] nums, int limits) {
         List<List<Integer>> permute = new ArrayList<>();
 

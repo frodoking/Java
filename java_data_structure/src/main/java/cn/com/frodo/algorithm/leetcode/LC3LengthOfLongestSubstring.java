@@ -1,11 +1,11 @@
 package cn.com.frodo.algorithm.leetcode;
 
+import cn.com.frodo.algorithm.Algorithm;
 import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
 import org.junit.Assert;
 
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 3. 无重复字符的最长子串
@@ -38,7 +38,8 @@ import java.util.Map;
 @AlgorithmPoint(
         tag = {AlgorithmPoint.Tag.leetcode, AlgorithmPoint.Tag.interview, AlgorithmPoint.Tag.frequently},
         difficulty = AlgorithmPoint.Difficulty.medium,
-        category = AlgorithmPoint.Category.str)
+        category = AlgorithmPoint.Category.str,
+        algorithm = @Algorithm(value = Algorithm.AlgorithmEnum.slidingWindow))
 public class LC3LengthOfLongestSubstring implements IAlgorithm {
 
     @Override
@@ -47,16 +48,20 @@ public class LC3LengthOfLongestSubstring implements IAlgorithm {
         Assert.assertEquals(3, lengthOfLongestSubstring(s));
     }
 
+    /**
+     * 思路：滑动窗口, 当字符出现，那么左指针左移，否则右边指针右移
+     */
     private int lengthOfLongestSubstring(String s) {
         HashMap<Character, Integer> map = new HashMap<>();
         int res = 0;
-        for (int start = 0, end = 0; end < s.length(); end++) {
-            char t = s.charAt(end);
+        int left = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char t = s.charAt(i);
             if (map.containsKey(t)) {
-                start = Math.max(map.get(t) + 1, start);
+                left = Math.max(map.get(t) + 1, left);
             }
-            map.put(s.charAt(end), end);
-            res = Math.max(res, end - start + 1);
+            map.put(s.charAt(i), i);
+            res = Math.max(res, i - left + 1);
         }
         return res;
     }

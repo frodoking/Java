@@ -2,6 +2,8 @@ package cn.com.frodo.algorithm.leetcode;
 
 import cn.com.frodo.algorithm.IAlgorithm;
 
+import java.util.HashSet;
+
 /**
  * 实现 int sqrt(int x) 函数。
  * <p>
@@ -31,6 +33,7 @@ import cn.com.frodo.algorithm.IAlgorithm;
 public class LC69MySqrt implements IAlgorithm {
     @Override
     public void exec() {
+        HashSet<Object> hashSet = new HashSet<>();
 
     }
 

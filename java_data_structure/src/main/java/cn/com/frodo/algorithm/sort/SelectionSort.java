@@ -2,6 +2,9 @@ package cn.com.frodo.algorithm.sort;
 
 import static cn.com.frodo.Arrays.swap;
 
+/**
+ * 从当前位置往后找最小的值，不稳定
+ */
 public class SelectionSort extends Sort {
 
     @Override

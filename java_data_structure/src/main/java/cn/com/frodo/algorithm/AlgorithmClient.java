@@ -2,6 +2,7 @@ package cn.com.frodo.algorithm;
 
 import cn.com.frodo.algorithm.leetcode.LC124BinaryTreeMaximumPathSum;
 import cn.com.frodo.algorithm.leetcode.LCReverseNodesInKGroup;
+import cn.com.frodo.algorithm.offer.Offer39MajorityElement;
 import cn.com.frodo.algorithm.other.FindMaxRight;
 
 /**
@@ -12,7 +13,7 @@ import cn.com.frodo.algorithm.other.FindMaxRight;
 public class AlgorithmClient {
 
     public static void main(String[] args) {
-        IAlgorithm algorithm = new FindMaxRight();
+        IAlgorithm algorithm = new Offer39MajorityElement();
         algorithm.exec();
     }
 }

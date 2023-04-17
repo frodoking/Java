@@ -14,6 +14,6 @@ public @interface Algorithm {
     AlgorithmEnum[] value() default {AlgorithmEnum.force};
 
     enum AlgorithmEnum {
-        force, dp, twoPointers, monotonicStack, dfs, bfs, backtrack, mergeSort
+        force, dp, twoPointers, monotonicStack, dfs, bfs, backtrack, mergeSort,slidingWindow
     }
 }
