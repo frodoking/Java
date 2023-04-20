@@ -87,7 +87,7 @@
 
     <Loggers>
         <!-- root是默认的logger，也就是公共的logger，供记录一些不常打印的系统参数或者其他组件参数 -->
-        <AsyncRoot level="WARN">
+        <AsyncRoot level="INFO">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="SYS_APPENDER"/>
         </AsyncRoot>
