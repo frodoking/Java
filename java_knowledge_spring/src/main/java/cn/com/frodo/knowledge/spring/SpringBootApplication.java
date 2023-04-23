@@ -2,6 +2,7 @@ package cn.com.frodo.knowledge.spring;
 
 import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.annotation.TopicPartition;
@@ -10,7 +11,7 @@ import org.springframework.kafka.support.Acknowledgment;
 /**
  * Created by frodoking on 2015/7/19.
  */
-@org.springframework.boot.autoconfigure.SpringBootApplication
+@org.springframework.boot.autoconfigure.SpringBootApplication(scanBasePackages = "cn.com.frodo.knowledge")
 public class SpringBootApplication {
 
     public static void main(String[] args) {

@@ -18,7 +18,7 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
             byte[] respByte = new byte[bb.readableBytes()];
             bb.readBytes(respByte);
             String respStr = new String(respByte, Charsets.UTF_8);
-            //LOGGER.warn("client--收到响应 [ {} ]" , respStr);
+            LOGGER.warn("client--收到 {} -- {} 响应 [ {} ]" , ctx.channel().localAddress(), ctx.channel().remoteAddress(), respStr);
 
         } finally {
             ReferenceCountUtil.release(msg);

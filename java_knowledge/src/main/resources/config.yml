@@ -1,5 +1,5 @@
 main:
-  default: relc
+  default: netty
   list:
     base:
       name: com.frodo.BasicObjectTest
@@ -52,7 +52,7 @@ main:
     spi:
       name: com.frodo.spi.SPITest
     netty:
-      name: com.frodo.netty.NettyTest
+      name: cn.com.frodo.knowledge.netty.NettyTest
     cht:
       name: com.frodo.algorithm.ConsistentHashTest
     pb:

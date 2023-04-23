@@ -8,29 +8,31 @@ import org.apache.commons.io.Charsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Date;
+
 public class ServerHandler extends ChannelInboundHandlerAdapter {
     private static final Logger LOGGER = LoggerFactory.getLogger(ServerHandler.class);
 
     // 读取数据
     @Override
-    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+    public void channelRead(ChannelHandlerContext ctx, Object msg) {
         ByteBuf bb = (ByteBuf) msg;
         byte[] reqByte = new byte[bb.readableBytes()];
         bb.readBytes(reqByte);
         String reqStr = new String(reqByte, Charsets.UTF_8);
-        LOGGER.warn("[{} / {}] - server 接收到客户端的请求", Thread.currentThread().getName(), ctx.channel().remoteAddress());
-        String respStr = new StringBuilder("服务器的响应 >> ").append(reqStr).append(" <<").toString();
+        LOGGER.warn("[ {} : {} / {}] - server 接收到客户端的请求: {}", ctx.channel(), ctx.channel().localAddress(),  ctx.channel().remoteAddress(), reqStr);
+        String respStr = "服务器的响应 >> " + ctx.channel().remoteAddress() + " << At: " + new Date();
         ctx.writeAndFlush(Unpooled.copiedBuffer(respStr.getBytes()));
     }
 
     @Override
-    public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
-        LOGGER.info("sever complete");
+    public void channelReadComplete(ChannelHandlerContext ctx) {
+//        LOGGER.info("sever complete");
     }
 
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        LOGGER.error("server exception");
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
+//        LOGGER.error("server exception");
         ctx.close();
     }
 

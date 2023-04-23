@@ -7,3 +7,14 @@ spring:
       auto-offset-reset: earliest
     listener:
       ack-mode: manual
+  redis:
+    host: 192.168.3.3
+    port: 6379
+    database: 0
+    password: # 如果未单独配置默认为空即可
+    timeout: 1000
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8

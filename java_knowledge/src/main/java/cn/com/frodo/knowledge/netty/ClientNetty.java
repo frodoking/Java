@@ -53,7 +53,7 @@ public class ClientNetty {
 
     // 请求端主题
     public void sendMsg() {
-        String reqStr = "我是客户端请求 At: " + new Date().toString();
+        String reqStr = Thread.currentThread().getName() + ">>" + port +  ":我是客户端请求 At: " + new Date();
         channelFuture.channel().writeAndFlush(Unpooled.copiedBuffer(reqStr.getBytes(Charsets.UTF_8)));
 
         // 等待直到连接中断
