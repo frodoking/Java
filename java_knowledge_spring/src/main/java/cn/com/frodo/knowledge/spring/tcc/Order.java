@@ -1,4 +1,4 @@
-package cn.com.frodo.knowledge.tcc;
+package cn.com.frodo.knowledge.spring.tcc;
 
 
 public class Order {

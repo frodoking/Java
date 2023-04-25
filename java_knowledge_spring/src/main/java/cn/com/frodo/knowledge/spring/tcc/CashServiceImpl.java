@@ -1,4 +1,4 @@
-package cn.com.frodo.knowledge.tcc;
+package cn.com.frodo.knowledge.spring.tcc;
 
 import org.mengyun.tcctransaction.api.Compensable;
 import org.springframework.stereotype.Service;

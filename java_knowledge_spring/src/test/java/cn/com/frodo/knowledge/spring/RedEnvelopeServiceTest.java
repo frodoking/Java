@@ -1,5 +1,6 @@
 package cn.com.frodo.knowledge.spring;
 
+import cn.com.frodo.knowledge.spring.design.redenvelope.RedEnvelopeService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = cn.com.frodo.knowledge.spring.SpringBootApplication.class)
+@SpringBootTest(classes = SpringBootApplication.class)
 public class RedEnvelopeServiceTest {
 
     @Autowired

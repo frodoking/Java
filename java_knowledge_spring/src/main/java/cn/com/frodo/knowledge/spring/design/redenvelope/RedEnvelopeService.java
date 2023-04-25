@@ -1,4 +1,4 @@
-package cn.com.frodo.knowledge.spring;
+package cn.com.frodo.knowledge.spring.design.redenvelope;
 
 import cn.com.frodo.SnowflakeIdUtils;
 import com.beust.jcommander.internal.Lists;
@@ -9,7 +9,6 @@ import org.springframework.scripting.support.ResourceScriptSource;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.Objects;
 
 @Service
 public class RedEnvelopeService {

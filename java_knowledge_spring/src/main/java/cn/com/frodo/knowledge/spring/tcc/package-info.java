@@ -1,4 +1,4 @@
-package cn.com.frodo.knowledge.tcc;
+package cn.com.frodo.knowledge.spring.tcc;
 
 /**
  * CREATE TABLE `tcc_transaction_asset` (
