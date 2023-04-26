@@ -12,9 +12,15 @@ dependencies {
 
     implementation group: 'junit', name: 'junit', version: '4.12'
 
+    implementation 'org.apache.commons:commons-lang3:3.10'
+    implementation 'commons-validator:commons-validator:1.7'
+
     implementation 'org.springframework.boot:spring-boot-starter-log4j2'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+
     implementation 'org.aspectj:aspectjweaver:1.9.19'
     implementation 'org.springframework.kafka:spring-kafka'
     implementation 'org.testng:testng:7.1.0'
@@ -22,6 +28,8 @@ dependencies {
     implementation 'org.mengyun:tcc-transaction-core:2.0.1'
     implementation 'org.mengyun:tcc-transaction-api:2.0.1'
     implementation 'com.alibaba.boot:nacos-config-spring-boot-starter:0.2.12'
+
+
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.kafka:spring-kafka-test'

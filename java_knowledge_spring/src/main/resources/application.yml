@@ -18,3 +18,5 @@ spring:
         max-active: 8
         max-wait: -1
         max-idle: 8
+  websockt:
+    port: 8089
