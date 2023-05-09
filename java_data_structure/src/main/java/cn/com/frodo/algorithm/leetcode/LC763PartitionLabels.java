@@ -99,8 +99,8 @@ public class LC763PartitionLabels implements IAlgorithm {
             int maxIndex = dp[s.charAt(i) - 'a'];
             index = Math.max(index, maxIndex);
             if (index == i) {
-                res.add(index - start + 1);
-                start = index + 1;
+                res.add(i - start + 1);
+                start = i + 1;
             }
         }
 

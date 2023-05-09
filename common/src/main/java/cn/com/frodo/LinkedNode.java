@@ -66,4 +66,16 @@ public class LinkedNode {
         System.out.println("\t");
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        LinkedNode that = (LinkedNode) o;
+        return data == that.data;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(data);
+    }
 }

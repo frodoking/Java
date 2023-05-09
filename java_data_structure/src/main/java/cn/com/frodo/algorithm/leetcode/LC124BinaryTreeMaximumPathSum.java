@@ -58,6 +58,14 @@ public class LC124BinaryTreeMaximumPathSum implements IAlgorithm {
     }
 
     private int max = Integer.MIN_VALUE;
+
+    /**
+     * 思路：当前节点只有两种情况：
+     * 1 如果当前节点同左右节点一起是最大路径，那么当前值应该是root + left.max + right.max
+     * 2 如果当前节点左右不是最大路径，那么一定是当前值和左边，或者当前值和右边root + left.max, root + right.max
+     *
+     * 每次都获取这两种情况的最大值即可
+     */
     public int maxPathSum0(BinaryTreeNode root) {
         if (root == null) {
             return 0;

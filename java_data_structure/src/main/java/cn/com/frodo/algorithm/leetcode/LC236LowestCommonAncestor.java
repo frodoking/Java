@@ -30,7 +30,9 @@ import org.junit.Assert;
  * 输入：root = [1,2], p = 1, q = 2
  * 输出：1
  */
-@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
+@AlgorithmPoint(
+        tag = {AlgorithmPoint.Tag.leetcode,AlgorithmPoint.Tag.frequently},
+        difficulty = AlgorithmPoint.Difficulty.medium,
         category = AlgorithmPoint.Category.tree)
 public class LC236LowestCommonAncestor implements IAlgorithm {
     @Override

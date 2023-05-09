@@ -8,6 +8,5 @@ include 'java_refactor_model'
 include 'java_concurrent'
 include 'java_performance_optimization'
 include 'java_activiti'
-include 'java_raft'
 include 'common'
 

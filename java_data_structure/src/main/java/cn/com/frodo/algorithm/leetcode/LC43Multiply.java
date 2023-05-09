@@ -32,10 +32,10 @@ public class LC43Multiply implements IAlgorithm {
     @Override
     public void exec() {
 
-        String num1 = "0";
-        String num2 = "0";
+        String num1 = "123";
+        String num2 = "456";
 
-        Assert.assertEquals("0", multiply(num1, num2));
+        Assert.assertEquals("56088", multiply(num1, num2));
     }
 
     public String multiply(String num1, String num2) {

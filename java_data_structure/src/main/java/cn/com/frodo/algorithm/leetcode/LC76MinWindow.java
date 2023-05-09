@@ -2,6 +2,11 @@ package cn.com.frodo.algorithm.leetcode;
 
 import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
+import org.junit.Assert;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 76. 最小子串覆盖
@@ -44,29 +49,25 @@ public class LC76MinWindow implements IAlgorithm {
     @Override
     public void exec() {
         String source = "adobecodebanc", target = "abc";
-        System.out.println(minWindow(source, target));
+        Assert.assertEquals(minWindow(source, target), "banc");
     }
 
     /**
-     * Java中将一个字符与对应Ascii码互转
-     * 1 byte = 8bit 可以表示 0-127
-     * <p>
-     * 0-9对应Ascii 48-57
-     * A-Z 65-90
-     * a-z 97-122
-     * 第33～126号(共94个)是字符，其中第48～57号为0～9十个阿拉伯数字
+     * 参考： https://leetcode.cn/problems/minimum-window-substring/solution/shu-ju-jie-gou-he-suan-fa-hua-dong-chuan-p6ip/
+     * 思路：
+     *  窗口内不包含目标字符，那么指针右移动
+     *  窗口包含所有目标字符，指针左移动
+     *  比较每一次包含的情况，字符长度和字符具体数据
+     *
      */
     private String minWindow(String s, String t) {
         if (s == null || s.length() == 0 || t == null || t.length() == 0 || s.length() < t.length()) {
             return "";
         }
-        //用来统计t中每个字符出现次数
-        int[] needs = new int[128];
-        //用来统计滑动窗口中每个字符出现次数
-        int[] window = new int[128];
+        Map<Character, Integer> map = new HashMap<>();
 
         for (int i = 0; i < t.length(); i++) {
-            needs[t.charAt(i)]++;
+            map.put(t.charAt(i), map.getOrDefault(t.charAt(i), 0) + 1);
         }
 
         int left = 0;
@@ -74,36 +75,30 @@ public class LC76MinWindow implements IAlgorithm {
 
         String res = "";
 
-        //目前有多少个字符
-        int count = 0;
-
         //用来记录最短需要多少个字符。
         int minLength = s.length() + 1;
 
         while (right < s.length()) {
             char ch = s.charAt(right);
-            window[ch]++;
-            if (needs[ch] > 0 && needs[ch] >= window[ch]) {
-                count++;
+            if (map.containsKey(ch)) {
+                map.put(ch, map.getOrDefault(ch, 0) - 1);
             }
 
             //移动到不满足条件为止
             // count == t.length 表示窗口内部刚好够满足匹配串，这个时候需要移动左边界
-            while (count == t.length()) {
+            while (map.values().stream().allMatch(v -> v <= 0)) {
                 ch = s.charAt(left);
-                // 这里移动左边界，直到while条件
-                if (needs[ch] > 0 && needs[ch] >= window[ch]) {
-                    count--;
-                }
                 if (right - left + 1 < minLength) {
                     minLength = right - left + 1;
                     res = s.substring(left, right + 1);
                 }
-                window[ch]--;
+                // 需要把窗口的元素还回去
+                if (map.containsKey(ch)) {
+                    map.put(ch, map.getOrDefault(ch, 0) + 1);
+                }
                 left++;
             }
             right++;
-
         }
         return res;
     }

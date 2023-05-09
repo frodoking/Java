@@ -60,7 +60,7 @@ public class LC3LengthOfLongestSubstring implements IAlgorithm {
             if (map.containsKey(t)) {
                 left = Math.max(map.get(t) + 1, left);
             }
-            map.put(s.charAt(i), i);
+            map.put(t, i);
             res = Math.max(res, i - left + 1);
         }
         return res;

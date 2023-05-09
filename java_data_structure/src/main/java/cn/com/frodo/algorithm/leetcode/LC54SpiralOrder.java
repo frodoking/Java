@@ -5,6 +5,7 @@ import cn.com.frodo.algorithm.IAlgorithm;
 import org.junit.Assert;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -25,7 +26,8 @@ import java.util.List;
  * 输出：[1,2,3,4,8,12,11,10,9,5,6,7]
  */
 @Deprecated
-@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium, company = AlgorithmPoint.Company.tencent,
+@AlgorithmPoint(difficulty = AlgorithmPoint.Difficulty.medium,
+        company = {AlgorithmPoint.Company.tencent, AlgorithmPoint.Company.meituan},
         category = AlgorithmPoint.Category.array)
 public class LC54SpiralOrder implements IAlgorithm {
     @Override
@@ -37,6 +39,10 @@ public class LC54SpiralOrder implements IAlgorithm {
         Integer[] act = spiralOrder(matrix).toArray(new Integer[0]);
 
         Assert.assertArrayEquals(expected, act);
+
+        Integer[] act2 = spiralOrder2(matrix).toArray(new Integer[0]);
+
+        Assert.assertArrayEquals(expected, act2);
     }
 
     public List<Integer> spiralOrder(int[][] matrix) {
@@ -76,5 +82,36 @@ public class LC54SpiralOrder implements IAlgorithm {
         for (int r = row - 1 - circle - 1; r >= circle + 1; r--) {
             list.add(matrix[r][circle]);
         }
+    }
+
+    public  List<Integer> spiralOrder2(int[][] matrix) {
+        List<Integer> list = new ArrayList<>();
+        int l = 0;
+        int r = matrix[0].length -1;
+        int u = 0;
+        int d = matrix.length -1;
+
+        while (true) {
+            for (int i = l; i <= r; i++) {
+                list.add(matrix[u][i]);
+            }
+            if (++u > d) break;
+
+            for (int i = u; i <= d; i++) {
+                list.add(matrix[i][r]);
+            }
+            if (--r < l) break;
+
+            for (int i = r; i >= l; i--) {
+                list.add(matrix[d][i]);
+            }
+            if (--d < u)  break;
+
+            for (int i = d; i >= u; i--) {
+                list.add(matrix[i][l]);
+            }
+            if (++l > r) break;
+        }
+        return list;
     }
 }

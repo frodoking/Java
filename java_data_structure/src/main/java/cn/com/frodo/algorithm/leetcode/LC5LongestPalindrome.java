@@ -2,6 +2,7 @@ package cn.com.frodo.algorithm.leetcode;
 
 import cn.com.frodo.algorithm.AlgorithmPoint;
 import cn.com.frodo.algorithm.IAlgorithm;
+import org.junit.Assert;
 
 /**
  * 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。
@@ -33,8 +34,9 @@ public class LC5LongestPalindrome implements IAlgorithm {
 
     @Override
     public void exec() {
-        String s = "ababa";
-        System.out.println(longestPalindrome(s));
+        String s = "babad";
+        Assert.assertEquals(longestPalindrome(s), "bab");
+        Assert.assertEquals(longestPalindrome2(s), "bab");
     }
 
     /**

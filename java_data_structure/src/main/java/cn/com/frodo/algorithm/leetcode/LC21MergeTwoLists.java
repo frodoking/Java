@@ -66,16 +66,12 @@ public class LC21MergeTwoLists implements IAlgorithm {
             next = next.next;
         }
 
-        while (list1 != null) {
+        if (list1 != null) {
             next.next = list1;
-            list1 = list1.next;
-            next = next.next;
         }
 
-        while (list2 != null) {
+        if (list2 != null) {
             next.next = list2;
-            list2 = list2.next;
-            next = next.next;
         }
 
         return head.next;

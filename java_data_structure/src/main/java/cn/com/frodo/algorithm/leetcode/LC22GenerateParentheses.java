@@ -36,9 +36,9 @@ import java.util.List;
  * @date 2022/3/8
  */
 @AlgorithmPoint(
-        tag = AlgorithmPoint.Tag.interview,
+        tag = {AlgorithmPoint.Tag.interview, AlgorithmPoint.Tag.frequently},
         difficulty = AlgorithmPoint.Difficulty.medium,
-        company = {AlgorithmPoint.Company.huawei, AlgorithmPoint.Company.bytedance},
+        company = {AlgorithmPoint.Company.huawei, AlgorithmPoint.Company.bytedance, AlgorithmPoint.Company.meituan},
         category = AlgorithmPoint.Category.array,
         algorithm = @Algorithm(value = Algorithm.AlgorithmEnum.dfs)
 )
@@ -70,7 +70,7 @@ public class LC22GenerateParentheses implements IAlgorithm {
             return;
         }
 
-        // 剪枝（如图，左括号可以使用的个数严格大于右括号可以使用的个数，才剪枝，注意这个细节）
+        // 剪枝, 核心是右括号剩余个数少于左括号时，表示每次先放了一个右括号。这样这种括号是不可用的
         if (left > right) {
             return;
         }

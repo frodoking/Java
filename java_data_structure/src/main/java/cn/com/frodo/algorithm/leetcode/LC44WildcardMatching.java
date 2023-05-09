@@ -68,7 +68,7 @@ public class LC44WildcardMatching implements IAlgorithm {
 
     /**
      * 参考：https://leetcode.cn/problems/wildcard-matching/solution/tong-pei-fu-pi-pei-by-leetcode-solution/
-     *
+     * 思路：用 dp[i][j] 表示字符串 s 的前个字符和模式 p 的前个字符是否能匹配
      */
     public boolean isMatch(String s, String p) {
         int lenS = s.length();
