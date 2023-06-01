@@ -11,6 +11,7 @@ import java.util.*;
  * @author frodoking
  * @ClassName: AllRange
  * @date 2020/7/10
+ * @see LC78SubSets
  */
 @Deprecated
 @AlgorithmPoint(

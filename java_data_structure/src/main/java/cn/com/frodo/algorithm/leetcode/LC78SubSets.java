@@ -12,6 +12,7 @@ import java.util.List;
  * @author frodoking
  * @ClassName: SubSets
  * @date 2020/7/11
+ * @see LC46Permutation
  */
 @Deprecated
 @AlgorithmPoint(

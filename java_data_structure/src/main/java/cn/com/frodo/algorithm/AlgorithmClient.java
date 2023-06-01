@@ -1,8 +1,7 @@
 package cn.com.frodo.algorithm;
 
-import cn.com.frodo.algorithm.leetcode.LC22GenerateParentheses;
-import cn.com.frodo.algorithm.leetcode.LC516LongestPalindromicSubsequence;
-import cn.com.frodo.algorithm.leetcode.LC5LongestPalindrome;
+import cn.com.frodo.algorithm.offer.OfferII008MinSubArrayLen;
+import cn.com.frodo.algorithm.other.MaxLargestStraight;
 
 /**
  * 3.31 leetcode面经地址: https://leetcode.cn/circle/interview/newest/?query=&page=7&tag=mian-shi-jing-yan
@@ -12,7 +11,7 @@ import cn.com.frodo.algorithm.leetcode.LC5LongestPalindrome;
 public class AlgorithmClient {
 
     public static void main(String[] args) {
-        IAlgorithm algorithm = new LC516LongestPalindromicSubsequence();
+        IAlgorithm algorithm = new MaxLargestStraight();
         algorithm.exec();
     }
 

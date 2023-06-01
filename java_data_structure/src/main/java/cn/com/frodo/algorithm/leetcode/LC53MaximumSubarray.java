@@ -31,19 +31,16 @@ public class LC53MaximumSubarray implements IAlgorithm {
     }
 
     /**
-     * 重点思路就是，如果前面总和为负数就不要加入到后边序列中
+     * dp[i] = max(dp[i-1], dp[i-1] + nums[i])
      */
     public int maxSubArray(int[] nums) {
-        int pre = nums[0];
-        int max = pre;
         int size = nums.length;
+        int[] dp = new int[size];
+        dp[0] = nums[0];
+        int max = dp[0];
         for (int i = 1; i < size; i++) {
-            if (pre > 0) {
-                pre += nums[i];
-            } else {
-                pre = nums[i];
-            }
-            max = Math.max(max, pre);
+            dp[i] = Math.max(nums[i], dp[i - 1] + nums[i]);
+            max = Math.max(max, dp[i]);
         }
         return max;
     }
