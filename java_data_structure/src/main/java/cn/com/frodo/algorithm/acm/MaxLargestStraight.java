@@ -1,12 +1,8 @@
-package cn.com.frodo.algorithm.other;
+package cn.com.frodo.algorithm.acm;
 
 import cn.com.frodo.algorithm.AlgorithmPoint;
-import cn.com.frodo.algorithm.IAlgorithm;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 题目描述
@@ -43,30 +39,28 @@ import java.util.Map;
  * NO-CHAIN
  * 说明
  * 剩余的牌无法构成顺子
+ *
+ * 参考：https://dream.blog.csdn.net/article/details/129246583
  */
 @AlgorithmPoint(
         tag = AlgorithmPoint.Tag.interview,
-        difficulty = AlgorithmPoint.Difficulty.hard,
+        difficulty = AlgorithmPoint.Difficulty.medium,
         category = AlgorithmPoint.Category.thread,
         company = AlgorithmPoint.Company.huawei)
-public class MaxLargestStraight implements IAlgorithm {
+public class MaxLargestStraight {
 
-    String[] p = {"3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A", "2", "B", "C"};
+    public static final String[] p = {"3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
 
-    @Override
-    public void exec() {
-        String line0 = "3-3-3-4-4-5-5-6-7-8-9-10-J-Q-K-A-A-A-A";
-        String line1 = "4-5-6-7-8-8-8";
-
-        maxLargestStraight(parse(line0), parse(line1));
-
-        line0 = "3-3-3-3-8-8-8-8";
-        line1 = "K-K-K-K";
-
-        maxLargestStraight(parse(line0), parse(line1));
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        while (scanner.hasNext()) {
+            String my = scanner.nextLine();
+            String over = scanner.nextLine();
+            maxLargestStraight(parse(my), parse(over));
+        }
     }
 
-    private Map<String, Integer> parse(String line) {
+    public static Map<String, Integer> parse(String line) {
         Map<String, Integer> myMap = new HashMap<>();
         for (String key : line.split("-")) {
             myMap.put(key, myMap.getOrDefault(key, 0) + 1);
@@ -74,11 +68,11 @@ public class MaxLargestStraight implements IAlgorithm {
         return myMap;
     }
 
-    private void maxLargestStraight(Map<String, Integer> myMap, Map<String, Integer> usedMap) {
+    public static void maxLargestStraight(Map<String, Integer> myMap, Map<String, Integer> usedMap) {
         List<String> res = new ArrayList<>();
         List<String> curr = new ArrayList<>();
 
-        for (int i = 0; i < p.length - 3; i++) {
+        for (int i = 0; i < p.length; i++) {
             String currP = p[i];
 
             if (myMap.getOrDefault(currP, 0) + usedMap.getOrDefault(currP, 0) == 4) {
@@ -91,6 +85,12 @@ public class MaxLargestStraight implements IAlgorithm {
                 curr.add(currP);
             }
         }
-        System.out.println("res = " + res);
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < res.size(); i++) {
+            sb.append(res.get(i)).append("-");
+        }
+        if (sb.length() > 0) {
+            System.out.println(sb.substring(0, sb.length()-1));
+        }
     }
 }

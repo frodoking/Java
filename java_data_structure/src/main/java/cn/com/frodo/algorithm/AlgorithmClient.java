@@ -1,7 +1,6 @@
 package cn.com.frodo.algorithm;
 
-import cn.com.frodo.algorithm.offer.OfferII008MinSubArrayLen;
-import cn.com.frodo.algorithm.other.MaxLargestStraight;
+import cn.com.frodo.algorithm.other.ABCABC3;
 
 /**
  * 3.31 leetcode面经地址: https://leetcode.cn/circle/interview/newest/?query=&page=7&tag=mian-shi-jing-yan
@@ -11,7 +10,7 @@ import cn.com.frodo.algorithm.other.MaxLargestStraight;
 public class AlgorithmClient {
 
     public static void main(String[] args) {
-        IAlgorithm algorithm = new MaxLargestStraight();
+        IAlgorithm algorithm = new ABCABC3(3);
         algorithm.exec();
     }
 
