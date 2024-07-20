@@ -17,8 +17,8 @@ dependencies {
 // 用来无缝切换Log4j到log4j2的中间层 注意版本号要跟用的log4j2的版本号一致
     implementation 'org.apache.logging.log4j:log4j-1.2-api:2.11.2'
 
-    annotationProcessor 'org.projectlombok:lombok:1.18.2'
-    implementation 'org.projectlombok:lombok:1.18.2'
+    annotationProcessor 'org.projectlombok:lombok:1.18.26'
+    implementation 'org.projectlombok:lombok:1.18.26'
 
     implementation 'com.google.guava:guava:31.1-jre'
 }
